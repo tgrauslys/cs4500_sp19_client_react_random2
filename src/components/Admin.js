@@ -33,13 +33,13 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/service-categories/1">Service Category Details</Link>
                 <br/>
-                <Link to="/admin/service-questions">Service Questions</Link>
+                <Link to="/admin/questions">Service Questions</Link>
                 <br/>
-                <Link to="/admin/service-questions/1">Service Question Details</Link>
+                <Link to="/admin/questions/1">Service Question Details</Link>
                 <br/>
-                <Link to="/admin/service-answers">Service Answers</Link>
+                <Link to="/admin/answers">Service Answers</Link>
                 <br/>
-                <Link to="/admin/service-answers/1">Service Answers Details</Link>
+                <Link to="/admin/answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
@@ -75,19 +75,19 @@ const Admin = () =>
                     exact
                     component={ServiceCategoryDetails}/>
                 <Route
-                    path="/admin/service-questions"
+                    path="/admin/questions"
                     exact
                     component={ServiceQuestions}/>
                 <Route
-                    path="/admin/service-questions/:id"
+                    path="/admin/questions/:id"
                     exact
                     component={ServiceQuestionDetails}/>
                 <Route
-                    path="/admin/service-answers"
+                    path="/admin/answers"
                     exact
                     component={ServiceAnswers}/>
                 <Route
-                    path="/admin/service-answers/:id"
+                    path="/admin/answers/:id"
                     exact
                     component={ServiceAnswerDetails}/>
                 <Route
