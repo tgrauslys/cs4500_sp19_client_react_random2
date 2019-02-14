@@ -1,19 +1,19 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import Users from './Users'
-import UserDetails from './UserDetails'
-import Services from './Services'
-import ServiceDetails from './ServiceDetails'
-import ServiceCategories from './ServiceCategories'
-import ServiceCategoryDetails from './ServiceCategoryDetails'
+// import Users from './Users'
+// import UserDetails from './UserDetails'
+// import Services from './Services'
+// import ServiceDetails from './ServiceDetails'
+// import ServiceCategories from './ServiceCategories'
+// import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceQuestions from './ServiceQuestions'
-import ServiceQuestionDetails from './ServiceQuestionDetails'
-import ServiceAnswers from './ServiceAnswers'
-import ServiceAnswerDetails from './ServiceAnswerDetails'
-import FAQs from './FAQs'
-import FAQDetails from './FAQDetails'
-import FAQAnswers from './FAQAnswers'
-import FAQAnswerDetails from './FAQAnswerDetails'
+// import ServiceQuestionDetails from './ServiceQuestionDetails'
+// import ServiceAnswers from './ServiceAnswers'
+// import ServiceAnswerDetails from './ServiceAnswerDetails'
+// import FAQs from './FAQs'
+// import FAQDetails from './FAQDetails'
+// import FAQAnswers from './FAQAnswers'
+// import FAQAnswerDetails from './FAQAnswerDetails'
 
 const Admin = () =>
 <div>
@@ -21,7 +21,7 @@ const Admin = () =>
     <Router>
         <div className="row">
             <div className="col-3">
-                <Link to="/admin/users">Users</Link>
+                {/* <Link to="/admin/users">Users</Link>
                 <br/>
                 <Link to="/admin/users/1">User Details</Link>
                 <br/>
@@ -31,15 +31,15 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/service-categories">Service Categories</Link>
                 <br/>
-                <Link to="/admin/service-categories/1">Service Category Details</Link>
+                <Link to="/admin/service-categories/1">Service Category Details</Link> */}
                 <br/>
-                <Link to="/admin/service-questions">Service Questions</Link>
+                <Link to="/admin/questions">Service Questions</Link>
                 <br/>
-                <Link to="/admin/service-questions/1">Service Question Details</Link>
+                {/* <Link to="/admin/questions/1">Service Question Details</Link>
                 <br/>
-                <Link to="/admin/service-answers">Service Answers</Link>
+                <Link to="/admin/answers">Service Answers</Link>
                 <br/>
-                <Link to="/admin/service-answers/1">Service Answers Details</Link>
+                <Link to="/admin/answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
@@ -47,10 +47,10 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/faq-answers">FAQ Answers</Link>
                 <br/>
-                <Link to="/admin/faq-answers/1">FAQ Answer Details</Link>
+                <Link to="/admin/faq-answers/1">FAQ Answer Details</Link> */}
             </div>
             <div className="col-9">
-                <Route
+                {/* <Route
                     path="/admin/users"
                     exact
                     component={Users}/>
@@ -73,12 +73,12 @@ const Admin = () =>
                 <Route
                     path="/admin/service-categories/:id"
                     exact
-                    component={ServiceCategoryDetails}/>
+                    component={ServiceCategoryDetails}/> */}
                 <Route
-                    path="/admin/service-questions"
+                    path="/admin/questions"
                     exact
                     component={ServiceQuestions}/>
-                <Route
+                {/* <Route
                     path="/admin/service-questions/:id"
                     exact
                     component={ServiceQuestionDetails}/>
@@ -105,7 +105,7 @@ const Admin = () =>
                 <Route
                     path="/admin/faq-answers/:id"
                     exact
-                    component={FAQAnswerDetails}/>
+                    component={FAQAnswerDetails}/> */}
             </div>
         </div>
     </Router>
