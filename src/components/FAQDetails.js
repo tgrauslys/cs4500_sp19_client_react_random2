@@ -37,7 +37,7 @@ class FAQDetails extends React.Component {
     render() {
         return(
             <div>
-                <h3>Service Answer Details</h3>
+                <h3>Frequently Asked Questions Details</h3>
                 <select
                     value={this.state.faq.id}
                     onChange={(e) => this.selectFAQ(e.target.value)}
@@ -53,7 +53,7 @@ class FAQDetails extends React.Component {
                             )
                     }
                 </select>
-                <label>Service Answer Answer</label><br/>
+                <label>Frequently Asked Question Answer</label><br/>
                 <input
                     onChange={() => {}}
                     className="form-control"

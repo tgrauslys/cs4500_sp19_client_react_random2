@@ -1,5 +1,6 @@
 export default class FAQService {
     static instance = null;
+    static baseURL = "https://cs4500-sp19s3-random2.herokuapp.com"
     static getInstance() {
         if(FAQService.instance === null) {
             FAQService.instance = new FAQService()
@@ -7,9 +8,9 @@ export default class FAQService {
         return this.instance
     }
     findFAQById = id =>
-        fetch(`http://localhost:8080/api/faqs/${id}`)
+        fetch(`${FAQService.baseURL}/api/faqs/${id}`)
             .then(response => response.json())
     findAllFAQs = () =>
-        fetch("http://localhost:8080/api/faqs")
+        fetch(`${FAQService.baseURL}/api/faqs`)
             .then(response => response.json())
 }
