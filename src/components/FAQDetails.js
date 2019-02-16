@@ -1,6 +1,7 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import FAQAnswerDetails from "./FAQAnswerDetails";
 
 class FAQDetails extends React.Component {
     constructor(props) {
@@ -10,7 +11,11 @@ class FAQDetails extends React.Component {
             faqs: [],
             faq: {
                 choiceAnswer: '',
-                id: 1
+                id: 1,
+                answers: [],
+                question: '',
+                title: ''
+
             }
         }
     }
@@ -38,6 +43,7 @@ class FAQDetails extends React.Component {
                     })
                 }
             );
+
 
     render() {
         return (
@@ -72,24 +78,23 @@ class FAQDetails extends React.Component {
 
                 Answers:
 
-                    if(this.state.faq.answers){
-                        this.state.faq.answers
+                {
+                    this.state.faq.answers
                         .map(answer =>
-                        <Link to={"/admin/faq-answers/" + answer.id}>answer.answer</Link>
-                        // <Route
-                        //     path="/admin/faq-answers/:id"
-                        //     exact
-                        //     component={FAQAnswerDetails}/>
+                            <div>
+
+                                <Link to={"/admin/faq-answers/" + answer.id}>
+                                    <div>ID: {answer.id}</div>
+                                    <div>Answer: {answer.answer}</div>
+                                </Link>
+                                <Route
+                                    path="/admin/faq-answers/:id"
+                                    exact
+                                    component={FAQAnswerDetails}/>
+                            </div>
+
                         )
-                    } else {
-                        <input
-                        onChange={() => {}}
-                        className="form-control"
-                        value={this.state.faq.answers}/>
-                    }
-
-
-                
+                }
 
 
             </div>

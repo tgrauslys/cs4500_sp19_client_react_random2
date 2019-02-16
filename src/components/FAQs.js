@@ -1,5 +1,8 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import FAQDetails from "./FAQDetails";
+
 class FAQs extends React.Component {
     constructor(props) {
         super(props)
@@ -8,6 +11,7 @@ class FAQs extends React.Component {
             faqs: []
         }
     }
+
     componentDidMount() {
         this.faqService
             .findAllFAQs()
@@ -17,8 +21,9 @@ class FAQs extends React.Component {
                 })
             )
     }
+
     render() {
-        return(
+        return (
             <div>
                 <h3>Frequently Asked Questions</h3>
                 <table className="table">
@@ -26,10 +31,18 @@ class FAQs extends React.Component {
                     {
                         this.state.faqs
                             .map(faq =>
-                                <tr key={faq.id}>
-                                    <td>{faq.title}</td>
-                                    <td>{faq.question}</td>
-                                </tr>
+                                <Link to={"/admin/faqs/" + faq.id}>
+                                    <tr key={faq.id}>
+                                        <td>{faq.title}</td>
+                                        <td>{faq.question}</td>
+                                    </tr>
+                                    <Route
+                                        path="/admin/faqs/:id"
+                                        exact
+                                        component={FAQDetails}/>
+                                </Link>
+
+
                             )
                     }
                     </tbody>
