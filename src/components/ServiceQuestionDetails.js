@@ -17,7 +17,7 @@ class ServiceQuestionDetails extends React.Component {
             .findAllServiceQuestions()
             .then(serviceQuestions => {
                     this.props.history.push("/admin/questions/" + serviceQuestions[0].id)
-                    let desiredIndex = serviceQuestions.findIndex((question) => {
+                    const desiredIndex = serviceQuestions.findIndex((question) => {
                         return parseInt(question.id) === parseInt(this.state.serviceQuestion.id)
                     })
                     this.setState({
