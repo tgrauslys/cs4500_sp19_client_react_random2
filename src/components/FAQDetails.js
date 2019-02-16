@@ -1,9 +1,11 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+
 class FAQDetails extends React.Component {
     constructor(props) {
-        super(props)
-        this.faqService = FAQService.getInstance()
+        super(props);
+        this.faqService = FAQService.getInstance();
         this.state = {
             faqs: [],
             faq: {
@@ -12,11 +14,12 @@ class FAQDetails extends React.Component {
             }
         }
     }
+
     componentDidMount() {
         this.faqService
             .findAllFAQs()
             .then(faqs => {
-                    this.props.history.push("/admin/faqs/" + faqs[0].id)
+                    this.props.history.push("/admin/faqs/" + faqs[0].id);
                     this.setState({
                         faqs: faqs,
                         faq: faqs[0]
@@ -24,18 +27,20 @@ class FAQDetails extends React.Component {
                 }
             )
     }
+
     selectFAQ = id =>
         this.faqService
             .findFAQById(id)
             .then(faq => {
-                    this.props.history.push("/admin/faqs/" + id)
+                    this.props.history.push("/admin/faqs/" + id);
                     this.setState({
                         faq: faq
                     })
                 }
-            )
+            );
+
     render() {
-        return(
+        return (
             <div>
                 <h3>Frequently Asked Questions Details</h3>
                 <select
@@ -54,10 +59,39 @@ class FAQDetails extends React.Component {
                     }
                 </select>
                 <label>Frequently Asked Question Answer</label><br/>
-                <input
-                    onChange={() => {}}
-                    className="form-control"
-                    value={this.state.faq.title}/>
+                Title: <input
+                onChange={() => {
+                }}
+                className="form-control"
+                value={this.state.faq.title}/>
+                Question: <input
+                onChange={() => {
+                }}
+                className="form-control"
+                value={this.state.faq.question}/>
+
+                Answers:
+
+                    if(this.state.faq.answers){
+                        this.state.faq.answers
+                        .map(answer =>
+                        <Link to={"/admin/faq-answers/" + answer.id}>answer.answer</Link>
+                        // <Route
+                        //     path="/admin/faq-answers/:id"
+                        //     exact
+                        //     component={FAQAnswerDetails}/>
+                        )
+                    } else {
+                        <input
+                        onChange={() => {}}
+                        className="form-control"
+                        value={this.state.faq.answers}/>
+                    }
+
+
+                
+
+
             </div>
         )
     }
