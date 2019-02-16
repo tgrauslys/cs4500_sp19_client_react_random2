@@ -8,9 +8,9 @@ export default class FAQService {
         return this.instance
     }
     findFAQById = id =>
-        fetch(`${FAQService.baseURL}/api/frequentlyAskedQuestion/${id}`)
+        fetch(`${FAQService.baseURL}/api/faq/${id}`)
             .then(response => response.json())
     findAllFAQs = () =>
-        fetch(`${FAQService.baseURL}/api/frequentlyAskedQuestion`)
+        fetch(`${FAQService.baseURL}/api/faq`)
             .then(response => response.json())
 }
