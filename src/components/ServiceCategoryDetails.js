@@ -50,16 +50,16 @@ class ServiceCategoryDetails extends React.Component {
                                      <option
                                          value={serviceCategory.id}
                                          key={serviceCategory.id}>
-                                         {serviceCategory.title}
+                                         {serviceCategory.serviceCategoryName}
                                      </option>
                             )
                     }
                 </select>
                 <label>Service Category Title</label><br/>
                 <input
-                    onChange={() => {}}
+                    onChange={(x) => {console.log(x)}}
                     className="form-control"
-                    value={this.state.serviceCategory.title}/>
+                    value={this.state.serviceCategory.serviceCategoryName}/>
             </div>
         )
     }
