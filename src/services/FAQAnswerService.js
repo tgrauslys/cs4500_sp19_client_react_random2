@@ -7,9 +7,37 @@ export default class FAQAnswerService {
         return this.instance
     }
     findFAQAnswerById = id =>
-        fetch(`http://localhost:8080/api/faq-answers/${id}`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answers/${id}`)
             .then(response => response.json())
     findAllFAQAnswers = () =>
-        fetch("http://localhost:8080/api/faq-answers")
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answers`)
             .then(response => response.json())
+
+    updateFAQAnswers = frequentlyAskedAnswer =>
+        fetch(`http://localhost:8080/api/faq-answer/${frequentlyAskedAnswer.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: JSON.stringify(frequentlyAskedAnswer), // body data type must match "Content-Type" header
+        })
+        .then(response => response.json()); // parses response to JSON
+
+    createFAQAnswers = frequentlyAskedAnswer =>
+        fetch(`http://localhost:8080/api/faq-answer`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                // "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: JSON.stringify(frequentlyAskedAnswer), // body data type must match "Content-Type" header
+        })
+            .then(response => response.json()); // parses response to JSON
+
+    deleteFAQAnswers = id =>
+        fetch(`http://localhost:8080/api/faq-answer/${id}`, {
+            method: "DELETE",
+        })
+            .then(response => response.json()); // parses response to JSON
 }
