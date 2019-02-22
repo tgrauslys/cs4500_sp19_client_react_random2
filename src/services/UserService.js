@@ -7,9 +7,9 @@ export default class UserService {
         return this.instance
     }
     findUserById = userId =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`)
+        fetch(`http://localhost:8080/api/users/${userId}`)
             .then(response => response.json())
     findAllUsers = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
+        fetch("http://localhost:8080/api/users")
             .then(response => response.json())
 }
