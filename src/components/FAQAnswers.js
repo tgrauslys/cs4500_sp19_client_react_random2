@@ -1,5 +1,6 @@
 import React from 'react'
 import FAQAnswerService from '../services/FAQAnswerService'
+import {Link} from "react-router-dom";
 class FAQAnswers extends React.Component {
     constructor(props) {
         super(props)
@@ -20,7 +21,7 @@ class FAQAnswers extends React.Component {
     render() {
         return(
             <div>
-                <h3>Service Answers</h3>
+                <h3>FAQ Answers</h3>
                 <table className="table">
                     <tbody>
                     {
@@ -28,7 +29,9 @@ class FAQAnswers extends React.Component {
                             .map(faqAnswer =>
                                 <tr key={faqAnswer.id}>
                                     <td>{faqAnswer.question}</td>
-                                    <td>{faqAnswer.answer}</td>
+                                    <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
+                                        <td>{faqAnswer.answer}</td>
+                                    </Link>
                                 </tr>
                             )
                     }

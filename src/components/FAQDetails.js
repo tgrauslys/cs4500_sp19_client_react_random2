@@ -48,7 +48,7 @@ class FAQDetails extends React.Component {
     render() {
         return (
             <div>
-                <h3>Frequently Asked Questions Details</h3>
+                <h3>FAQ Details</h3>
                 <select
                     value={this.state.faq.id}
                     onChange={(e) => this.selectFAQ(e.target.value)}

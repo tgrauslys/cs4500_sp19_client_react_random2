@@ -31,16 +31,14 @@ class FAQs extends React.Component {
                     {
                         this.state.faqs
                             .map(faq =>
-                                <Link to={"/admin/faqs/" + faq.id}>
+
                                     <tr key={faq.id}>
                                         <td>{faq.title}</td>
+                                        <Link to={"/admin/faqs/" + faq.id}>
                                         <td>{faq.question}</td>
+                                        </Link>
                                     </tr>
-                                    <Route
-                                        path="/admin/faqs/:id"
-                                        exact
-                                        component={FAQDetails}/>
-                                </Link>
+
 
 
                             )
