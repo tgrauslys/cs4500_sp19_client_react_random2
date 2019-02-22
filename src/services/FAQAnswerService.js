@@ -7,9 +7,9 @@ export default class FAQAnswerService {
         return this.instance
     }
     findFAQAnswerById = id =>
-        fetch(`http://localhost:8080/api/faq-answers/${id}`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answers/${id}`)
             .then(response => response.json())
     findAllFAQAnswers = () =>
-        fetch("http://localhost:8080/api/faq-answers")
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answers`)
             .then(response => response.json())
 }
