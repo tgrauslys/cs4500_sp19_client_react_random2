@@ -2,6 +2,20 @@ import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import ServiceCategories from './ServiceCategories'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
+import Users from './Users'
+// import UserDetails from './UserDetails'
+// import Services from './Services'
+// import ServiceDetails from './ServiceDetails'
+import ServiceCategories from './ServiceCategories'
+import ServiceCategoryDetails from './ServiceCategoryDetails'
+import ServiceQuestions from './ServiceQuestions'
+import ServiceQuestionDetails from './ServiceQuestionDetails'
+// import ServiceAnswers from './ServiceAnswers'
+// import ServiceAnswerDetails from './ServiceAnswerDetails'
+import FAQs from './FAQs'
+import FAQDetails from './FAQDetails'
+import FAQAnswers from './FAQAnswers'
+import FAQAnswerDetails from './FAQAnswerDetails'
 
 const Admin = () =>
 <div>
@@ -26,7 +40,30 @@ const Admin = () =>
                     path="/admin/service-categories/:id"
                     exact
                     component={ServiceCategoryDetails}/>
-
+                <Route
+                    path="/admin/questions"
+                    exact
+                    component={ServiceQuestions}/>
+                <Route
+                    path="/admin/questions/:id"
+                    exact
+                    component={ServiceQuestionDetails}/>
+                <Route
+                    path="/admin/faqs"
+                    exact
+                    component={FAQs}/>
+                <Route
+                    path="/admin/faqs/:id"
+                    exact
+                    component={FAQDetails}/>
+                <Route
+                    path="/admin/faq-answers"
+                    exact
+                    component={FAQAnswers}/>
+                <Route
+                    path="/admin/faq-answers/:id"
+                    exact
+                    component={FAQAnswerDetails}/>
             </div>
         </div>
     </Router>

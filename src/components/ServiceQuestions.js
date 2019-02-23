@@ -1,5 +1,6 @@
 import React from 'react'
 import ServiceQuestionService from '../services/ServiceQuestionService'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 class ServiceQuestions extends React.Component {
     constructor(props) {
         super(props)
@@ -27,7 +28,12 @@ class ServiceQuestions extends React.Component {
                         this.state.serviceQuestions
                             .map(serviceQuestion =>
                                 <tr key={serviceQuestion.id}>
-                                    <td>{serviceQuestion.question}</td>
+                                    <td>
+                                        <Link to={`/admin/questions/${serviceQuestion.id}`}>
+                                            {serviceQuestion.question}
+                                        </Link>
+                                    </td>
+                                    
                                 </tr>
                             )
                     }
