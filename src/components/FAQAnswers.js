@@ -5,7 +5,12 @@ class FAQAnswers extends React.Component {
         super(props)
         this.faqAnswerService = FAQAnswerService.getInstance()
         this.state = {
-            faqAnswers: []
+            faqAnswers: [],
+            editForm: {
+                choiceAnswer: '',
+                id: 1
+            }
+
         }
     }
     componentDidMount() {
@@ -16,13 +21,24 @@ class FAQAnswers extends React.Component {
                     faqAnswers: faqAnswers
                 })
             )
+        this.setState( {editForm: Document.getElementbyId("editForm")})
     }
     render() {
         return(
             <div>
                 <h3>Service Answers</h3>
                 <table className="table">
+                    <tr>
+                        <th> Question </th>
+                        <th> Answer </th>
+                    </tr>
+                    <tr editForm contentEditable={true}>
+                        {
+                            this.state.editForm
+                        }
+                    </tr>
                     <tbody>
+
                     {
                         this.state.faqAnswers
                             .map(faqAnswer =>
