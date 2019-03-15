@@ -1,5 +1,6 @@
 import React from 'react'
 import FAQAnswerService from '../services/FAQAnswerService'
+import {Link} from "react-router-dom";
 class FAQAnswers extends React.Component {
     constructor(props) {
         super(props)
@@ -7,12 +8,24 @@ class FAQAnswers extends React.Component {
         this.state = {
             faqAnswers: [],
             editForm: {
-                choiceAnswer: '',
-                id: 1
+                question: "",
+                answer: "",
             }
-
         }
+
     }
+
+    updateFormAnswer =e=> this.setState({
+        editForm: {
+            question: this.state.editForm.question,
+            answer: e.target.value}})
+
+    updateFormQuestion =e=> this.setState( {
+        editForm: {
+            question: e.target.value,
+            answer: this.state.editForm.answer
+        }
+    })
     componentDidMount() {
         this.faqAnswerService
             .findAllFAQAnswers()
@@ -21,30 +34,39 @@ class FAQAnswers extends React.Component {
                     faqAnswers: faqAnswers
                 })
             )
-        this.setState( {editForm: Document.getElementbyId("editForm")})
     }
     render() {
         return(
             <div>
-                <h3>Service Answers</h3>
+                <h3>FAQ Answers</h3>
                 <table className="table">
                     <tr>
                         <th> Question </th>
                         <th> Answer </th>
                     </tr>
-                    <tr editForm contentEditable={true}>
-                        {
-                            this.state.editForm
-                        }
-                    </tr>
                     <tbody>
+                    
+                    <tr>
+                        <td>
+                            <input
+                                onChange= {e=> this.updateFormQuestion(e)}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                onChange= {e=> this.updateFormQuestion(e)}
+                            />
+                        </td>
+                    </tr>
 
                     {
                         this.state.faqAnswers
                             .map(faqAnswer =>
                                 <tr key={faqAnswer.id}>
                                     <td>{faqAnswer.question}</td>
-                                    <td>{faqAnswer.answer}</td>
+                                    <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
+                                        <td>{faqAnswer.answer}</td>
+                                    </Link>
                                 </tr>
                             )
                     }
