@@ -29,9 +29,9 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/services/1">Service Details</Link>
                 <br/>
-                <Link to="/admin/service-categories">Service Categories</Link>
+                <Link to="/admin/categories">Service Categories</Link>
                 <br/>
-                <Link to="/admin/service-categories/1">Service Category Details</Link>
+                <Link to="/admin/categories/1">Service Category Details</Link>
                 <br/>
                 <Link to="/admin/questions">Service Questions</Link>
                 <br/>
@@ -67,11 +67,11 @@ const Admin = () =>
                     {/*exact*/}
                     {/*component={ServiceDetails}/>*/}
                 <Route
-                    path="/admin/service-categories"
+                    path="/admin/categories"
                     exact
                     component={ServiceCategories}/>
                 <Route
-                    path="/admin/service-categories/:id"
+                    path="/admin/categories/:id"
                     exact
                     component={ServiceCategoryDetails}/>
                 <Route

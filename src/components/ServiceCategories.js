@@ -1,6 +1,6 @@
 import React from 'react'
 import ServiceCategoryService from '../services/ServiceCategoryService'
-
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 // Component that creates a list of ServiceCategories
 class ServiceCategories extends React.Component {
     constructor(props) {
@@ -14,9 +14,9 @@ class ServiceCategories extends React.Component {
         this.serviceCategoryService
             .findAllServiceCategories()
             .then(serviceCategories =>
-                      this.setState({
-                                        serviceCategories: serviceCategories
-                                    })
+                  this.setState({
+                                    serviceCategories: serviceCategories
+                                })
             )
     }
 
@@ -30,9 +30,14 @@ class ServiceCategories extends React.Component {
                     {
                         this.state.serviceCategories
                             .map(serviceCategory =>
-                                     <tr key={serviceCategory.id}>
-                                         <td>{serviceCategory.title}</td>
-                                     </tr>
+                                 <tr key={serviceCategory.id}>
+                                     <td>
+                                         <Link to={`/admin/categories/${serviceCategory.id}`}>
+                                             {serviceCategory.serviceCategoryName}
+                                         </Link>
+                                     </td>
+
+                                 </tr>
                             )
                     }
                     </tbody>

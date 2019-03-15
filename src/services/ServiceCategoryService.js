@@ -13,8 +13,9 @@ export default class ServiceCategoryService {
 
     // Lambdas to make REST calls
     findServiceCategoryById = categoryId =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/service-categories/${categoryId}`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/categories/${categoryId}`)
             .then(response => response.json())
     findAllServiceCategories = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/service-categories`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/categories`)
+            .then(response => response.json())
 }
