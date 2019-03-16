@@ -56,6 +56,18 @@ class FAQAnswers extends React.Component {
                                 onChange= {e=> this.updateFormAnswer(e)}
                             />
                         </td>
+
+                        <td>
+                            <button
+                                type="button" className="btn btn-primary">+</button>
+                        </td>
+
+                        <td>
+                            <button
+                                type="button" className="btn btn-success">Search</button>
+                        </td>
+
+
                     </tr>
 
                     {
