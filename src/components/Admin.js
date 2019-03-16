@@ -42,12 +42,12 @@ const Admin = () =>
                 <Link to="/admin/answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
-                <br/>
-                <Link to="/admin/faqs/1">FAQ Details</Link>
+                {/*<br/>
+                <Link to="/admin/faqs/1">FAQ Details</Link>*/}
                 <br/>
                 <Link to="/admin/faq-answers">FAQ Answers</Link>
-                <br/>
-                <Link to="/admin/faq-answers/1">FAQ Answer Details</Link>
+                {/*<br/>*/}
+                {/*<Link to="/admin/faq-answers/1">FAQ Answer Details</Link>*/}
             </div>
             <div className="col-9">
                 <Route
