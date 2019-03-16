@@ -96,7 +96,6 @@ class FAQDetails extends React.Component {
                                     exact
                                     component={FAQAnswerDetails}/>
                             </div>
-
                         )
                 }
 
