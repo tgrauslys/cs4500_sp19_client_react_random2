@@ -33,6 +33,15 @@ class FAQs extends React.Component {
                                             {faq.question}
                                         </Link>
                                     </td>
+                                    <td>
+                                        <a class="btn btn-danger">X</a>
+                                        {/*<a>*/}
+                                            {/*<span class="pull-right glyphicon glyphicon-search"></span>*/}
+                                        {/*</a>*/}
+                                    </td>
+                                    <td>
+                                        <a className="btn btn-warning">Edit</a>
+                                    </td>
 
                                 </tr>
                             )
