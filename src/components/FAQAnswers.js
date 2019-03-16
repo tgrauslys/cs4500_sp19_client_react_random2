@@ -33,7 +33,14 @@ class FAQAnswers extends React.Component {
                                             {faqAnswer.answer}
                                         </Link>
                                     </td>
+                                    <td>
+                                        <button onClick={this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}
 
+                                                type="button" className="btn btn-danger">X</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" className="btn btn-warning">Edit</button>
+                                    </td>
                                 </tr>
                             )
                     }
