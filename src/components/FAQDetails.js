@@ -11,7 +11,7 @@ class FAQDetails extends React.Component {
             faqs: [],
             faq: {
                 choiceAnswer: '',
-                id: 1,
+                id: props.match.params.id,
                 answers: [],
                 question: '',
                 title: ''
@@ -25,9 +25,13 @@ class FAQDetails extends React.Component {
             .findAllFAQs()
             .then(faqs => {
                     this.props.history.push("/admin/faqs/" + faqs[0].id);
+                    const desiredIndex = faqs.findIndex((question) => {
+                        return parseInt(question.id) === parseInt(this.state.faq.id)
+                    })
                     this.setState({
                         faqs: faqs,
-                        faq: faqs[0]
+                        faq: desiredIndex === -1 ? faqs[0] : faqs[desiredIndex]
+
                     })
                 }
             )
@@ -92,7 +96,6 @@ class FAQDetails extends React.Component {
                                     exact
                                     component={FAQAnswerDetails}/>
                             </div>
-
                         )
                 }
 
