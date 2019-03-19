@@ -59,7 +59,9 @@ class FAQAnswers extends React.Component {
 
                         <td>
                             <button
-                                type="button" className="btn btn-primary">+</button>
+                                type="button" className="btn btn-primary"
+                                onClick={() => {this.faqAnswerService.createFAQAnswers(this.state.editForm)}}
+                            >+</button>
                         </td>
 
                         <td>
@@ -74,7 +76,7 @@ class FAQAnswers extends React.Component {
                         this.state.faqAnswers
                             .map(faqAnswer =>
                                 <tr key={faqAnswer.id}>
-                                    <td>{faqAnswer.question}</td>
+                                    {/*<td>{faqAnswer.question}</td>*/}
                                     <td>
                                         <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
                                             {faqAnswer.answer}
@@ -82,7 +84,7 @@ class FAQAnswers extends React.Component {
                                     </td>
                                     <td>
                                         <button
-                                            // onClick={this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}
+                                            onClick={() => {this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}}
 
                                                 type="button" className="btn btn-danger">X</button>
                                     </td>
