@@ -76,20 +76,27 @@ class FAQAnswers extends React.Component {
                         this.state.faqAnswers
                             .map(faqAnswer =>
                                 <tr key={faqAnswer.id}>
-                                    {/*<td>{faqAnswer.question}</td>*/}
+                                    <td>{faqAnswer.question}</td>
                                     <td>
                                         <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
                                             {faqAnswer.answer}
                                         </Link>
                                     </td>
                                     <td>
-                                        <button
-                                            onClick={() => {this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}}
+                                        {/*<button*/}
+                                            {/*onClick={() => {this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}}*/}
+                                            {/**/}
 
-                                                type="button" className="btn btn-danger">X</button>
+                                                {/*type="button" className="btn btn-danger">X</button>*/}
+                                         <a class="btn btn-danger btn-lg active" role="button" aria-pressed="true"
+                                            href="/admin/faq-answers"
+                                            onClick={() => {this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}}
+                                         >X</a>
                                     </td>
                                     <td>
-                                        <button type="button" className="btn btn-warning">Edit</button>
+                                        {/*<button type="button" className="btn btn-warning">Edit</button>*/}
+                                        <a class="btn btn-outline-warning btn-lg active" role="button"
+                                        >Edit</a>
                                     </td>
                                 </tr>
                             )
