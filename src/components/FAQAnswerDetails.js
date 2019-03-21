@@ -66,6 +66,10 @@ class FAQAnswerDetails extends React.Component {
                     onChange={() => {}}
                     className="form-control"
                     value={this.state.faqAnswer.answer}/>
+                <br></br>
+                <td>
+                    <button type="button" className="btn btn-warning">Edit</button>
+                </td>
             </div>
         )
     }
