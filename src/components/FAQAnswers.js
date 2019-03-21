@@ -95,10 +95,6 @@ class FAQAnswers extends React.Component {
                     </tbody>
                 </table>
             </div>
-
-
-
-
         )
     }
 }

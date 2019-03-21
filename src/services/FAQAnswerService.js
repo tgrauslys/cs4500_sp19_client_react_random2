@@ -40,4 +40,5 @@ export default class FAQAnswerService {
             method: "DELETE",
         })
             .then(response => response.json()); // parses response to JSON
+
 }
