@@ -41,6 +41,6 @@ export default class FAQAnswerService {
         // fetch(`http://localhost:8080/api/faq-answer/${id}`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/${id}`, {
             method: "DELETE",
-        })
-            .then(response => response.json()); // parses response to JSON
+        });
+            //.then(response => response.json()); // parses response to JSON
 }
