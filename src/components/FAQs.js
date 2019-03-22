@@ -1,14 +1,24 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-class FAQs extends React.Component {
+import {Link} from "react-router-dom";
+class FAQAnswers extends React.Component {
     constructor(props) {
         super(props)
         this.faqService = FAQService.getInstance()
         this.state = {
-            faqs: []
+            faqs: [],
+            editForm: {
+                question: "",
+            }
         }
+
     }
+
+    updateFormQuestion =e=> this.setState( {
+        editForm: {
+            question: e.target.value,
+        }
+    })
     componentDidMount() {
         this.faqService
             .findAllFAQs()
@@ -19,61 +29,62 @@ class FAQs extends React.Component {
             )
     }
     render() {
-        return (
+        return(
             <div>
                 <h3>Frequently Asked Questions</h3>
                 <table className="table">
+                    <tr>
+                        <th> Question </th>
+                    </tr>
                     <tbody>
+                    <tr>
+                        <td>
+                            <input
+                                onChange= {e=> this.updateFormQuestion(e)}
+                            />
+                        </td>
+
+                        <td>
+                            <button
+                                type="button" className="btn btn-primary">+</button>
+                        </td>
+
+                        <td>
+                            <button
+                                type="button" className="btn btn-success">Search</button>
+                        </td>
+
+
+                    </tr>
+
                     {
                         this.state.faqs
                             .map(faq =>
                                 <tr key={faq.id}>
+                                    <Link to={`/admin/faqs/${faq.id}`}>
+                                        <td>{faq.question}</td>
+                                    </Link>
                                     <td>
-                                        <Link to={`/admin/faqs/${faq.id}`}>
-                                            {faq.question}
-                                        </Link>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger">X</a>
-                                        {/*<a>*/}
-                                            {/*<span class="pull-right glyphicon glyphicon-search"></span>*/}
-                                        {/*</a>*/}
-                                    </td>
-                                    <td>
-                                        <a className="btn btn-warning">Edit</a>
-                                    </td>
+                                        <button
+                                            // onClick={this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}
 
+                                            type="button" className="btn btn-danger">X</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" className="btn btn-warning">Edit</button>
+                                    </td>
                                 </tr>
                             )
                     }
                     </tbody>
                 </table>
             </div>
-            //
-            // <div>
-            //     <h3>Frequently Asked Questions</h3>
-            //     <table className="table">
-            //         <tbody>
-            //         {
-            //             this.state.faqs
-            //                 .map(faq =>
-            //
-            //                         <tr key={faq.id}>
-            //                             <td>{faq.title}</td>
-            //                             <Link to={"/admin/faqs/" + faq.id}>
-            //                             <td>{faq.question}</td>
-            //                             </Link>
-            //                         </tr>
-            //
-            //
-            //
-            //                 )
-            //         }
-            //         </tbody>
-            //     </table>
-            // </div>
+
+
+
+
         )
     }
 }
 
-export default FAQs
+export default FAQAnswers
