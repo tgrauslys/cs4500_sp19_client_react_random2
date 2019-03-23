@@ -23,21 +23,26 @@ const Admin = () =>
     <Router>
         <div className="row">
             <div className="col-3">
-
-                <Link to="/admin/service-categories">Service Categories</Link>
+                <Link to="/admin/users">Users</Link>
                 <br/>
-                <Link to="/admin/service-categories/1">Service Category Details</Link>
+                <Link to="/admin/services">Services</Link>
+                <br/>
+                <Link to="/admin/categories">Service Categories</Link>
                 <br/>
                 <Link to="/admin/questions">Service Questions</Link>
                 <br/>
             </div>
             <div className="col-9">
                 <Route
-                    path="/admin/service-categories"
+                    path="/admin/users"
+                    exact
+                    component={Users}/>
+                <Route
+                    path="/admin/categories"
                     exact
                     component={ServiceCategories}/>
                 <Route
-                    path="/admin/service-categories/:id"
+                    path="/admin/categories/:id"
                     exact
                     component={ServiceCategoryDetails}/>
                 <Route
