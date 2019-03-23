@@ -48,18 +48,27 @@ class FAQAnswers extends React.Component {
 
     deleteFAQAnswers = (id) => {
         this.faqAnswerService
-            .deleteFAQAnswers(id)
-            .findAllFAQAnswers()
-            .then(faqAnswers =>
-                this.setState({
-                    faqAnswers: faqAnswers,
-                    editForm: {
-                        question: "",
-                        answer: "",
-                    }
-                })
-            )
-    }
+            .deleteFAQAnswers(id).then(()=>{
+        this.faqAnswerService.findAllFAQAnswers()
+                .then(faqAnswers =>
+                    this.setState({
+                        faqAnswers: faqAnswers,
+                        editForm: {
+                            question: "",
+                            answer: "",
+                        }
+                    })
+                )
+        })
+        }
+
+    // deleteFAQAnswers = (id) => {
+    //     this.faqAnswerService
+    //         .deleteFAQAnswers(id).then(()=>{
+    //         window.location.href='/admin/faq-answers';
+    //     });
+    // };
+
 
     navigateToNextPage() {
         this.setState({
