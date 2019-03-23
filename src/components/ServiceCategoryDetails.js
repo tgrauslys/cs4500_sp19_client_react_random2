@@ -60,7 +60,7 @@ class ServiceCategoryDetails extends React.Component {
                 </select>
                 <label>Service Category Title</label><br/>
                 <input
-                    onChange={() => {}}
+                    onChange={(x) => {console.log(x)}}
                     className="form-control"
                     value={this.state.serviceCategory.serviceCategoryName}/>
             </div>

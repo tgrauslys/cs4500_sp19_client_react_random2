@@ -1,14 +1,18 @@
 import React from 'react'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceCategoryService from '../services/ServiceCategoryService'
 import {BrowserRouter as Router, Link, Redirect, Route} from 'react-router-dom'
 
 // Component that creates a list of ServiceCategories
 class ServiceCategories extends React.Component {
+    serviceCategoryName;
     constructor(props) {
-        super(props)
+        super(props);
         this.serviceCategoryService = ServiceCategoryService.getInstance()
         this.state = {
-            serviceCategories: []
+            serviceCategories: [],
+            detCategory: null
         }
     }
 
@@ -61,7 +65,6 @@ class ServiceCategories extends React.Component {
                     }
                     </tbody>
                 </table>
-
             </div>
         )
     }
