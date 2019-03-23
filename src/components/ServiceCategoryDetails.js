@@ -8,8 +8,8 @@ class ServiceCategoryDetails extends React.Component {
             // Throw in a default ServiceCategory
             serviceCategories: [],
             serviceCategory: {
-                title: '',
-                id: 1
+                serviceCategoryName: '',
+                id: props.match.params.id
             }
         }
     }
@@ -18,11 +18,14 @@ class ServiceCategoryDetails extends React.Component {
         this.serviceCategoryService
             .findAllServiceCategories()
             .then(serviceCategories => {
-                      this.props.history.push("/admin/service-categories/" + serviceCategories[0].id)
-                      this.setState({
-                                        serviceCategories: serviceCategories,
-                                        serviceCategory: serviceCategories[0]
-                                    })
+                this.props.history.push("/admin/categories/" + serviceCategories[0].id)
+                const desiredIndex = serviceCategories.findIndex((category) => {
+                    return parseInt(category.id) === parseInt(this.state.serviceCategory.id)
+                })
+                  this.setState({
+                                    serviceCategories: serviceCategories,
+                                    serviceCategory:  desiredIndex === -1 ? serviceCategories[0] : serviceCategories[desiredIndex]
+                                })
                   }
             )
     }
@@ -30,7 +33,7 @@ class ServiceCategoryDetails extends React.Component {
         this.serviceCategoryService
             .findServiceCategoryById(id)
             .then(serviceCategory => {
-                      this.props.history.push("/admin/service-categories/" + id)
+                      this.props.history.push("/admin/categories/" + id)
                       this.setState({
                                         serviceCategory: serviceCategory
                                     })
@@ -50,7 +53,7 @@ class ServiceCategoryDetails extends React.Component {
                                      <option
                                          value={serviceCategory.id}
                                          key={serviceCategory.id}>
-                                         {serviceCategory.title}
+                                         {serviceCategory.serviceCategoryName}
                                      </option>
                             )
                     }
@@ -59,7 +62,7 @@ class ServiceCategoryDetails extends React.Component {
                 <input
                     onChange={() => {}}
                     className="form-control"
-                    value={this.state.serviceCategory.title}/>
+                    value={this.state.serviceCategory.serviceCategoryName}/>
             </div>
         )
     }
