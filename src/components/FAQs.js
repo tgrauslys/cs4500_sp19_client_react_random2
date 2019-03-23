@@ -28,6 +28,22 @@ class FAQAnswers extends React.Component {
                 })
             )
     }
+
+    deleteFAQs = (id) => {
+        this.faqService
+            .deleteFAQs(id).then(()=>{
+            this.faqService.findAllFAQs()
+                .then(faqs =>
+                    this.setState({
+                        faqs: faqs,
+                        editForm: {
+                            question: "",
+                        }
+                    })
+                )
+        })
+    }
+
     render() {
         return(
             <div>
@@ -65,14 +81,15 @@ class FAQAnswers extends React.Component {
                                         <td>{faq.question}</td>
                                     </Link>
                                     <td>
-                                        <button
-                                            // onClick={this.faqAnswerService.deleteFAQAnswers(faqAnswer.id)}
-
-                                            type="button" className="btn btn-danger">X</button>
+                                        <a className="btn btn-danger btn-lg active" role="button"
+                                           onClick={() => {
+                                               this.deleteFAQAnswers(faq.id)
+                                           }}
+                                        >X</a>
                                     </td>
-                                    <td>
+                                    <Link to={`/admin/faqs/${faq.id}`}>
                                         <button type="button" className="btn btn-warning">Edit</button>
-                                    </td>
+                                    </Link>
                                 </tr>
                             )
                     }
