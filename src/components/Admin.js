@@ -6,6 +6,8 @@ import ServiceCategories from './ServiceCategories'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceQuestions from './ServiceQuestions'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
+import ServiceAnswers from './ServiceAnswers'
+import ServiceAnswerDetails from './ServiceAnswerDetails'
 import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FAQAnswers'
@@ -24,6 +26,8 @@ const Admin = () =>
                 <Link to="/admin/categories">Service Categories</Link>
                 <br/>
                 <Link to="/admin/questions">Service Questions</Link>
+                <br/>
+                <Link to="/admin/answers">Service Answers</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
@@ -55,6 +59,14 @@ const Admin = () =>
                     path="/admin/questions/:id"
                     exact
                     component={ServiceQuestionDetails}/>
+                <Route
+                    path="/admin/answers"
+                    exact
+                    component={ServiceAnswers}/>
+                <Route
+                    path="/admin/answers/:id"
+                    exact
+                    component={ServiceAnswerDetails}/>
                 <Route
                     path="/admin/faqs"
                     exact
