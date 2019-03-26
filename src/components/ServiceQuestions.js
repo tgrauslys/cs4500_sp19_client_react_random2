@@ -12,33 +12,38 @@ class ServiceQuestions extends React.Component {
         }
     }
     changeItemCount(e) { 
-		console.log(this.state.serviceQuestions)
 		this.serviceQuestionService.findQuestionPage(this.state.currentPage, e.target.value)
-			.then(serviceQuestions =>
-                this.setState({
+			.then(serviceQuestions => 
+				this.setState({
                     serviceQuestions: serviceQuestions.content
-                }))
-		setTimeout(() => console.log(Object.keys(this.state.serviceQuestions)), 3000)
-		setTimeout(() => console.log(this.state.serviceQuestions), 3000)
-		// console.log(this.state.serviceQuestions)
+                })
+			)
+		this.setState({
+			itemCount: e.target.value
+		})
     }
     changePage(e, pageNumber) {
-		console.log(this.state.serviceQuestions)
-		this.setState({
-			currentPage: pageNumber
-		})
-		this.serviceQuestionService.findQuestionPage(this.state.currentPage, e.target.value)
+		console.log("CurrentPage:" + this.state.currentPage)
+		console.log(e)
+		const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
+		console.log(itemCount)
+		console.log("--------------------------------------------------")
+		this.serviceQuestionService.findQuestionPage(pageNumber, itemCount)
 			.then(serviceQuestions =>
                 this.setState({
-                    serviceQuestions: serviceQuestions.content
+                    serviceQuestions: serviceQuestions.content,
+					currentPage: pageNumber,
+					itemCount: itemCount
                 }))
+				
+		console.log(this.state.currentPage)
     }
     componentDidMount() {
         this.serviceQuestionService
-            .findAllServiceQuestions()
+            .findQuestionPage(0, 10)
             .then(serviceQuestions =>
                 this.setState({
-                    serviceQuestions: serviceQuestions
+                    serviceQuestions: serviceQuestions.content
                 })
             )
     }
