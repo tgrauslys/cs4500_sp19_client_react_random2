@@ -14,12 +14,6 @@ class FAQContainer extends React.Component {
 
     }
 
-    updateFormQuestion = e => this.setState({
-        editForm: {
-            question: e.target.value,
-        }
-    })
-
     componentDidMount() {
         this
             .findAllFAQs()
@@ -83,4 +77,4 @@ class FAQContainer extends React.Component {
     }
 }
 
-export default FAQContiner
+export default FAQContainer
