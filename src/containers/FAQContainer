@@ -1,0 +1,86 @@
+import React from 'react'
+import FAQService from '../services/FAQService'
+
+class FAQContainer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.faqService = FAQService.getInstance()
+        this.state = {
+            faqs: [],
+            faq: {
+                question: "",
+            }
+        }
+
+    }
+
+    updateFormQuestion = e => this.setState({
+        editForm: {
+            question: e.target.value,
+        }
+    })
+
+    componentDidMount() {
+        this
+            .findAllFAQs()
+    }
+
+    findAllFAQs = () =>
+        this.faqService
+            .findAllFAQs()
+            .then(faqs => {
+                    this.setState({
+                        faqs: faqs
+                    })
+                }
+            )
+
+    updateForm = e =>
+        this.setState({
+            faq: {
+                id: this.state.faq.id,
+                question: e.target.value
+            }
+        })
+
+    createFAQ = () =>
+        this.faqService
+            .createFAQ(this.state.faq)
+            .then(this.findAllFAQs)
+
+    deleteFAQ = id =>
+        this.faqService
+            .deleteFAQ(id)
+            .then(this.findAllFAQs)
+
+    selectFAQ = id =>
+        this.faqService
+            .findFAQById(id)
+            .then(faq => this.setState({
+                faq: faq
+            }))
+
+    updateFAQ = () =>
+        this.faqService
+            .updateFAQ(this.state.faq)
+            .then(this.findAllFAQs)
+
+    render() {
+        return (
+            <div>
+                <FAQS
+                    updateFAQ={this.updateFAQ}
+                    selectFAQ={this.selectFAQ}
+                    deleteFAQ={this.deleteFAQ}
+                    createFAQ={this.createFAQ}
+                    updateForm={this.updateForm}
+                    faq={this.state.faq}
+                    faqs={this.state.faqs}/>
+            </div>
+
+
+        )
+    }
+}
+
+export default FAQContiner
