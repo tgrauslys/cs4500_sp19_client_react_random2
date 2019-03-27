@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Users from './Users'
+import Services from './Services'
 import ServiceCategories from './ServiceCategories'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceQuestions from './ServiceQuestions'
@@ -34,6 +35,10 @@ const Admin = () =>
                     path="/admin/users"
                     exact
                     component={Users}/>
+                <Route
+                    path="/admin/services"
+                    exact
+                    component={Services}/>
                 <Route
                     path="/admin/categories"
                     exact
