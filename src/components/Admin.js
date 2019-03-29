@@ -6,10 +6,13 @@ import ServiceCategories from './ServiceCategories'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceQuestions from './ServiceQuestions'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
-import FAQs from './FAQs'
+import FAQContainer from '../containers/FAQContainer'
+import FAQService from '../services/FAQService'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
+const faqService = FAQService.getInstance()
+
 
 const Admin = () =>
 <div>
@@ -58,7 +61,7 @@ const Admin = () =>
                 <Route
                     path="/admin/faqs"
                     exact
-                    component={FAQs}/>
+                    render={() => <FAQContainer service={faqService}/>}/>
                 <Route
                     path="/admin/faqs/:id"
                     exact

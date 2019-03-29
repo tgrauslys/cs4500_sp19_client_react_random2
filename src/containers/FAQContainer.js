@@ -1,10 +1,11 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
+import FAQs from "../components/FAQs";
 
 class FAQContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.faqService = FAQService.getInstance()
+        this.faqService = this.props.service //FAQService.getInstance()
         this.state = {
             faqs: [],
             faq: {
@@ -62,7 +63,7 @@ class FAQContainer extends React.Component {
     render() {
         return (
             <div>
-                <FAQS
+                <FAQs
                     updateFAQ={this.updateFAQ}
                     selectFAQ={this.selectFAQ}
                     deleteFAQ={this.deleteFAQ}

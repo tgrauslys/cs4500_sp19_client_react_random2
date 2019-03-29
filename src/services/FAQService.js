@@ -13,7 +13,7 @@ export default class FAQService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq`)
             .then(response => response.json())
 
-    updateFAQs = faq =>
+    updateFAQ = faq =>
         // fetch(`http://localhost:8080/api/faq-answer/${frequentlyAskedAnswer.id}`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${faq.id}`, {
             method: "PUT",
@@ -25,7 +25,7 @@ export default class FAQService {
         })
             .then(response => response.json()); // parses response to JSON
 
-    createFAQs = faq =>
+    createFAQ = faq =>
         // fetch(`http://localhost:8080/api/faq-answer`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq`, {
             method: "POST",
@@ -37,7 +37,7 @@ export default class FAQService {
         })
             .then(response => response.json()); // parses response to JSON
 
-    deleteFAQs = id =>
+    deleteFAQ = id =>
         // fetch(`http://localhost:8080/api/faq-answer/${id}`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${id}`, {
             method: "DELETE",
