@@ -7,6 +7,7 @@ class ServiceQuestions extends React.Component {
         this.serviceQuestionService = ServiceQuestionService.getInstance()
         this.state = {
             serviceQuestions: [],
+            optionValues: [1, 2, 5, 10, 25, 50],
             currentPage: 0,
             itemCount: 10,
             totalPages: 1
@@ -82,13 +83,11 @@ class ServiceQuestions extends React.Component {
                     }
                     <tr>
                             <td>
-                                <select defaultValue="10" onChange={e => this.setPage(e, this.state.currentPage)}>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
+                                <select defaultValue={this.state.itemCount} onChange={e => this.setPage(e, this.state.currentPage)}>
+                                    {
+                                        this.state.optionValues.map(itemCount => 
+                                            <option key={itemCount} value={itemCount}>{itemCount}</option>)
+                                    }
                                 </select>
                                 {previousButton}
                                 {previousPageButton}
