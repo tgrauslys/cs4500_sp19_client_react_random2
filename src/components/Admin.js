@@ -10,6 +10,8 @@ import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
+import FAQAnswerService from "../services/FAQAnswerService";
+import FaqAnswerContainer from "../containers/FaqAnswerContainer";
 
 const Admin = () =>
 <div>
@@ -66,7 +68,7 @@ const Admin = () =>
                 <Route
                     path="/admin/faq-answers"
                     exact
-                    component={FAQAnswers}/>
+                    render={() => <FaqAnswerContainer service={FAQAnswerService}/>}/>
                 <Route
                     path="/admin/faq-answers/:id"
                     exact

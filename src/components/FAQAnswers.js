@@ -1,8 +1,11 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 
+
+
+
 const FAQAnswers =
-    ({faqAnswers, faqAnswer, selectFaqAnswer, updateForm, createFaqAnswer, updateFaqAnswer, deleteFAQAnswer})=>
+    ({faqAnswers, faqAnswer, totalPages, selectFAQAnswer, updateAnswer,  updateQuestion, createFaqAnswer, updateFaqAnswer, deleteFAQAnswer, selectPage})=>
         <div>
             <h3> FAQ Answers {faqAnswers.length}</h3>
             <table className="table">
@@ -10,8 +13,12 @@ const FAQAnswers =
                 <tr>
                     <td>
                         <input
-                            className="question-answer-fld"
-                            onChange = {e => updateForm(e)}
+                            className="question-fld"
+                            onChange = {e => updateQuestion(e)}
+                            value={faqAnswer.question}></input>
+                        <input
+                            className="answer-fld"
+                            onChange={e => updateAnswer(e)}
                             value={faqAnswer.answer}></input>
                         <button
                             className="create-faq-answer-btn"
@@ -37,15 +44,36 @@ const FAQAnswers =
                                 >X</a>
 
                             <button className="select-faq-answer-btn"
-                                    onClick={() => selectFaqAnswer(faqAnswer.id)}>
+                                    onClick={() => selectFAQAnswer(faqAnswer.id)}>
                                 Select
                                 </button>
                             </td>
                         </tr>
                     )
                 }
+                {
+                    createPaginationRow(totalPages, selectPage)
+                }
+
                 </tbody>
             </table>
         </div>
+
+{
+    var createPaginationRow;
+    createPaginationRow = (numPages, navFunction) => {
+        let row = [];
+        for (let i = 0; i < numPages + 1; i++) {
+            row.push(<a role="button" class="btn btn-primary btn-lg active" onClick={() => navFunction(i - 1)}> i </a>)
+        }
+        return <tr>
+            {
+                row.map(cell =>
+                    <td>cell</td>)
+            }
+        </tr>
+    }
+}
+
 
 export default FAQAnswers

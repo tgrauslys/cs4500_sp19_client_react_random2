@@ -1,6 +1,7 @@
 import React from 'react'
 import FAQAnswerService from '../services/FAQAnswerService'
 import {Link} from "react-router-dom";
+import FAQAnswers from "../components/FAQAnswers";
 
 
 class FAQAnswerContainer extends React.Component {
@@ -9,20 +10,29 @@ class FAQAnswerContainer extends React.Component {
         this.faqAnswerService = FAQAnswerService.getInstance()
         this.state = {
             faqAnswers: [],
-            editForm: {
-                question: "",
-                answer: "",
+            faqAnswer: {
+                question: '',
+                answer: '',
             },
             page: 0,
             totalPages: 0,
-            elementsPerPage: 5
+            elementsPerPage: 1
         }
 
     }
 
-    updateForm = e => this.setState({
-        editForm: {
-            question: this.state.editForm.question,
+    updateQuestion = e => this.setState({
+        faqAnswer: {
+            id: this.state.faqAnswer.id,
+            question: e.target.value,
+            answer: this.state.faqAnswer.answer
+        }
+    })
+
+    updateAnswer = e => this.setState({
+        faqAnswer: {
+            id: this.state.faqAnswer.id,
+            question: this.state.question,
             answer: e.target.value
         }
     })
@@ -37,10 +47,42 @@ class FAQAnswerContainer extends React.Component {
 
 
 
-    selectPage = id => this.setState({page: totalPages})
+    selectPage = id => this.setState({page: id})
+
+
+    selectFAQAnswer = id => this.faqAnswerService.findFAQAnswerById(id).then(
+        faqAnswer => this.setState({faqAnswer : faqAnswer})
+    )
+
+    deleteFAQAnswer = id => this.faqAnswerService.deleteFAQAnswers(id).then(this.findFAQAnswers())
+
+    createFAQAnswer = () => this.faqAnswerService.createFAQAnswers(this.state.faqAnswer).then(this.findFAQAnswers())
+
+
 
     componentDidMount() {
+        this.findFAQAnswers()
+    }
 
+
+
+    render() {
+        return(
+            <div>
+                <FAQAnswers
+                    selectFaqAnswer={ this.selectFAQAnswer}
+                    updateFaqAnswer={ this.updateAnswer}
+                    deleteFAQAnswer={ this.deleteFAQAnswer}
+                    createFaqAnswer={ this.createFAQAnswer}
+                    selectPage={ this.selectPage}
+                    updateAnswer={this.updateAnswer}
+                    updateQuestion={this.updateQuestion}
+                    faqAnswers={ this.state.faqAnswers}
+                    faqAnswer = {this.state.faqAnswer}
+
+                />
+            </div>
+        )
     }
 
 
