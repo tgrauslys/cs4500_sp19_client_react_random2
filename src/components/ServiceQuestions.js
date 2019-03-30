@@ -54,7 +54,7 @@ const ServiceQuestions = ({
                 }
                 <tr>
                         <td>
-                            <select value={itemCount} onChange={e => setPage(e, currentPage)}>
+                            <select value={itemCount} onChange={e => setPage(e)}>
                                 {
                                     optionValues.map(possibleItemCounts => 
                                         <option key={possibleItemCounts} value={possibleItemCounts}>{possibleItemCounts}</option>)

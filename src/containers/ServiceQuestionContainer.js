@@ -16,12 +16,13 @@ class ServiceQuestionContainer extends React.Component {
         }
     }
     setPage = (e, pageNumber) => {
-		const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
-		this.serviceQuestionService.findQuestionPage(pageNumber, itemCount)
+        const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
+        const newPageNumber = (typeof pageNumber === "number") ? pageNumber : 0
+		this.serviceQuestionService.findQuestionPage(newPageNumber, itemCount)
             .then(serviceQuestions => {
                 this.setState({
                     serviceQuestions: serviceQuestions.content,
-					currentPage: pageNumber,
+					currentPage: newPageNumber,
                     itemCount: itemCount,
                     totalPages: serviceQuestions.totalPages
                 })})
