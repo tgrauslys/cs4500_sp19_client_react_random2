@@ -6,15 +6,29 @@ class ServiceQuestions extends React.Component {
         super(props)
         this.serviceQuestionService = ServiceQuestionService.getInstance()
         this.state = {
-            serviceQuestions: []
+            serviceQuestions: [],
+            currentPage: 0,
+            itemCount: 10
         }
+    }
+    setPage(e, pageNumber) {
+        console.log(this.state.serviceQuestions)
+		const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
+		this.serviceQuestionService.findQuestionPage(pageNumber, itemCount)
+            .then(serviceQuestions =>{
+                this.setState({
+                    serviceQuestions: serviceQuestions.content,
+					currentPage: pageNumber,
+                    itemCount: itemCount
+                    
+                })})
     }
     componentDidMount() {
         this.serviceQuestionService
-            .findAllServiceQuestions()
+            .findQuestionPage(0, 10)
             .then(serviceQuestions =>
                 this.setState({
-                    serviceQuestions: serviceQuestions
+                    serviceQuestions: serviceQuestions.content
                 })
             )
     }
@@ -37,6 +51,25 @@ class ServiceQuestions extends React.Component {
                                 </tr>
                             )
                     }
+                    <tr>
+                            <td>
+                                <select defaultValue="10" onChange={e => this.setPage(e, this.state.currentPage)}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <label style={{margin: '10px'}}>Page: {this.state.currentPage + 1}</label>
+                                <button
+                                    onClick= {(e) => this.setPage(e, this.state.currentPage - 1)}
+                                    type="button" className="btn btn-primary">Prev</button>
+                                <button
+                                    onClick= {(e) => this.setPage(e, this.state.currentPage + 1)} 
+                                    type="button" className="btn btn-primary">Next</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
