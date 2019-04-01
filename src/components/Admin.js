@@ -2,7 +2,8 @@ import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Users from './Users'
 import Services from './Services'
-import ServiceCategories from './ServiceCategories'
+import ServiceCategoryContainer from '../containers/ServiceCategoryContainer'
+import ServiceCategoryService from '../services/ServiceCategoryService'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceQuestions from './ServiceQuestions'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
@@ -10,6 +11,8 @@ import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
+const categoryService = ServiceCategoryService.getInstance()
+
 
 const Admin = () =>
 <div>
@@ -42,7 +45,7 @@ const Admin = () =>
                 <Route
                     path="/admin/categories"
                     exact
-                    component={ServiceCategories}/>
+                    render={() => <ServiceCategoryContainer service = {categoryService}/>}/>
                 <Route
                     path="/admin/categories/:id"
                     exact
