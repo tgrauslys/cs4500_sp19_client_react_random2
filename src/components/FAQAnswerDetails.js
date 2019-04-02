@@ -12,6 +12,14 @@ class FAQAnswerDetails extends React.Component {
             }
         }
     }
+
+    updateFormAnswer =e=> this.setState({
+        faqAnswer: {
+            id: this.state.faqAnswer.id,
+            question: this.state.faqAnswer.question,
+            answer: e.target.value}})
+
+
     componentDidMount() {
         this.faqAnswerService
             .findAllFAQAnswers()
@@ -37,13 +45,24 @@ class FAQAnswerDetails extends React.Component {
                     })
                 }
             )
+
+    navigateBack() {
+        this.props.history.push("/admin/faq-answers")
+    }
+
+    editAnswer() {
+
+        this.faqAnswerService.updateFAQAnswers(this.state.faqAnswer)
+            .then(this.navigateBack());
+    }
+
     render() {
         return(
             <div>
                 <h3>FAQ Answer Details</h3>
                 <select
                     value={this.state.faqAnswer.id}
-                    onChange={(e) => this.selectFAQAnswer(e.target.value)}
+                    // onChange={(e) => this.selectFAQAnswer(e.target.value)}
                     className="form-control">
                     {
                         this.state.faqAnswers
@@ -58,17 +77,22 @@ class FAQAnswerDetails extends React.Component {
                 </select>
                 <label>FAQ Answer Question</label><br/>
                 <input
-                    onChange={() => {}}
                     className="form-control"
                     value={this.state.faqAnswer.question}/>
                 <label>FAQ Answer Answer</label><br/>
                 <input
-                    onChange={() => {}}
+                    onChange={e => this.updateFormAnswer(e)}
                     className="form-control"
                     value={this.state.faqAnswer.answer}/>
                 <br></br>
                 <td>
-                    <button type="button" className="btn btn-warning">Edit</button>
+                    <a role="button" class="btn btn-danger btn-lg active"
+                    onClick={() => this.navigateBack()}>Cancel</a>
+                </td>
+
+                <td>
+                    <a role="button" class="btn btn-warning btn-lg"
+                    onClick={() => this.editAnswer()}>Edit</a>
                 </td>
             </div>
         )

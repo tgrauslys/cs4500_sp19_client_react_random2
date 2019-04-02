@@ -4,13 +4,15 @@ import Users from './Users'
 import Services from './Services'
 import ServiceCategories from './ServiceCategories'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
-import ServiceQuestions from './ServiceQuestions'
+import ServiceQuestionContainer from '../containers/ServiceQuestionContainer'
+import ServiceQuestionService from '../services/ServiceQuestionService';
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
 
+const serviceQuestionService = ServiceQuestionService.getInstance()
 const Admin = () =>
 <div>
     <h2>Admin</h2>
@@ -50,7 +52,12 @@ const Admin = () =>
                 <Route
                     path="/admin/questions"
                     exact
-                    component={ServiceQuestions}/>
+                    render={() => <ServiceQuestionContainer 
+                                    service={serviceQuestionService}
+                                    currentPage={0}
+                                    itemCount={10}
+                                    optionValues={[1, 2, 5, 10, 25, 50]}
+                                    />}/>
                 <Route
                     path="/admin/questions/:id"
                     exact
