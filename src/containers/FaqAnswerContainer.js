@@ -7,16 +7,20 @@ import FAQAnswers from "../components/FAQAnswers";
 class FAQAnswerContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.faqAnswerService = FAQAnswerService.getInstance()
+        this.faqAnswerService = this.props.service;
+        this.page = this.props.page;
+        this.itemCount = this.props.itemCount;
+        this.optionValues = this.props.optionValues;
         this.state = {
             faqAnswers: [],
             faqAnswer: {
                 question: '',
+
                 answer: '',
             },
-            page: 0,
-            totalPages: 0,
-            elementsPerPage: 1
+            totalPages: 0
+
+
         }
 
     }
@@ -38,20 +42,32 @@ class FAQAnswerContainer extends React.Component {
     })
 
     findFAQAnswers = () =>
-        this.faqAnswerService.findFAQAnswerPage(this.state.page, this.state.elementsPerPage).then(faqAnswers => {
+        this.faqAnswerService.findFAQAnswerPage(this.state.page, this.state.itemCount).then(faqAnswers => {
             this.setState(
-                {faqAnswers: faqAnswers.content,
+                {
+                    faqAnswers: faqAnswers.content,
                     totalPages: faqAnswers.totalPages
                 })
         })
 
 
-
-    selectPage = id => this.setState({page: id})
+    setPage = (e, pageNumber) => {
+        const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
+        const newPageNumber = (typeof pageNumber === "number") ? pageNumber : 0
+        this.faqAnswerService.findFAQAnswerPage(newPageNumber, itemCount)
+            .then(frequentlyAskedAnswers => {
+                this.setState({
+                    faqAnswers: frequentlyAskedAnswers.content,
+                    currentPage: newPageNumber,
+                    itemCount: itemCount,
+                    totalPages: frequentlyAskedAnswers.totalPages
+                })
+            })
+    }
 
 
     selectFAQAnswer = id => this.faqAnswerService.findFAQAnswerById(id).then(
-        faqAnswer => this.setState({faqAnswer : faqAnswer})
+        faqAnswer => this.setState({faqAnswer: faqAnswer})
     )
 
     deleteFAQAnswer = id => this.faqAnswerService.deleteFAQAnswers(id).then(this.findFAQAnswers())
@@ -59,27 +75,28 @@ class FAQAnswerContainer extends React.Component {
     createFAQAnswer = () => this.faqAnswerService.createFAQAnswers(this.state.faqAnswer).then(this.findFAQAnswers())
 
 
-
     componentDidMount() {
         this.findFAQAnswers()
     }
 
 
-
     render() {
-        return(
+        return (
             <div>
                 <FAQAnswers
-                    selectFaqAnswer={ this.selectFAQAnswer}
-                    updateFaqAnswer={ this.updateAnswer}
-                    deleteFAQAnswer={ this.deleteFAQAnswer}
-                    createFaqAnswer={ this.createFAQAnswer}
-                    selectPage={ this.selectPage}
+                    selectFaqAnswer={this.selectFAQAnswer}
+                    updateFaqAnswer={this.updateAnswer}
+                    deleteFAQAnswer={this.deleteFAQAnswer}
+                    createFaqAnswer={this.createFAQAnswer}
+                    setPage={this.setPage}
                     updateAnswer={this.updateAnswer}
                     updateQuestion={this.updateQuestion}
-                    faqAnswers={ this.state.faqAnswers}
-                    faqAnswer = {this.state.faqAnswer}
-
+                    currentPage={this.state.page}
+                    totalPages={this.state.totalPages}
+                    faqAnswers={this.state.faqAnswers}
+                    faqAnswer={this.state.faqAnswer}
+                    optionValues={[1, 2, 5, 10, 25, 50]}
+                    itemCount={10}
                 />
             </div>
         )

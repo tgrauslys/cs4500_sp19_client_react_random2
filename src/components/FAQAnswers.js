@@ -1,79 +1,104 @@
 import React from 'react'
 import {Link} from "react-router-dom";
-
-
+import "react-pagination-library/build/css/index.css";
 
 
 const FAQAnswers =
-    ({faqAnswers, faqAnswer, totalPages, selectFAQAnswer, updateAnswer,  updateQuestion, createFaqAnswer, updateFaqAnswer, deleteFAQAnswer, selectPage})=>
-        <div>
-            <h3> FAQ Answers {faqAnswers.length}</h3>
-            <table className="table">
-                <tbody>
-                <tr>
-                    <td>
-                        <input
-                            className="question-fld"
-                            onChange = {e => updateQuestion(e)}
-                            value={faqAnswer.question}></input>
-                        <input
-                            className="answer-fld"
-                            onChange={e => updateAnswer(e)}
-                            value={faqAnswer.answer}></input>
-                        <button
-                            className="create-faq-answer-btn"
-                            onClick={createFaqAnswer}>+</button>
-                        <button
-                            className="update-faq-answer-btn"
-                            onClick={updateFaqAnswer}>Update</button>
-                    </td>
-                </tr>
-                {
-                    faqAnswers.map(faqAnswer =>
-                        <tr key={faqAnswer.id}>
-                            <td>{faqAnswer.question}</td>
-                            <td>
-                                <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
-                                    {faqAnswer.answer}
-                                </Link>
-                            </td>
-                            <td>
-                                <a class="btn btn-danger btn-lg active" role="button" aria-pressed="true"
-                                   onClick={() =>
-                                       deleteFAQAnswer(faqAnswer.id)}
-                                >X</a>
+    ({faqAnswers, faqAnswer, totalPages, currentPage, selectFAQAnswer, updateAnswer, updateQuestion, createFaqAnswer, updateFaqAnswer, deleteFAQAnswer, setPage, optionValues, itemCount}) => {
+        const isFirstPage = currentPage === 0;
+        const isLastPage = currentPage >= totalPages - 1;
 
-                            <button className="select-faq-answer-btn"
-                                    onClick={() => selectFAQAnswer(faqAnswer.id)}>
-                                Select
-                                </button>
-                            </td>
-                        </tr>
-                    )
-                }
-                {
-                    createPaginationRow(totalPages, selectPage)
-                }
+        let previousButton = <button onClick={(e) => setPage(e, currentPage - 1)}
+                                     style={{margin: '2px'}}
+            // &#60; displays "<"
+                                     type="button" className="btn btn-secondary">&#60;</button>
+        let previousPageButton = <button onClick={(e) => setPage(e, currentPage - 1)}
+                                         style={{margin: '2px'}}
+                                         type="button" className="btn btn-primary">{currentPage}</button>
+        let nextButton = <button onClick={(e) => setPage(e, currentPage + 1)}
+                                 style={{margin: '2px'}}
+            // &#62; displays ">"
+                                 type="button" className="btn btn-secondary">&#62;</button>
+        let nextPageButton = <button onClick={(e) => setPage(e, currentPage + 1)}
+                                     style={{margin: '2px'}}
+                                     type="button" className="btn btn-primary">{currentPage + 2}</button>
 
-                </tbody>
-            </table>
-        </div>
-
-{
-    var createPaginationRow;
-    createPaginationRow = (numPages, navFunction) => {
-        let row = [];
-        for (let i = 0; i < numPages + 1; i++) {
-            row.push(<a role="button" class="btn btn-primary btn-lg active" onClick={() => navFunction(i - 1)}> i </a>)
+        if (isFirstPage) {
+            previousButton = ''
+            previousPageButton = ''
         }
-        return <tr>
-            {
-                row.map(cell =>
-                    <td>cell</td>)
-            }
-        </tr>
+        if (isLastPage) {
+            nextButton = ''
+            nextPageButton = ''
+        }
+
+        return (
+            <div>
+                <h3> FAQ Answers {faqAnswers.length}</h3>
+                <table className="table">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input
+                                className="question-fld"
+                                onChange={e => updateQuestion(e)}
+                                value={faqAnswer.question}></input>
+                            <input
+                                className="answer-fld"
+                                onChange={e => updateAnswer(e)}
+                                value={faqAnswer.answer}></input>
+                            <a role="button"
+                               className="btn btn-primary btn-lg active"
+                               onClick={createFaqAnswer}>+</a>
+                            <a role="button"
+                               className="btn btn-primary btn-lg active"
+                               onClick={updateFaqAnswer}>Update</a>
+                        </td>
+                    </tr>
+                    {
+                        faqAnswers.map(faqAnswer =>
+                            <tr key={faqAnswer.id}>
+                                <td>{faqAnswer.question}</td>
+                                <td>
+                                    <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
+                                        {faqAnswer.answer}
+                                    </Link>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger btn-lg active" role="button" aria-pressed="true"
+                                       onClick={() =>
+                                           deleteFAQAnswer(faqAnswer.id)}
+                                    >X</a>
+
+                                    <button className="select-faq-answer-btn"
+                                            onClick={() => selectFAQAnswer(faqAnswer.id)}>
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
+                        )
+                    }
+                    <tr>
+                    <td>
+                        <select value={itemCount} onChange={e => setPage(e)}>
+                            {
+                                optionValues.map(possibleItemCounts =>
+                                    <option key={possibleItemCounts} value={possibleItemCounts}>{possibleItemCounts}</option>)
+                            }
+                        </select>
+                        {previousButton}
+                        {previousPageButton}
+                        <button
+                            style={{margin: '2px'}}
+                            type="button" className="btn btn-primary" disabled>{currentPage + 1}</button>
+                        {nextPageButton}
+                        {nextButton}
+                    </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>)
     }
-}
 
 
 export default FAQAnswers
