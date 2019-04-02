@@ -8,7 +8,7 @@ const ServiceSearchBar = ({handleSubmit, updateUsername, updateZipcode}) => {
 
     return(
         <div>
-            {/* <form className="form"> */}
+            <form className="form">
                 <div className="input-group mb-3">
                     <input 
                         type="text"
