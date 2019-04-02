@@ -12,7 +12,7 @@ export default class UserService {
     findAllUsers = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json())
-    filterUserByUsername = username =>
-        fetch(`http://localhost:8080/api/users/filtered?username=${username}`)
+    filterUsers = (username, zipcode) =>
+        fetch(`http://localhost:8080/api/users/filtered?username=${username}&zipcode=${zipcode}`)
             .then(response => response.json())
 }
