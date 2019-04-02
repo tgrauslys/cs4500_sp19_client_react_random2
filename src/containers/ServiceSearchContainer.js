@@ -15,7 +15,6 @@ class ServiceSearchContainer extends React.Component {
         this.userService
             .filterUsers(this.state.username, this.state.zipcode)
             .then(searchResults => {
-                console.log(searchResults)
                 this.setState({
                     searchResults: searchResults
                 })}
@@ -36,7 +35,6 @@ class ServiceSearchContainer extends React.Component {
         })
     }
     updateZipcode = e => {
-        console.log(e.target.value)
         this.setState({
             zipcode: e.target.value
         })

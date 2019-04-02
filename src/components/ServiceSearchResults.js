@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 const ServiceSearchResults = ({searchResults}) => {
     return (
         <div>
-            <h3>Service Questions</h3>
+            <h3>Service Providers</h3>
             <table className="table">
                 <tbody>
                 {
