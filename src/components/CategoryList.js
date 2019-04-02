@@ -2,35 +2,21 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const CategoryList = ({
-                               category,
-                               createCategory,
-                               deleteCategory,
-                           }) =>
+                          category,
+                      }) =>
 
     <div>
-        <h3>Service Categories</h3>
-        <a role="button" className="btn btn-success" variant="outline-success"
-           onClick={createCategory}
-        >Create new</a>
+        <h3>{category.serviceCategoryName}</h3>
         <table className="table">
             <tbody>
             {
-                categories
-                    .map(serviceCategory =>
-                             <tr key={serviceCategory.id}>
+                category.services
+                    .map(service =>
+                             <tr key={service.id}>
                                  <td>
-                                     <Link to={`/admin/categories/${serviceCategory.id}`}>
-                                         {serviceCategory.serviceCategoryName}
-                                     </Link>
-                                 </td>
-                                 <td>
-                                     <a role="button" className="btn btn-danger"
-                                        onClick={() => {
-                                            deleteCategory(
-                                                serviceCategory.id)
-                                        }}>
-                                         Delete
-                                     </a>
+
+                                     {service.name}
+
                                  </td>
                              </tr>
                     )
@@ -39,4 +25,4 @@ const CategoryList = ({
         </table>
     </div>
 
-export default ServiceCategories
+export default CategoryList;
