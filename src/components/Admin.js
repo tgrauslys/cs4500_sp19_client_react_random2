@@ -1,6 +1,8 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Users from './Users'
+import UserService from '../services/UserService';
+import ServiceSearchContainer from '../containers/ServiceSearchContainer'
 import Services from './Services'
 import ServiceCategoryDetails from './ServiceCategoryDetails'
 import ServiceQuestionContainer from '../containers/ServiceQuestionContainer'
@@ -14,7 +16,9 @@ import ServiceCategoryService from "../services/ServiceCategoryService";
 import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
 
 const serviceQuestionService = ServiceQuestionService.getInstance()
+const userService = UserService.getInstance()
 const categoryService = ServiceCategoryService.getInstance()
+
 const Admin = () =>
 <div>
     <h2>Admin</h2>
@@ -31,7 +35,8 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
-
+                <Link to="admin/provider-search">Provider Search</Link>
+                <br/>
                 <Link to="/admin/faq-answers">FAQ Answers</Link>
             </div>
             <div className="col-9">
@@ -59,6 +64,12 @@ const Admin = () =>
                                     currentPage={0}
                                     itemCount={10}
                                     optionValues={[1, 2, 5, 10, 25, 50]}
+                                    />}/>
+                <Route
+                    path="/admin/provider-search"
+                    exact
+                    render={() => <ServiceSearchContainer
+                                    service={userService}
                                     />}/>
                 <Route
                     path="/admin/questions/:id"

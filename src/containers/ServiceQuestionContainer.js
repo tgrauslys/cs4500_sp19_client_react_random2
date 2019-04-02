@@ -1,5 +1,6 @@
 import React from 'react'
 import ServiceQuestions from '../components/ServiceQuestions'
+import ServiceSearchBar from '../components/ServiceSearchBar';
 class ServiceQuestionContainer extends React.Component {
     constructor(props) {
         super(props)
@@ -43,6 +44,7 @@ class ServiceQuestionContainer extends React.Component {
     render() {
         return (
             <div>
+                <ServiceSearchBar/>
                 <ServiceQuestions
                     serviceQuestions={this.state.serviceQuestions}
                     optionValues={this.state.optionValues}
