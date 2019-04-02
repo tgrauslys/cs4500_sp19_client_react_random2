@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
 import Home from './components/Home'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Provider from './components/Provider/Provider'
 import ServiceCategoryService from "./services/ServiceCategoryService";
 
