@@ -13,6 +13,10 @@ export default class FAQService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq`)
             .then(response => response.json())
 
+    findFAQPage = (page, elements) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/paged?page=${page}&count=${elements}`)
+            .then(response => response.json())
+
     updateFAQ = faq =>
         // fetch(`http://localhost:8080/api/faq-answer/${frequentlyAskedAnswer.id}`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${faq.id}`, {

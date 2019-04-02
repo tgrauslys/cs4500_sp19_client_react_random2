@@ -15,9 +15,18 @@ class FAQContainer extends React.Component {
 
     }
 
+    componentWillMount() {
+
+    }
+
     componentDidMount() {
-        this
-            .findAllFAQs()
+        this.faqService.findFAQPage(this.state.page, this.state.elementsInPage).then(faqs =>
+            this.setState({
+                faqs: faqs.content,
+                lastPage: faqs.last,
+            })
+        )
+
     }
 
     findAllFAQs = () =>
