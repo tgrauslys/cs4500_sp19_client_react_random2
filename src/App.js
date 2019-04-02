@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
-import Home from "./components/Home";
+import Home from './components/Home'
+import Provider from './components/Provider/Provider'
 import ServiceCategoryService from "./services/ServiceCategoryService";
 
 class App extends Component {
@@ -23,9 +22,9 @@ class App extends Component {
         return this.serviceCategoryService
             .findAllServiceCategories()
             .then(serviceCategories =>
-                      this.setState({
-                                        pillServiceCategories: serviceCategories
-                                    })
+                this.setState({
+                    pillServiceCategories: serviceCategories
+                })
             )
     }
 
@@ -41,13 +40,20 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
+                        <Link to={"/providers"}>Providers</Link>
+                        {/*<Route*/}
+                        {/*path="/providers"*/}
+                        {/*exact*/}
+                        {/*component={ServiceProviderNavigator}/>*/}
+                        <br/>
                         <Link to="/home">Home</Link>
                         <Route
                             path="/home"
                             exact
-                            render = {() => <Home pillServiceCategories={this.state.pillServiceCategories}/>}/>
+                            render={() => <Home pillServiceCategories={this.state.pillServiceCategories}/>}/>
                     </div>
                 </Router>
+
             </div>
         );
     }
