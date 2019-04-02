@@ -12,4 +12,7 @@ export default class ServiceQuestionService {
     findAllServiceQuestions = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/questions`)
             .then(response => response.json())
+    findQuestionPage = (page, elements) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/questions/paged?page=${page}&count=${elements}`)
+            .then(response => response.json())
 }

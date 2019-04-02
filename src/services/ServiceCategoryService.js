@@ -15,6 +15,7 @@ export default class ServiceCategoryService {
     findServiceCategoryById = categoryId =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/categories/${categoryId}`)
             .then(response => response.json());
+
     findAllServiceCategories = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/categories`)
             .then(response => response.json());

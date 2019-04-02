@@ -1,10 +1,14 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Users from './Users'
+import UserService from '../services/UserService';
+import ServiceSearchContainer from '../containers/ServiceSearchContainer'
 import Services from './Services'
-import ServiceCategories from './ServiceCategories'
-import ServiceCategoryDetails from './ServiceCategoryDetails'
-import ServiceQuestions from './ServiceQuestions'
+import ServicesService from "../services/ServicesService";
+import ServicesContainer from "../containers/ServicesContainer";
+import ServicesDetailsContainer from "../containers/ServicesDetailsContainer";
+import ServiceQuestionContainer from '../containers/ServiceQuestionContainer'
+import ServiceQuestionService from '../services/ServiceQuestionService';
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import FAQContainer from '../containers/FAQContainer'
 import FAQService from '../services/FAQService'
@@ -13,6 +17,14 @@ import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
 const faqService = FAQService.getInstance()
 
+import ServiceCategoryService from "../services/ServiceCategoryService";
+import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
+import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
+
+const serviceQuestionService = ServiceQuestionService.getInstance()
+const userService = UserService.getInstance()
+const categoryService = ServiceCategoryService.getInstance()
+const services = ServicesService.getInstance();
 
 const Admin = () =>
 <div>
@@ -30,7 +42,8 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
-
+                <Link to="/admin/provider-search">Provider Search</Link>
+                <br/>
                 <Link to="/admin/faq-answers">FAQ Answers</Link>
             </div>
             <div className="col-9">
@@ -41,19 +54,45 @@ const Admin = () =>
                 <Route
                     path="/admin/services"
                     exact
-                    component={Services}/>
+                    // component={Services}/>
+                    render={() => <ServicesContainer service = {services}/>}/>
+                <Route
+                    path="/admin/services/:id"
+                    exact
+                    component={() => (
+                        <ServicesDetailsContainer
+                            service = {services}/>)}
+                />
                 <Route
                     path="/admin/categories"
                     exact
-                    component={ServiceCategories}/>
+                    render={() => <ServiceCategoryContainer service = {categoryService}/>}/>
                 <Route
                     path="/admin/categories/:id"
                     exact
-                    component={ServiceCategoryDetails}/>
+                    component={() => (
+                        <ServCatDetailsContainer
+                            service = {categoryService}/>)}
+                    //render={() => (
+                    //             <ServCatDetailsContainer
+                    //                 service = {categoryService}/>
+                    //)}
+                />
                 <Route
                     path="/admin/questions"
                     exact
-                    component={ServiceQuestions}/>
+                    render={() => <ServiceQuestionContainer
+                                    service={serviceQuestionService}
+                                    currentPage={0}
+                                    itemCount={10}
+                                    optionValues={[1, 2, 5, 10, 25, 50]}
+                                    />}/>
+                <Route
+                    path="/admin/provider-search"
+                    exact
+                    render={() => <ServiceSearchContainer
+                                    service={userService}
+                                    />}/>
                 <Route
                     path="/admin/questions/:id"
                     exact
