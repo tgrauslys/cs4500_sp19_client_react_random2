@@ -1,5 +1,9 @@
 import React from 'react'
 import ServiceCategoryPills from "./ServiceCategoryPills";
+import ServiceSearchContainer from "../containers/ServiceSearchContainer";
+import UserService from "../services/UserService";
+
+const userService = UserService.getInstance()
 
 const Home = (pillServiceCategories) => {
     return (
@@ -20,6 +24,11 @@ const Home = (pillServiceCategories) => {
             </div>
         </div>
 
+        <br/>
+        <div>
+            <ServiceSearchContainer
+                service={userService}/>
+        </div>
         <br/>
         <br/>
         <br/>
