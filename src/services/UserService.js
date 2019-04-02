@@ -13,6 +13,6 @@ export default class UserService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json())
     filterUsers = (username, zipcode) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/filtered?username=${username}&zipcode=${zipcode}`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`)
             .then(response => response.json())
 }

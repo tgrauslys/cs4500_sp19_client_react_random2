@@ -2,17 +2,16 @@ import React from 'react'
 import Rating from './Rating'
 import Review from './Review'
 import FAQ from './FAQ'
-import SearchBar from '../SearchBar/SearchBar'
-import Date from 'Date'
+// import Date from 'Date'
 
 
 const Provider = ({provider, history}) =>
     <div>
 
         <div className="row">
-            <div className="col-8">
-                <SearchBar/>
-            </div>
+            {/*<div className="col-8">*/}
+                {/*<SearchBar/>*/}
+            {/*</div>*/}
             <div className="col-3 text-right">
                 <a href="#">Sign up</a>
             </div>
@@ -72,9 +71,9 @@ const Provider = ({provider, history}) =>
                 <br/>
                 <i className="fa fa-briefcase"/>
                 &nbsp;
-                {
-                    (new Date().getFullYear() - new Date(provider.startDate).getFullYear())
-                } Years in business
+                {/*{*/}
+                    {/*(new Date().getFullYear() - new Date(provider.startDate).getFullYear())*/}
+                {/*} Years in business*/}
             </div>
             <div className="col-6">
                 <h4>Payment methods</h4>
