@@ -1,10 +1,14 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Users from './Users'
+import UserService from '../services/UserService';
+import ServiceSearchContainer from '../containers/ServiceSearchContainer'
 import Services from './Services'
-import ServiceCategories from './ServiceCategories'
-import ServiceCategoryDetails from './ServiceCategoryDetails'
-import ServiceQuestions from './ServiceQuestions'
+import ServicesService from "../services/ServicesService";
+import ServicesContainer from "../containers/ServicesContainer";
+import ServicesDetailsContainer from "../containers/ServicesDetailsContainer";
+import ServiceQuestionContainer from '../containers/ServiceQuestionContainer'
+import ServiceQuestionService from '../services/ServiceQuestionService';
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
@@ -12,6 +16,19 @@ import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
 import FAQAnswerService from "../services/FAQAnswerService";
 import FaqAnswerContainer from "../containers/FaqAnswerContainer";
+
+import FaqAnswerDetailsContainer from "../containers/FaqAnswerDetailsContainer";
+import FAQAnswerService from "../services/FAQAnswerService";
+
+import ServiceCategoryService from "../services/ServiceCategoryService";
+import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
+import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
+
+const serviceQuestionService = ServiceQuestionService.getInstance()
+const userService = UserService.getInstance()
+const categoryService = ServiceCategoryService.getInstance()
+const services = ServicesService.getInstance();
+
 
 const Admin = () =>
     <div>
@@ -75,7 +92,7 @@ const Admin = () =>
                     <Route
                         path="/admin/faq-answers/:id"
                         exact
-                        component={FAQAnswerDetails}/>
+                        render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
                 </div>
             </div>
         </Router>
