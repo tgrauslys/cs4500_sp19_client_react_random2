@@ -1,137 +1,107 @@
 import React from 'react'
 import FAQAnswerService from '../services/FAQAnswerService'
 import {Link} from "react-router-dom";
+import FAQAnswers from "../components/FAQAnswers";
 
 
 class FAQAnswerContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.faqAnswerService = FAQAnswerService.getInstance()
+        this.faqAnswerService = this.props.service;
+        this.page = this.props.page;
+        this.itemCount = this.props.itemCount;
+        this.optionValues = this.props.optionValues;
         this.state = {
             faqAnswers: [],
-            editForm: {
-                question: "",
-                answer: "",
+            faqAnswer: {
+                question: '',
+
+                answer: '',
             },
+            totalPages: 0
+
+
         }
 
     }
 
-    updateFormAnswer = e => this.setState({
-        editForm: {
-            question: this.state.editForm.question,
+    updateQuestion = e => this.setState({
+        faqAnswer: {
+            id: this.state.faqAnswer.id,
+            question: e.target.value,
+            answer: this.state.faqAnswer.answer
+        }
+    })
+
+    updateAnswer = e => this.setState({
+        faqAnswer: {
+            id: this.state.faqAnswer.id,
+            question: this.state.question,
             answer: e.target.value
         }
     })
 
-    updateFormQuestion = e => this.setState({
-        editForm: {
-            question: e.target.value,
-            answer: this.state.editForm.answer
-        }
-    })
+    findFAQAnswers = () =>
+        this.faqAnswerService.findFAQAnswerPage(this.state.page, this.state.itemCount).then(faqAnswers => {
+            this.setState(
+                {
+                    faqAnswers: faqAnswers.content,
+                    totalPages: faqAnswers.totalPages
+                })
+        })
 
 
-    componentWillMount() {
-
+    setPage = (e, pageNumber) => {
+        const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
+        const newPageNumber = (typeof pageNumber === "number") ? pageNumber : 0
+        this.faqAnswerService.findFAQAnswerPage(newPageNumber, itemCount)
+            .then(frequentlyAskedAnswers => {
+                this.setState({
+                    faqAnswers: frequentlyAskedAnswers.content,
+                    currentPage: newPageNumber,
+                    itemCount: itemCount,
+                    totalPages: frequentlyAskedAnswers.totalPages
+                })
+            })
     }
+
+
+    selectFAQAnswer = id => this.faqAnswerService.findFAQAnswerById(id).then(
+        faqAnswer => this.setState({faqAnswer: faqAnswer})
+    )
+
+    deleteFAQAnswer = id => this.faqAnswerService.deleteFAQAnswers(id).then(this.findFAQAnswers())
+
+    createFAQAnswer = () => this.faqAnswerService.createFAQAnswers(this.state.faqAnswer).then(this.findFAQAnswers())
+
 
     componentDidMount() {
-        this.faqAnswerService.findFAQAnswerPage(this.state.page, this.state.elementsInPage).then(faqAnswers =>
-            this.setState({
-                faqAnswers: faqAnswers.content,
-                lastPage: faqAnswers.last,
-            })
-        )
-
+        this.findFAQAnswers()
     }
 
-
-    deleteFAQAnswers = (id) => {
-        this.faqAnswerService
-            .deleteFAQAnswers(id).then(()=>{
-
-        })
-    }
-
-    // deleteFAQAnswers = (id) => {
-    //     this.faqAnswerService
-    //         .deleteFAQAnswers(id).then(()=>{
-    //         window.location.href='/admin/faq-answers';
-    //     });
-    // };
 
     render() {
         return (
             <div>
-                <h3>FAQ Answers</h3>
-                <table className="table">
-                    <tr>
-                        <th> Question</th>
-                        <th> Answer</th>
-                    </tr>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <input
-                                onChange={e => this.updateFormQuestion(e)}
-                            />
-                        </td>
-                        <td>
-                            <input
-                                onChange={e => this.updateFormAnswer(e)}
-                            />
-                        </td>
-
-                        <td>
-                            <button
-                                type="button" className="btn btn-primary"
-                                onClick={() => {
-                                    this.faqAnswerService.createFAQAnswers(this.state.editForm)
-                                }}
-                            >+
-                            </button>
-                        </td>
-
-                        <td>
-                            <button
-                                type="button" className="btn btn-success">Search
-                            </button>
-                        </td>
-
-
-                    </tr>
-
-                    {
-                        this.state.faqAnswers
-                            .map(faqAnswer =>
-                                <tr key={faqAnswer.id}>
-                                    <td>{faqAnswer.question}</td>
-                                    <td>
-                                        <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
-                                            {faqAnswer.answer}
-                                        </Link>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger btn-lg active" role="button" aria-pressed="true"
-                                           onClick={() => {
-                                               this.deleteFAQAnswers(faqAnswer.id)
-                                           }}
-                                        >X</a>
-                                    </td>
-                                    <td>
-                                        {/*<button type="button" className="btn btn-warning">Edit</button>*/}
-                                        <a class="btn btn-outline-warning btn-lg active" role="button"
-                                        >Edit</a>
-                                    </td>
-                                </tr>
-                            )
-                    }
-                    </tbody>
-                </table>
+                <FAQAnswers
+                    selectFaqAnswer={this.selectFAQAnswer}
+                    updateFaqAnswer={this.updateAnswer}
+                    deleteFAQAnswer={this.deleteFAQAnswer}
+                    createFaqAnswer={this.createFAQAnswer}
+                    setPage={this.setPage}
+                    updateAnswer={this.updateAnswer}
+                    updateQuestion={this.updateQuestion}
+                    currentPage={this.state.page}
+                    totalPages={this.state.totalPages}
+                    faqAnswers={this.state.faqAnswers}
+                    faqAnswer={this.state.faqAnswer}
+                    optionValues={[1, 2, 5, 10, 25, 50]}
+                    itemCount={10}
+                />
             </div>
         )
     }
+
 
 }
 
