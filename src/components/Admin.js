@@ -10,6 +10,8 @@ import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FAQAnswers'
 import FAQAnswerDetails from './FAQAnswerDetails'
+import FaqAnswerDetailsContainer from "../containers/FaqAnswerDetailsContainer";
+import FAQAnswerService from "../services/FAQAnswerService";
 
 const Admin = () =>
 <div>
@@ -70,7 +72,7 @@ const Admin = () =>
                 <Route
                     path="/admin/faq-answers/:id"
                     exact
-                    component={FAQAnswerDetails}/>
+                    render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
             </div>
         </div>
     </Router>

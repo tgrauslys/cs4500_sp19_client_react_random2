@@ -62,12 +62,12 @@ class FAQAnswers extends React.Component {
         })
         }
 
-    // deleteFAQAnswers = (id) => {
-    //     this.faqAnswerService
-    //         .deleteFAQAnswers(id).then(()=>{
-    //         window.location.href='/admin/faq-answers';
-    //     });
-    // };
+    deleteFAQAnswers = (id) => {
+        this.faqAnswerService
+            .deleteFAQAnswers(id).then(()=>{
+            window.location.href='/admin/faq-answers';
+        });
+    };
 
 
     navigateToNextPage() {
