@@ -67,8 +67,9 @@ const Admin = () =>
                 <Route
                     path="/admin/categories/:id"
                     exact
-                    component={() => (
+                    component={(props) => (
                         <ServCatDetailsContainer
+                            props = {props}
                             service = {categoryService}/>)}
                     //render={() => (
                     //             <ServCatDetailsContainer

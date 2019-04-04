@@ -1,12 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 const CategoryList = ({
-                          category,
-                      }) =>
-
-    <div>
-        <h3>{category.serviceCategoryName}</h3>
+                          props,
+                          category
+                      }) => {
+    console.log(category.services)
+    return (<div>
+        <h3>Category: {category.serviceCategoryName}</h3>
         <table className="table">
             <tbody>
             {
@@ -14,15 +14,18 @@ const CategoryList = ({
                     .map(service =>
                              <tr key={service.id}>
                                  <td>
-
-                                     {service.name}
-
+                                     <h4>{service.serviceName}</h4>
                                  </td>
                              </tr>
                     )
             }
             </tbody>
         </table>
-    </div>
+        <a role="button" className="btn btn-success" variant="outline-success"
+           onClick={() => props.history.push('/home')}
+        >Back</a>
+
+    </div>)
+}
 
 export default CategoryList;
