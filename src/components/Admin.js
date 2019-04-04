@@ -4,6 +4,9 @@ import Users from './Users'
 import UserService from '../services/UserService';
 import ServiceSearchContainer from '../containers/ServiceSearchContainer'
 import Services from './Services'
+import ServicesService from "../services/ServicesService";
+import ServicesContainer from "../containers/ServicesContainer";
+import ServicesDetailsContainer from "../containers/ServicesDetailsContainer";
 import ServiceQuestionContainer from '../containers/ServiceQuestionContainer'
 import ServiceQuestionService from '../services/ServiceQuestionService';
 import ServiceQuestionDetails from './ServiceQuestionDetails'
@@ -18,6 +21,7 @@ import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
 const serviceQuestionService = ServiceQuestionService.getInstance()
 const userService = UserService.getInstance()
 const categoryService = ServiceCategoryService.getInstance()
+const services = ServicesService.getInstance();
 
 const Admin = () =>
 <div>
@@ -47,7 +51,15 @@ const Admin = () =>
                 <Route
                     path="/admin/services"
                     exact
-                    component={Services}/>
+                    // component={Services}/>
+                    render={() => <ServicesContainer service = {services}/>}/>
+                <Route
+                    path="/admin/services/:id"
+                    exact
+                    component={() => (
+                        <ServicesDetailsContainer
+                            service = {services}/>)}
+                />
                 <Route
                     path="/admin/categories"
                     exact

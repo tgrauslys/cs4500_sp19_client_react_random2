@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
 import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Provider from './components/Provider/Provider'
+import provider from "./data/provider.mock.json"
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
@@ -14,7 +17,8 @@ class App extends Component {
         this.serviceCategoryService = ServiceCategoryService.getInstance();
         this.state = {
             pillServiceCategories: [],
-            category: []
+            category: [],
+            provider: provider
         }
         this.findServiceCategories()
     }
@@ -51,11 +55,12 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
-                        <Link to={"/providers"}>Providers</Link>
-                        {/*<Route*/}
-                        {/*path="/providers"*/}
-                        {/*exact*/}
-                        {/*component={ServiceProviderNavigator}/>*/}
+                        <Link to={"/provider"}>Provider</Link>
+                        <Route
+                        path="/provider"
+                        exact
+                        render={() =>
+                        <Provider provider = {provider}/>}/>
                         <br/>
                         <Link to="/home">Home</Link>
                         <Route

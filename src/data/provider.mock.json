@@ -1,0 +1,49 @@
+{
+  "title": "Christina's Custom Cleaning, CCC",
+  "rating": 4.4,
+  "ratingScores": [
+    93,
+    24,
+    12,
+    10,
+    4
+  ],
+  "yearsInBusiness": "7",
+  "hires": 17,
+  "latestReview": "It's so wonderful to have the burden of cleaning - especially with an injury - removed. Christina is excellent with communication and I've been very pleased with the quality of work.",
+  "price": "$75",
+  "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "backgroundChecked": true,
+  "employees": 2,
+  "paymentMethods": [
+    "Cash", "Venmo"
+  ],
+  "faqs": [
+    {
+      "question": "What should the customer know about your pricing (e.g., discounts, fees)?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    },
+    {
+      "question": "What education and/or training do you have that relates to your work?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "who": "Kristine M.",
+      "stars": 5,
+      "review":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "Apr 13, 2017",
+      "reply": "thank you very much!! see you next weekend!!"
+    },
+    {
+      "id": 2,
+      "who": "Eric G.",
+      "stars": 5,
+      "review":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "Apr 19, 2017",
+      "reply": "Thank you so much Eric! We loved cleaning your home! "
+    }
+  ]
+}
