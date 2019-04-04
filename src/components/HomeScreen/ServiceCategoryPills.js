@@ -7,7 +7,7 @@ const ServiceCategoryPills = ({serviceCategories}) =>
                 <li key={serviceCategory.id}
                     className="nav-item">
                     <a className="nav-link btn-lg text-center"
-                       href="/services">
+                       href={"/categories/"  + serviceCategory.id}>
                         {/*<i className={`fa ${serviceCategory.icon}`}/>*/}
                         <br/>
                         {serviceCategory.serviceCategoryName}
