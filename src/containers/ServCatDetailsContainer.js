@@ -4,13 +4,14 @@ class ServiceCategoryContainer extends React.Component {
 
     constructor(props) {
         super(props)
+        console.log(props)
         this.serviceCategoryService = this.props.service;
         this.state = {
             // Throw in a default ServiceCategory
             serviceCategories: [],
             serviceCategory: {
                 serviceCategoryName: '',
-                id: props.match.params.id
+                id: props.props.match.params.id
             }
         }
     }
@@ -31,23 +32,6 @@ class ServiceCategoryContainer extends React.Component {
             )
     }
 
-    findCategory = (id) =>
-        this.serviceCategoryService.findServiceCategoryById(parseInt(id)).then(category => {
-            this.setState({
-                              serviceCategory: category
-                          })
-        });
-
-    findAllCategories() {
-        return this.serviceCategoryService
-            .findAllServiceCategories()
-            .then(serviceCategories =>
-                      this.setState({
-                                        serviceCategories: serviceCategories
-                                    })
-            )
-    }
-
 
     selectServiceCategory = id =>
         this.serviceCategoryService
@@ -62,12 +46,11 @@ class ServiceCategoryContainer extends React.Component {
 
     // Create table with service categories
     render() {
-        this.selectServiceCategory(0);
         return (
             <div>
                 <ServiceCategoryDetails
-                    serviceCategory={this.state.serviceCategory}
-                    serviceCategories={this.state.serviceCategories}
+                    category={this.state.serviceCategory}
+                    categories={this.state.serviceCategories}
                     selectServiceCategory={this.selectServiceCategory}/>
             </div>
         )
