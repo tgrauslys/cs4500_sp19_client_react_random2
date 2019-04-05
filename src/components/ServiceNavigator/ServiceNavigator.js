@@ -1,35 +1,48 @@
-import React from 'react'
-import ServiceCategoryList from './ServiceCategoryList'
-import ServiceCategorySectionList from './ServiceCategorySectionList'
-//import serviceCategories from './mock/service-categories.mock.json'
-import ServiceCategoryPills from "../HomeScreen/Home";
-// import SearchBar from '../SearchBar/SearchBar'
+import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import React from "react";
+import ServiceCategorySection from "./ServiceCategorySection";
 
-const ServiceNavigator = ({serviceCategories}) => {
-    console.log(serviceCategories);
+const ServiceNavigator = ({
+                              serviceCategories
+                          }) => {
+    console.log(serviceCategories)
     return (<div>
-        <div className="row">
-            {/*<div className="col-8">*/}
-            {/*<SearchBar/>*/}
-            {/*</div>*/}
-        </div>
-        <br/>
-        <br/>
-        <div className="row">
-            <div className="col-3">
-                <ServiceCategoryList
-                    serviceCategories={serviceCategories}/>
+        <h2>ServiceNavigator</h2>
+        <Router>
+            <div className="row">
+                <div className="col-3">
+                    <table className="table">
+                        <tbody>
+                        {
+                            serviceCategories
+                                .map(serviceCategory =>
+                                    <tr key={serviceCategory.id}>
+                                        <td>
+                                            <Link to={`/services-nav/categories/${serviceCategory.id}`}>
+                                                {serviceCategory.serviceCategoryName}
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                )
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <div className="col-9">
+                    {serviceCategories.map(serviceCategory =>
+                        <Route
+                            path={"/services-nav/categories/" + serviceCategory.id}
+                            exact
+                            render={() => <ServiceCategorySection
+                                serviceCategory={serviceCategory}
+                            />}
 
+                        />
+                    )
+                    }
+                </div>
             </div>
-            {/*<div>*/}
-            {/*<ServiceCategoryPills serviceCategories={serviceCategories}/>*/}
-            {/*</div>*/}
-            <div className="col-9">
-                <ServiceCategorySectionList
-                    serviceCategories={serviceCategories}/>
-            </div>
-        </div>
+        </Router>
     </div>)
 }
-
 export default ServiceNavigator
