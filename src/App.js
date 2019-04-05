@@ -8,7 +8,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Provider from './components/Provider/Provider'
 import provider from "./data/provider.mock.json"
 import ServiceCategoryService from "./services/ServiceCategoryService";
-import CategoryList from "./components/HomeScreen/CategoryList";
+import CategoryList from "./components/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
 import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 

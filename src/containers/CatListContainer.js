@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryList from "../components/HomeScreen/CategoryList";
+import CategoryList from "../components/CategoryList";
 
 class CatListContainer extends React.Component {
 

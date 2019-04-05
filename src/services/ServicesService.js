@@ -16,7 +16,7 @@ export default class ServicesService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services/${serviceId}`)
             .then(response => response.json());
     findAllServices = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services/`)
             .then(response => response.json());
 
     deleteServiceById = serviceId =>
@@ -29,7 +29,7 @@ export default class ServicesService {
         });
 
     createService = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
