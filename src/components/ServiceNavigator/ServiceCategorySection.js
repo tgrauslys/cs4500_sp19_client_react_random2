@@ -1,5 +1,4 @@
 import React from 'react'
-import ServiceCards from './ServiceCards'
 
 const ServiceCategorySection = ({serviceCategory}) =>
     <div>
