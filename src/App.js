@@ -17,7 +17,7 @@ class App extends Component {
         super(props);
         this.serviceCategoryService = ServiceCategoryService.getInstance();
         this.state = {
-            pillServiceCategories: [],
+            serviceCategories: [],
             category: [],
             provider: provider
         }
@@ -33,7 +33,7 @@ class App extends Component {
             .findAllServiceCategories()
             .then(serviceCategories =>
                       this.setState({
-                                        pillServiceCategories: serviceCategories
+                                        serviceCategories: serviceCategories
                                     })
             )
     }
@@ -70,14 +70,15 @@ class App extends Component {
                             path="/home"
                             exact
                             render={() => <Home
-                                pillServiceCategories={this.state.pillServiceCategories}/>}/>
+                                pillServiceCategories={this.state.serviceCategories}/>}/>
                         <br/>
                         <Link to="/services-nav">Service Navigator</Link>
                         <Route
                             path="/services-nav"
                             exact
                             render={() =>
-                            <ServiceNavigator serviceCategories={this.state.serviceCategories}/>}/>
+                            <ServiceNavigator serviceCategories={this.state.serviceCategories}
+                                              />}/>
                         <br/>
                         <Route
                             path="/categories/:id"
