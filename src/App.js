@@ -10,6 +10,7 @@ import provider from "./data/provider.mock.json"
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
+import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 
 class App extends Component {
     constructor(props) {
@@ -68,7 +69,12 @@ class App extends Component {
                             exact
                             render={() => <Home
                                 pillServiceCategories={this.state.pillServiceCategories}/>}/>
-
+                        <Link to="/services-nav">Service Navigator</Link>
+                        <Route
+                            path="/services-nav"
+                            exact
+                            render={() =>
+                            <ServiceNavigator serviceCategories={this.state.serviceCategories}/>}/>
                         <Route
                             path="/categories/:id"
                             exact
