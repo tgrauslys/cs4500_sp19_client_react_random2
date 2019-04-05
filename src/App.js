@@ -56,6 +56,7 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
+
                         <Link to={"/provider"}>Provider</Link>
                         <Route
                         path="/provider"
@@ -63,18 +64,21 @@ class App extends Component {
                         render={() =>
                         <Provider provider = {provider}/>}/>
                         <br/>
+
                         <Link to="/home">Home</Link>
                         <Route
                             path="/home"
                             exact
                             render={() => <Home
                                 pillServiceCategories={this.state.pillServiceCategories}/>}/>
+                        <br/>
                         <Link to="/services-nav">Service Navigator</Link>
                         <Route
                             path="/services-nav"
                             exact
                             render={() =>
                             <ServiceNavigator serviceCategories={this.state.serviceCategories}/>}/>
+                        <br/>
                         <Route
                             path="/categories/:id"
                             exact
