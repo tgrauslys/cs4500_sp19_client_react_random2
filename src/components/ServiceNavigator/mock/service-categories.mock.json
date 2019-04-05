@@ -1,0 +1,238 @@
+[
+  {
+    "id": "123", "title": "Home Improvements",
+    "services": [
+      {"id": "1", "title": "Appliance Installation"},
+      {"id": "2", "title": "Cabinetry"},
+      {"id": "3", "title": "Door Installation"},
+      {"id": "4", "title": "Concrete Removal"},
+      {"id": "5", "title": "Dishwasher Installation"},
+      {"id": "6", "title": "Finish Carpentry"},
+      {"id": "7", "title": "Floor Polishing"},
+      {"id": "8", "title": "Furniture Assembly"},
+      {"id": "9", "title": "Generator Installation"},
+      {"id": "10", "title": "Gardening"},
+      {"id": "11", "title": "Home Organizing"},
+      {"id": "12", "title": "Electrical and Wiring Repair"}
+    ],
+    "serviceProviders": [
+      {
+        "title": "Christina's Custom Cleaning, CCC",
+        "rating": 4.4,
+        "ratingScores": [
+          93,
+          24,
+          12,
+          10,
+          4
+        ],
+        "yearsInBusiness": "7",
+        "hires": 17,
+        "latestReview": "It's so wonderful to have the burden of cleaning - especially with an injury - removed. Christina is excellent with communication and I've been very pleased with the quality of work.",
+        "price": "$75",
+        "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+        "backgroundChecked": true,
+        "employees": 2,
+        "paymentMethods": [
+          "Cash", "Venmo"
+        ],
+        "faqs": [
+          {
+            "question": "What should the customer know about your pricing (e.g., discounts, fees)?",
+            "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+          },
+          {
+            "question": "What education and/or training do you have that relates to your work?",
+            "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "who": "Kristine M.",
+            "stars": 5,
+            "review":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "date": "Apr 13, 2017",
+            "reply": "thank you very much!! see you next weekend!!"
+          },
+          {
+            "id": 2,
+            "who": "Eric G.",
+            "stars": 5,
+            "review":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "date": "Apr 19, 2017",
+            "reply": "Thank you so much Eric! We loved cleaning your home! "
+          }
+        ]
+      },
+      {
+        "title": "Perfect Shine Cleaner",
+        "rating": 5,
+        "reviews": 1,
+        "yearsInBusiness": "1",
+        "hires": 3,
+        "latestReview": "Ana came is and did an amazing job cleaning before a family party. She was available on short notice and exceeded my expectations. Thanks Ana!",
+        "price": "$90"
+      },
+      {
+        "title": "Mendes cleaning services",
+        "rating": 4.8,
+        "reviews": 35,
+        "yearsInBusiness": "5",
+        "hires": 23,
+        "latestReview": "Wonderful job! House was quite a mess and they did a great job! Scheduling them for regular cleanings! High recommend!!!",
+        "price": "$90"
+      }
+    ],
+    "questions": [
+      {
+        "id": "1",
+        "question": "Number of bedrooms",
+        "questionType": "MULTIPLE-CHOICE",
+        "choices": [
+          {"id": "1", "title": "1 bedroom"},
+          {"id": "2", "title": "2 bedroom"},
+          {"id": "3", "title": "3 bedroom"},
+          {"id": "4", "title": "4 bedroom"},
+          {"id": "5", "title": "5 bedroom"},
+          {"id": "6", "title": "6 bedroom"}
+        ]},
+      {"id": "2", "question": "Number of bathrooms", "questionType": "MULTIPLE-CHOICE",
+        "choices": [
+          {"id": "1", "title": "1 bathroom"},
+          {"id": "2", "title": "2 bathroom"},
+          {"id": "3", "title": "3 bathroom"},
+          {"id": "4", "title": "4 bathroom"},
+          {"id": "5", "title": "5 bathroom"},
+          {"id": "6", "title": "6 bathroom"}
+        ]},
+      {"id": "3", "question": "Cleaning type", "questionType": "MULTIPLE-CHOICE",
+        "choices": [
+          {"id": "1", "title": "Standard cleaning"},
+          {"id": "2", "title": "Deep cleaning"},
+          {"id": "3", "title": "Move out cleaning"}
+        ]},
+      {"id": "4", "question": "Extra services", "questionType": "MULTIPLE-ANSWER",
+        "choices": [
+          {"id": "1", "title": "Fridge cleaning"},
+          {"id": "2", "title": "Oven cleaning"},
+          {"id": "3", "title": "Window cleaning"},
+          {"id": "4", "title": "Laundry"}
+        ]},
+      {"id": "5", "question": "Frequency", "questionType": "MULTIPLE-CHOICE",
+        "choices": [
+          {"id": "1", "title": "Just once"},
+          {"id": "2", "title": "Every week"},
+          {"id": "3", "title": "Every 2 weeks"},
+          {"id": "4", "title": "Once a month"}
+        ]}
+    ]
+  },
+  {
+    "id": "345", "title": "Pets",
+    "serviceProviders": [],
+    "questions": [],
+    "services": [
+    {"id": "1", "title": "Cat Grooming"},
+    {"id": "2", "title": "Dog Training"},
+    {"id": "3", "title": "Pet Boarding"},
+    {"id": "4", "title": "Pet Sitting"},
+    {"id": "5", "title": "Dog Walking"},
+    {
+      "id": "6",
+      "title": "Dog Grooming",
+      "serviceProviders": [
+        {
+          "title": "Lucky Dogs Daycare & Pet Spa",
+          "rating": 4.4,
+          "reviews": 21,
+          "yearsInBusiness": "7",
+          "hires": 17,
+          "latestReview": "This weekend we  took her for a two-hour play time followed by ...",
+          "price": "$35/Dog"
+        },
+        {
+          "title": "Zenful Pawz LLC",
+          "rating": 5,
+          "reviews": 1,
+          "yearsInBusiness": "1",
+          "hires": 3,
+          "latestReview": "! She’s the best! I know my little Betty is in great care. We have been to many groomers & this is the best yet! We will continue to visit Izzy!",
+          "price": "contact for price"
+        },
+        {
+          "title": "Fluff & Buff Boutique",
+          "rating": 4.8,
+          "reviews": 35,
+          "yearsInBusiness": "5",
+          "hires": 23,
+          "latestReview": "Kate really knows how to handle dogs. Her love of animals shines and she takes great pride in her work. My dog always looks great after her care.",
+          "price": "contact for price"
+        }
+      ],
+      "questions": [
+        {"id": "1", "question": "Dog size",
+          "questionType": "MULTIPLE-CHOICE",
+          "choices": [
+            {"id": "1", "title": "Extra small (1 - 15 lbs)"},
+            {"id": "2", "title": "Small (16 - 25 lbs)"},
+            {"id": "3", "title": "Medium (26 - 40 lbs)"},
+            {"id": "4", "title": "Large (41 - 70 lbs)"},
+            {"id": "5", "title": "Extra large (70+ lbs)"}
+          ]},
+        {"id": "2", "question": "Dog coat type",
+          "questionType": "MULTIPLE-CHOICE",
+          "choices": [
+            {"id": "1", "title": "Smooth, skin-like coat"},
+            {"id": "2", "title": "Wavy or curly coat"},
+            {"id": "3", "title": "Silky coat with fine hair"},
+            {"id": "4", "title": "Wiry, bristly coat"},
+            {"id": "5", "title": "Thick, fluffy double-coat"}
+          ]}
+      ]},
+    {"id": "7", "title": "Dog Daycare"},
+    {"id": "8", "title": "Aquarium Services"},
+    {"id": "9", "title": "Animal Training (Non-canine)"},
+    {"id": "10", "title": "Behavior Modification (Non-canine)"}
+  ]},
+  {
+    "id": "234", "title": "Wellness",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "456", "title": "Business",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "567", "title": "Events",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "678", "title": "Crafts",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "789", "title": "Design and Web",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "890", "title": "Legal",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "987", "title": "Personal",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []},
+  {
+    "id": "876", "title": "Photography",
+    "serviceProviders": [],
+    "questions": [],
+    "services": []}
+]
