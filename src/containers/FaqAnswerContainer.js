@@ -19,8 +19,6 @@ class FAQAnswerContainer extends React.Component {
                 answer: '',
             },
             totalPages: 0
-
-
         }
 
     }

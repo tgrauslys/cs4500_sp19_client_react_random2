@@ -1,7 +1,7 @@
 import React from 'react'
 import ServiceCategoryPills from "./ServiceCategoryPills";
-import ServiceSearchContainer from "../containers/ServiceSearchContainer";
-import UserService from "../services/UserService";
+import ServiceSearchContainer from "../../containers/ServiceSearchContainer";
+import UserService from "../../services/UserService";
 
 const userService = UserService.getInstance()
 
