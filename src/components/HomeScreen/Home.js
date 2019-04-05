@@ -34,13 +34,13 @@ const Home = (pillServiceCategories) => {
         <br/>
         <br/>
         <div>
-            <ServiceCategoryPills serviceCategories={pillServiceCategories.pillServiceCategories}/>
+            <ServiceCategoryPills serviceCategories={pillServiceCategories.serviceCategories}/>
         </div>
         <br/>
         <br/>
-        <div>
-            <ServiceNavigator serviceCategories={pillServiceCategories.pillServiceCategories}/>
-        </div>
+        {/*<div>*/}
+            {/*<ServiceNavigator serviceCategories={pillServiceCategories.serviceCategories}/>*/}
+        {/*</div>*/}
         <br/>
         {/*<ServiceTabNavigator
             serviceCategories={serviceCategories}/>*/}
