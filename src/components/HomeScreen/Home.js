@@ -2,6 +2,7 @@ import React from 'react'
 import ServiceCategoryPills from "./ServiceCategoryPills";
 import ServiceSearchContainer from "../../containers/ServiceSearchContainer";
 import UserService from "../../services/UserService";
+import ServiceNavigator from "../ServiceNavigator/ServiceNavigator";
 
 const userService = UserService.getInstance()
 
@@ -37,6 +38,9 @@ const Home = (pillServiceCategories) => {
         </div>
         <br/>
         <br/>
+        <div>
+            <ServiceNavigator serviceCategories={pillServiceCategories.pillServiceCategories}/>
+        </div>
         <br/>
         {/*<ServiceTabNavigator
             serviceCategories={serviceCategories}/>*/}
