@@ -10,6 +10,7 @@ import provider from "./data/provider.mock.json"
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
+import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 
 class App extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class App extends Component {
             .findAllServiceCategories()
             .then(serviceCategories =>
                       this.setState({
-                                        pillServiceCategories: serviceCategories
+                          pillServiceCategories: serviceCategories
                                     })
             )
     }
@@ -55,6 +56,7 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
+
                         <Link to={"/provider"}>Provider</Link>
                         <Route
                         path="/provider"
@@ -62,13 +64,22 @@ class App extends Component {
                         render={() =>
                         <Provider provider = {provider}/>}/>
                         <br/>
+
                         <Link to="/home">Home</Link>
                         <Route
                             path="/home"
                             exact
                             render={() => <Home
                                 pillServiceCategories={this.state.pillServiceCategories}/>}/>
-
+                        <br/>
+                        <Link to="/services-nav">Service Navigator</Link>
+                        <Route
+                            path="/services-nav"
+                            exact
+                            render={() =>
+                            <ServiceNavigator serviceCategories={this.state.pillServiceCategories}
+                                              />}/>
+                        <br/>
                         <Route
                             path="/categories/:id"
                             exact
