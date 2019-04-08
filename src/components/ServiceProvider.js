@@ -18,7 +18,7 @@ const ServiceProvider = ({serviceProvider}) =>
                     <i className="fa fa-star cs4500-yellow"/>
                     <i className="fa fa-star cs4500-yellow"/>
                     <i className="fa fa-star cs4500-yellow"/>
-                    <span> {serviceProvider.reviews.length} reviews</span>
+                    <span> {/*serviceProvider.reviews.length*/} reviews</span>
                 </div>
                 <div>
                     <span>{serviceProvider.yearsInBusiness}</span> years in business,&nbsp;

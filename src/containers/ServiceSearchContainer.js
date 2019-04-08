@@ -6,10 +6,13 @@ class ServiceSearchContainer extends React.Component {
     constructor(props) {
         super(props)
         this.userService = this.props.service
+        this.serviceService = this.props.serviceService
         this.state = {
+            serviceCategory: "",
             searchResults: [],
             username: "",
             zipcode: "",
+            Filters: {},
             activeFilters: {
                 "hello" : null,
                 "world" : null
@@ -24,15 +27,27 @@ class ServiceSearchContainer extends React.Component {
                     searchResults: searchResults
                 })}
             )
+        this.serviceService
+            .getServiceQuestions()
+            .then(serviceQuestions => {
+                var initFilters
+                serviceQuestions.forEach(serviceQuestion =>
+                    initFilters[serviceQuestion.id] = null
+                )
+                this.setState({
+                    activeFilters: initFilters
+                })
+            })
+        
     } 
     handleSubmit = e => {
         e.preventDefault()
-        this.userService.filterUsers(this.state.username, this.state.zipcode)
+        this.userService
+            .filterUsers(this.state.username, this.state.zipcode)
             .then(searchResults => 
                 this.setState({
                     searchResults: searchResults
-                }))
-    
+                }))    
     }
     updateUserName = e => {
         this.setState({
@@ -64,7 +79,7 @@ class ServiceSearchContainer extends React.Component {
                     handleSubmit={this.handleSubmit}
                     updateUsername={this.updateUserName}
                     updateZipcode={this.updateZipcode}/>
-                <ServiceSearchFilters serviceSearchFilters={[
+                <ServiceSearchFilters serviceSearchFilters={/*[
                     {
                         id : "hello",
                         type : "choiceAnswer",
@@ -76,17 +91,21 @@ class ServiceSearchContainer extends React.Component {
                         type : "choiceAnswer",
                         question : "What's down?",
                         choices : ["What", "Is", "Down"]
-                }]}
+                }]*/
+                this.activeFilters
+                }
                 handleSelection = {this.updateFilter}/>
                 <ServiceSearchResults
                     searchResults={[
+                        ...this.state.searchResults,
                         {
                             id: 1,
                             username: "Ralph's Wreckage",
                             rating: 4,
                             reviews: ["This guy wrecks", "He doesn't"],
                             yearsInBusiness: 3,
-                            hires: 7
+                            hires: 7,
+                            price: "$15/hr"
                         }
                     ]}/>
             </div>
