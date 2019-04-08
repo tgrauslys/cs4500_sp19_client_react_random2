@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceQuestions from '../components/ServiceQuestions'
 import ServiceSearchBar from '../components/ServiceSearchBar';
+import ServiceSearchFilters from '../components/ServiceSearchFilters';
 class ServiceQuestionContainer extends React.Component {
     constructor(props) {
         super(props)
