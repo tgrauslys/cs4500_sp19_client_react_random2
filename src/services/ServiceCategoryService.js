@@ -29,6 +29,10 @@ export default class ServiceCategoryService {
             }
         });
 
+    findServCatPage = (page, elements) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/categories/paged?page=${page}&count=${elements}`)
+            .then(response => response.json())
+
     createServiceCategory = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/categories`, {
             method: 'POST',

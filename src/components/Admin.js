@@ -63,7 +63,11 @@ const Admin = () =>
                 <Route
                     path="/admin/categories"
                     exact
-                    render={() => <ServiceCategoryContainer service = {categoryService}/>}/>
+                    render={() => <ServiceCategoryContainer
+                        service = {categoryService}
+                        currentPage={0}
+                        itemCount={10}
+                        optionValues={[1, 2, 5, 10, 25, 50]}/>}/>
                 <Route
                     path="/admin/categories/:id"
                     exact
