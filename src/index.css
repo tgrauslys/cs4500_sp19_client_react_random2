@@ -23,6 +23,12 @@ code {
   box-shadow: 0 0 15px #aaa;
 }
 
+.search-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .wd-padding-20 {
   padding: 20px;
 }
