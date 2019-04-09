@@ -27,17 +27,17 @@ class ServiceSearchContainer extends React.Component {
                     searchResults: searchResults
                 })}
             )
-        this.serviceService
-            .getServiceQuestions()
-            .then(serviceQuestions => {
-                var initFilters
-                serviceQuestions.forEach(serviceQuestion =>
-                    initFilters[serviceQuestion.id] = null
-                )
-                this.setState({
-                    activeFilters: initFilters
-                })
-            })
+        // this.serviceService
+        //     .getServiceQuestions()
+        //     .then(serviceQuestions => {
+        //         var initFilters
+        //         serviceQuestions.forEach(serviceQuestion =>
+        //             initFilters[serviceQuestion.id] = null
+        //         )
+        //         this.setState({
+        //             activeFilters: initFilters
+        //         })
+        //     })
         
     } 
     handleSubmit = e => {
