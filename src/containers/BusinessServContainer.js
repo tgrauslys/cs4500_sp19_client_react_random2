@@ -1,5 +1,6 @@
 import React from 'react'
 import BusinessServices from "../components/BusinessServices";
+
 //import servs from "../data/services.mock.json"
 
 class BusinessServContainer extends React.Component {
@@ -33,6 +34,15 @@ class BusinessServContainer extends React.Component {
 
     selectService(e) {
         if (e.target.checked) {
+            let newServ = this.findCachedService(e.target.value);
+            if (newServ && !this.state.selectedServices.some(item => item.id === newServ.id)) {
+                this.setState({
+                                  searchTerm: '',
+                                  selectedServices: this.state.selectedServices.concat(newServ),
+                                  searchedServices: []
+                              })
+            }
+            /*
             this.servService.findServiceById(e.target.value).then(serv => {
                 if (this.state.selectedServices.some(item => item.id === serv.id)) {
 
@@ -43,7 +53,7 @@ class BusinessServContainer extends React.Component {
                                       searchedServices: []
                                   });
                 }
-            });
+            });*/
         } else {
             this.setState({
                               searchTerm: '',
@@ -54,15 +64,21 @@ class BusinessServContainer extends React.Component {
         }
     }
 
+    findCachedService(id) {
+        return this.state.services.filter(service => service.id === parseInt(id))[0];
+    }
+
     updateDisplay = e => {
-        this.servService.findServiceById(e.target.value)
+        this.setState({
+                          displayedService: this.findCachedService(e.target.value)
+                      })
+        /*this.servService.findServiceById(e.target.value)
             .then(serv => {
-                      console.log(serv);
                       this.setState({
                                         displayedService: serv
                                     })
                   }
-            )
+            )*/
     }
 
     findServicesForTerm(term) {
