@@ -7,11 +7,12 @@ const BusinessServices = ({
                               selectedServices,
                               findServicesForTerm,
                               updateServ,
+                              updateDisplay,
+                              displayedService
                           }) =>
 
     <div>
         <h3>Business Services</h3>
-
 
         {/*<a role="button" className="btn btn-success" variant="outline-success"
            onClick={createCategory}
@@ -27,6 +28,7 @@ const BusinessServices = ({
                         value={searchTerm}
                         className="form-control"
                         name="service-searchbox"
+                        autoComplete="off"
                         onChange={e => updateServ(e)}/>
                     <ul className="search-list">
                         {
@@ -46,19 +48,39 @@ const BusinessServices = ({
                     </ul>
                     <h4>Selected services</h4>
                     <ul className="select-list">
+
                         {
-                            console.log(selectedServices)}{
-                        selectedServices.map(serv =>
-                                                 <li key={serv.id}>
-                                                     {serv.serviceName}
-                                                 </li>
-                        )
-                    }
+                            selectedServices.map(serv =>
+                                                     <li key={serv.id}>
+                                                         <label>
+                                                             <input
+                                                                 type="radio"
+                                                                 name="select-displayed"
+                                                                 value={serv.id}
+                                                                 onChange={e => updateDisplay(e)}
+                                                             />
+                                                             {serv.serviceName}
+                                                         </label>
+                                                     </li>
+                            )
+                        }
                     </ul>
                 </td>
 
                 <td>
                     <h4>Service questions</h4>
+                    {
+                        displayedService ? displayedService.serviceQuestions
+                                             .map(question => {
+                                                 return (
+                                                     <h5 key = {question.question}>
+                                                         {question.question}
+                                                     </h5>
+                                                 )
+                                             })
+                            : ""
+                    }
+                    
                 </td>
             </tr>
             </tbody>

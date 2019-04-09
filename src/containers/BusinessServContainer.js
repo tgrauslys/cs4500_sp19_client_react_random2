@@ -1,5 +1,6 @@
 import React from 'react'
 import BusinessServices from "../components/BusinessServices";
+import servs from "../data/services.mock.json"
 
 class BusinessServContainer extends React.Component {
     categoryServ;
@@ -11,21 +12,17 @@ class BusinessServContainer extends React.Component {
         this.categoryService = this.props.categoryServ;
         this.userService = this.props.userServ;
         this.servService = this.props.serviceServ;
+
         this.state = {
             searchTerm: '',
             searchedServices: [],
             selectedServices: [],
-            // Throw in a default ServiceCategory
-            serviceCategory: {
-
-                services: []
-            }
+            displayedService: null,
+            services: [],
         }
-
     }
 
     updateServ = e => {
-        //e.preventDefault();
         if (e.target.name === "service-searchbox") {
             this.state.searchTerm = e.target.value;
             this.findServicesForTerm(this.state.searchTerm);
@@ -57,18 +54,32 @@ class BusinessServContainer extends React.Component {
         }
     }
 
+    updateDisplay = e => {
+        this.servService.findServiceById(e.target.value)
+            .then(serv => {
+                      console.log(serv);
+                      this.setState({
+                                        displayedService: serv
+                                    })
+                  }
+            )
+    }
+
     findServicesForTerm(term) {
-        this.servService.findAllServices()
-            .then(services =>
-                      services.filter(service => {
-                          return service.serviceName.toLowerCase()
-                              .includes(term.toLowerCase());
-                      })).then(filtered => this.setState({
-                                                             searchedServices: filtered
-                                                         }));
+        let filtered = this.state.services.filter(service =>
+                                                      service.serviceName.toLowerCase()
+                                                          .includes(term.toLowerCase())
+        );
+        this.setState({
+                          searchedServices: filtered
+                      });
     }
 
     componentDidMount() {
+        this.servService.findAllServices()
+            .then(services => this.setState({
+                                                services: services
+                                            }));
     }
 
 // Create table with service categories
@@ -81,6 +92,8 @@ class BusinessServContainer extends React.Component {
                     searchedServices={this.state.searchedServices}
                     selectedServices={this.state.selectedServices}
                     findServicesForTerm={this.findServicesForTerm}
+                    updateDisplay={this.updateDisplay}
+                    displayedService={this.state.displayedService}
                 />
             </div>
         )
