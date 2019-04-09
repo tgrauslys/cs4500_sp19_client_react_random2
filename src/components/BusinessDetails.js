@@ -1,7 +1,5 @@
 const BussinessDetails = ({
-                              updateForm,
-                              business,
-
+                              business
                           }) =>
     <div>
         <h2>Buisness</h2>
@@ -13,17 +11,17 @@ const BussinessDetails = ({
                value={business.yearFounded}></input>
         Number of Employees
         <input onChange={e => updateForm(e)}
-               value={business.name}></input>
+               value={business.numEmployees}></input>
         Email
         <input onChange={e => updateForm(e)}
-               value={business.name}></input>
+               value={business.email}></input>
         <h3>Business Address (optional)</h3>
         Street
         <input onChange={e => updateForm(e)}
-               value={business.name}></input>
+               value={business.street}></input>
         City
         <input onChange={e => updateForm(e)}
-               value={business.name}></input>
+               value={business.city}></input>
         State
         <input onChange={e => updateForm(e)}
                value={business.state}></input>
@@ -31,7 +29,6 @@ const BussinessDetails = ({
         <input onChange={e => updateForm(e)}
                value={business.zip}></input>
         <h2>Payment Methods</h2>
-        Zip
         <input onChange={e => updateForm(e)}
                value={business.paymentMethods}></input>
         <h2>Social Media</h2>
