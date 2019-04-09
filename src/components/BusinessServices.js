@@ -80,7 +80,6 @@ const BusinessServices = ({
                                              })
                             : ""
                     }
-                    
                 </td>
             </tr>
             </tbody>
