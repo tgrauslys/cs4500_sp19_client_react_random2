@@ -29,7 +29,6 @@ const userService = UserService.getInstance()
 const categoryService = ServiceCategoryService.getInstance()
 const services = ServicesService.getInstance();
 
-
 const Admin = () =>
     <div>
         <h2>Admin</h2>
@@ -70,19 +69,13 @@ const Admin = () =>
                     <Route
                         path="/admin/categories"
                         exact
-                        render={() => <ServiceCategoryContainer service={categoryService}/>}/>
+                        component={ServiceCategoryContainer}/>
                     <Route
                         path="/admin/categories/:id"
                         exact
-                        component={(props) => (
-                            <ServCatDetailsContainer
-                                props={props}
-                                service={categoryService}/>)}
-                        //render={() => (
-                        //             <ServCatDetailsContainer
-                        //                 service = {categoryService}/>
-                        //)}
+                        component={ServCatDetailsContainer}
                     />
+
                     <Route
                         path="/admin/questions"
                         exact
@@ -115,7 +108,7 @@ const Admin = () =>
                         exact
                         render={() => <FaqAnswerContainer FAQService={faqService}
                                                           AnswerService={faqAnswerService}
-                                                          UserService = {userService}
+                                                          UserService={userService}
                                                           currentPage={0}
                                                           itemCount={10}
                                                           optionValues={[1, 2, 5, 10, 25, 50]}/>}/>
@@ -124,7 +117,6 @@ const Admin = () =>
                         exact
                         render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
                 </div>
-
             </div>
         </Router>
     </div>

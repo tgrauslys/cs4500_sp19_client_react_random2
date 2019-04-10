@@ -17,7 +17,7 @@ const BusinessServices = ({
         {/*<a role="button" className="btn btn-success" variant="outline-success"
            onClick={createCategory}
         >Create new</a>*/}
-        <table className="table">
+        <table className="bserv-table">
             <tbody>
             <tr>
                 <td>
@@ -34,13 +34,16 @@ const BusinessServices = ({
                         {
                             searchedServices.map(serv =>
                                                      <li key={serv.id}>
-                                                         <input type="checkbox"
-                                                                name="service-checkbox"
-                                                                value={serv.id}
-                                                                checked={selectedServices.some(
-                                                                    sel => sel.id === serv.id)}
-                                                                onChange={e => updateServ(e)}/>
-                                                         {serv.serviceName}
+
+                                                         <label className="btn-lbl">
+                                                             <input type="checkbox"
+                                                                    name="service-checkbox"
+                                                                    value={serv.id}
+                                                                    checked={selectedServices.some(
+                                                                        sel => sel.id === serv.id)}
+                                                                    onChange={e => updateServ(e)}/>
+                                                             {serv.serviceName}
+                                                         </label>
 
                                                      </li>
                             )
@@ -52,11 +55,13 @@ const BusinessServices = ({
                         {
                             selectedServices.map(serv =>
                                                      <li key={serv.id}>
-                                                         <label>
+                                                         <label className="btn-lbl"
+                                                                htmlFor={"h" + serv.id}>
                                                              <input
                                                                  type="radio"
                                                                  name="select-displayed"
                                                                  value={serv.id}
+                                                                 id={"h" + serv.id}
                                                                  onChange={e => updateDisplay(e)}
                                                              />
                                                              {serv.serviceName}
@@ -73,12 +78,12 @@ const BusinessServices = ({
                         displayedService ? displayedService.serviceQuestions
                                              .map(question => {
                                                  return (
-                                                     <h5 key = {question.question}>
+                                                     <h5 key={question.question}>
                                                          {question.question}
                                                      </h5>
                                                  )
                                              })
-                            : ""
+                            : <h4/>
                     }
                 </td>
             </tr>

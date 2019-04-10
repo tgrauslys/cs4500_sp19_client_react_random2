@@ -9,21 +9,20 @@ const ServiceCategoryPills = ({serviceCategories}) =>
                     <a className="nav-link btn-lg text-center"
                        href={"/categories/"  + serviceCategory.id}>
                         {/*<i className={`fa ${serviceCategory.icon}`}/>*/}
-                        <br/>
                         {serviceCategory.serviceCategoryName}
                     </a>
                 </li>
             ))
         }
 
-        <li className="nav-item">
+        {/*<li className="nav-item">
             <a className="nav-link btn-lg text-center"
-               href="./services">
+               href="/categories">
                 <i className="fa fa-ellipsis-h"/>
                 <br/>
                 More
             </a>
-        </li>
+        </li>*/}
     </ul>
 
 export default ServiceCategoryPills
