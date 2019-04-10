@@ -19,7 +19,7 @@ export default class FAQAnswerService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/paged?page=${page}&count=${elements}`)
             .then(response => response.json())
 
-    finFAQAnswerFiltered = (question, answer) =>
+    findFAQAnswerFiltered = (question, answer) =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/filtered?question=${question}&answer=${answer}`)
             .then(response => response.json)
 
@@ -35,10 +35,10 @@ export default class FAQAnswerService {
         })
             .then(response => response.json()); // parses response to JSON
 
-    createFAQAnswers = frequentlyAskedAnswer =>
+    createFAQAnswer = (frequentlyAskedQuestion, frequentlyAskedAnswer) =>
         // fetch(`http://localhost:8080/api/faq-answer`, {
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer`, {
-            method: "POST",
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${frequentlyAskedQuestion.id}/answer`, {
+            method: 'post',
             headers: {
                 "Content-Type": "application/json",
                 // "Content-Type": "application/x-www-form-urlencoded",
@@ -46,6 +46,9 @@ export default class FAQAnswerService {
             body: JSON.stringify(frequentlyAskedAnswer), // body data type must match "Content-Type" header
         })
             .then(response => response.json()); // parses response to JSON
+
+    updateUser = (frequentlyAskedAnswer, user) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/${frequentlyAskedAnswer.id}/user/${user.id}`).then(response => response.json());
 
     deleteFAQAnswers = id =>
         // fetch(`http://localhost:8080/api/faq-answer/${id}`, {

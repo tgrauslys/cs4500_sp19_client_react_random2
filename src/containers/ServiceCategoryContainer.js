@@ -1,16 +1,17 @@
 import React from 'react'
 
 import ServiceCategories from '../components/ServiceCategories'
+import ServiceCategoryService from "../services/ServiceCategoryService";
 
 // Component that creates a list of ServiceCategories
 class ServiceCategoryContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.serviceCategoryService = this.props.service;
         this.currentPage = this.props.currentPage
         this.itemCount = this.props.itemCount
         this.optionValues = this.props.optionValues
+        this.serviceCategoryService = ServiceCategoryService.getInstance();
         this.state = {
             serviceCategories: [],
             optionValues: [],
@@ -50,13 +51,15 @@ class ServiceCategoryContainer extends React.Component {
     }
 
     componentDidMount() {
+        console.log("SCAT Container update");
         this.findAllCategories()
     }
 
-    createCategory = () =>
-        this.serviceCategoryService.createServiceCategory().then((response) => {
+    createCategory = () => {
+        return this.serviceCategoryService.createServiceCategory().then((response) => {
             this.props.history.push(`/admin/categories/${response['id']}`);
         });
+    }
 
     deleteCategory = (id) =>
         this.serviceCategoryService.deleteServiceCategoryById(id)

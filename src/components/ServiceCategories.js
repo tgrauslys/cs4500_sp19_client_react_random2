@@ -11,7 +11,6 @@ const ServiceCategories = ({
                                totalPages,
                                setPage
                            }) => {
-
     const isFirstPage = currentPage === 0;
     const isLastPage = currentPage >= totalPages - 1;
 
@@ -90,5 +89,4 @@ const ServiceCategories = ({
             </table>
         </div>)
 }
-
 export default ServiceCategories
