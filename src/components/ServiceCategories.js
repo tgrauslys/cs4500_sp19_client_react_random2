@@ -48,6 +48,7 @@ const ServiceCategories = ({
             <table className="table">
                 <tbody>
                 {
+                    categories ?
                     categories
                         .map(serviceCategory =>
                                  <tr key={serviceCategory.id}>
@@ -66,7 +67,7 @@ const ServiceCategories = ({
                                          </a>
                                      </td>
                                  </tr>
-                        )
+                        ) : 'Loading...'
                 }
                 <tr>
                     <td>

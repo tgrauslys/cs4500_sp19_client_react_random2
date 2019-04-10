@@ -67,21 +67,24 @@ class ServiceCategoryContainer extends React.Component {
 
     // Create table with service categories
     render() {
+        if(this.state.serviceCategories.length > 0) {
+            return (
+                <div>
+                    <ServiceCategories
+                        categories={this.state.serviceCategories}
+                        createCategory={this.createCategory}
+                        deleteCategory={this.deleteCategory}
+                        optionValues={this.state.optionValues}
+                        currentPage={this.state.currentPage}
+                        itemCount={this.state.itemCount}
+                        totalPages={this.state.totalPages}
+                        setPage={this.setPage}/>
+                </div>
 
-        return (
-            <div>
-                <ServiceCategories
-                    categories={this.state.serviceCategories}
-                    createCategory={this.createCategory}
-                    deleteCategory={this.deleteCategory}
-                    optionValues={this.state.optionValues}
-                    currentPage={this.state.currentPage}
-                    itemCount={this.state.itemCount}
-                    totalPages={this.state.totalPages}
-                    setPage={this.setPage}/>
-            </div>
-
-        )
+            )
+        } else {
+            return (<div>Loading...</div>)
+        }
     }
 }
 

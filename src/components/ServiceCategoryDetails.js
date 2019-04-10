@@ -32,13 +32,13 @@ const ServiceCategoryDetails = ({
 
         <AsyncSelect cacheOptions
                      defaultOptions
-                     value={services.map(service => {
+                     value={services ? services.map(service => {
                          let opt = {};
                          opt.label = service.serviceName;
                          opt.value = service.id;
                          opt.serv = service;
                          return opt;
-                     })}
+                     }) : []}
                      isMulti={true}
                      loadOptions={promiseOptions}
                      onChange={(e) => handleEvents(e, "category-services")}/>
