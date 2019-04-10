@@ -47,6 +47,7 @@ const Home = (pillServiceCategories) => {
         </div>
         <br/>
         <br/>
+
         <br/>
         {/*<ServiceTabNavigator
             serviceCategories={serviceCategories}/>*/}
