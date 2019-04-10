@@ -7,6 +7,9 @@
     "heroku": "^7.22.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-paginate": "^6.3.0",
+    "react-pagination": "^1.0.0",
+    "react-pagination-library": "^0.1.14",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
     "react-select": "^2.4.2"
