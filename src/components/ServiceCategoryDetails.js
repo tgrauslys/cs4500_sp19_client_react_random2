@@ -1,41 +1,49 @@
 import React from 'react'
-import ServiceCategoryService from '../services/ServiceCategoryService'
+import AsyncSelect from 'react-select/lib/Async';
 
 const ServiceCategoryDetails = ({
                                     props,
                                     category,
                                     categories,
-                                    selectServiceCategory
+                                    services,
+                                    selectServiceCategory,
+                                    promiseOptions,
+                                    handleEvents,
+                                    saveCategory
                                 }) => {
 
     return (<div>
         <h3>Service Category Details</h3>
-        <select
-            value={category.id}
-            onChange={(e) => {
-                console.log(e.target.value)
-                selectServiceCategory(e.target.value)
-            }}
-            className="form-control">
-            {
-                categories
-                    .map(serviceCategory =>
-                             <option
-                                 value={serviceCategory.id}
-                                 key={serviceCategory.id}>
-                                 {serviceCategory.serviceCategoryName}
-                             </option>
-                    )
-            }
-        </select>
-        <label>Service Category Title</label><br/>
+        <a role="button" className="btn btn-success" variant="outline-success"
+           onClick={() => {
+               saveCategory()
+           }}>Save</a>
+        <label>Service Category Name</label>
         <input
-            onChange={(x) => {
-                console.log(x)
+            type="text"
+            placeholder={category.serviceCategoryName}
+            onChange={(e) => {
+                handleEvents(e, "category-name");
             }}
             className="form-control"
-            value={category.serviceCategoryName}/>
-    </div>)
-}
+            name="category-name"/>
+
+        <label>Services in Category</label>
+
+        <AsyncSelect cacheOptions
+                     defaultOptions
+                     value={services.map(service => {
+                         let opt = {};
+                         opt.label = service.serviceName;
+                         opt.value = service.id;
+                         opt.serv = service;
+                         return opt;
+                     })}
+                     isMulti={true}
+                     loadOptions={promiseOptions}
+                     onChange={(e) => handleEvents(e, "category-services")}/>
+    </div>
+)
+};
 
 export default ServiceCategoryDetails

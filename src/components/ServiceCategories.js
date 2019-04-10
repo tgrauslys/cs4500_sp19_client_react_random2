@@ -10,7 +10,8 @@ const ServiceCategories = ({
     <div>
         <h3>Service Categories</h3>
         <a role="button" className="btn btn-success" variant="outline-success"
-           onClick={createCategory}
+           onClick={() => {
+               createCategory()}}
         >Create new</a>
         <table className="table">
             <tbody>

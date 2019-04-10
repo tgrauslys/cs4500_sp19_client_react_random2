@@ -21,9 +21,8 @@ code {
     width: 100%;
 }
 
-/* Labels for checked inputs */
-:checked  + .btn-lbl {
-    background-color: blue !important;
+.select-displayed:checked + label {
+    background-color: blue;
 }
 
 .bserv-table td {

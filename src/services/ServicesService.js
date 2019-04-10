@@ -28,6 +28,10 @@ export default class ServicesService {
             }
         });
 
+    searchService = name =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services/filtered?name=${name}`)
+            .then(response => response.json());
+
     createService = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services`, {
             method: 'POST',

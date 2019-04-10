@@ -63,19 +63,13 @@ const Admin = () =>
                 <Route
                     path="/admin/categories"
                     exact
-                    render={() => <ServiceCategoryContainer service = {categoryService}/>}/>
+                    component={ServiceCategoryContainer}/>
                 <Route
                     path="/admin/categories/:id"
                     exact
-                    component={(props) => (
-                        <ServCatDetailsContainer
-                            props = {props}
-                            service = {categoryService}/>)}
-                    //render={() => (
-                    //             <ServCatDetailsContainer
-                    //                 service = {categoryService}/>
-                    //)}
+                    component={ServCatDetailsContainer}
                 />
+
                 <Route
                     path="/admin/questions"
                     exact

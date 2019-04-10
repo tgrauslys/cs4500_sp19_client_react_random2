@@ -29,6 +29,16 @@ export default class ServiceCategoryService {
             }
         });
 
+    updateServiceCategory = category =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/categories/${category.id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(category)
+        });
+
     createServiceCategory = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/categories`, {
             method: 'POST',
