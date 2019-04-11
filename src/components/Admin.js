@@ -21,6 +21,7 @@ import ServiceCategoryService from "../services/ServiceCategoryService";
 import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
 import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
 import FAQService from "../services/FAQService";
+import BusinessDetailsContainer from "../containers/BusinessDetailsContainer";
 
 const faqService = FAQService.getInstance()
 const faqAnswerService = FAQAnswerService.getInstance()
@@ -49,6 +50,7 @@ const Admin = () =>
                     <Link to="/admin/provider-search">Provider Search</Link>
                     <br/>
                     <Link to="/admin/faq-answers">FAQ Answers</Link>
+                    <Link to="/provider/business">Business</Link>
                 </div>
                 <div className="col-9">
                     <Route
@@ -123,6 +125,11 @@ const Admin = () =>
                         path="/admin/faq-answers/:id"
                         exact
                         render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
+
+                    <Route
+                        path="/provider/business"
+                        exact
+                        render={() => <BusinessDetailsContainer/>}/>
                 </div>
 
             </div>

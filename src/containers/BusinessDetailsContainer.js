@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Quotes from "../components/Quotes";
+import BusinessDetails from "../components/BusinessDetails";
 class BusinessDetailsContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.businessService = this.props.service
+        //this.businessService = this.props.service
         this.state = {
             business: {
                 name: 'Example',
@@ -61,7 +61,8 @@ class BusinessDetailsContainer extends React.Component {
                     // deleteBusiness={this.deleteBusiness}
                     // createBusiness={this.createBusiness}
                     // updateForm={this.updateForm}
-                    business={this.state.business}/>
+                    updateForm={""}
+                    business={this.state.business} />
             </div>
         )
     }
