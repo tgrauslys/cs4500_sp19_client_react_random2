@@ -12,7 +12,14 @@ export default class UserService {
     findAllUsers = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json())
-    filterUsers = (username, zipcode) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`)
+    filterUsers = (username, zipcode, filters) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(filters)
+        })
             .then(response => response.json())
 }

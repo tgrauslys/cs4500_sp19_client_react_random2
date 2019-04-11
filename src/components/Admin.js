@@ -89,7 +89,8 @@ const Admin = () =>
                     path="/admin/provider-search"
                     exact
                     render={() => <ServiceSearchContainer
-                                    service={userService}
+                                    serviceService={services}
+                                    userService={userService}
                                     />}/>
                 <Route
                     path="/admin/questions/:id"

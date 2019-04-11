@@ -2,23 +2,26 @@ import React from 'react'
 import ServiceSearchBar from '../components/ServiceSearchBar';
 import ServiceSearchResults from '../components/ServiceSearchResults';
 import ServiceSearchFilters from '../components/ServiceSearchFilters';
+
 class ServiceSearchContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.userService = this.props.service
+        this.service = this.props.service
         this.serviceService = this.props.serviceService
+        this.userService = this.props.userService
+        this.questionService = this.props.questionService
         this.state = {
             serviceCategory: "",
+            serviceId: 202,
+            serviceQuestions: [],
+            filterQuestions: [],
             searchResults: [],
             username: "",
-            zipcode: "",
-            Filters: {},
-            activeFilters: {
-                "hello" : null,
-                "world" : null
-            }
+            zipcode: ""
         }
+        console.log(this.state.serviceQuestions)
     }
+    
     componentDidMount() {
         this.userService
             .filterUsers(this.state.username, this.state.zipcode)
@@ -28,22 +31,30 @@ class ServiceSearchContainer extends React.Component {
                 })}
             )
         this.serviceService
-            .getServiceQuestions()
-            .then(serviceQuestions => {
-                var initFilters
-                serviceQuestions.forEach(serviceQuestion =>
+            .findServiceById(this.state.serviceId)
+            .then(service => {
+                var initFilters = {}
+                var mappedQuestions = service.serviceQuestions.map(serviceQuestion => {
+                        var displayedQuestion = {}
+                        displayedQuestion["id"] = serviceQuestion.id
+                        displayedQuestion["type"]= serviceQuestion.type
+                        displayedQuestion["question"]= serviceQuestion.question
+                        displayedQuestion["choices"]= serviceQuestion.choices.split(',')
+                        return displayedQuestion
+                    })
+                    service.serviceQuestions.forEach(serviceQuestion =>
                     initFilters[serviceQuestion.id] = null
-                )
+                    )
                 this.setState({
+                    filterQuestions: mappedQuestions,
                     activeFilters: initFilters
                 })
             })
-        
     } 
     handleSubmit = e => {
         e.preventDefault()
         this.userService
-            .filterUsers(this.state.username, this.state.zipcode)
+            .filterUsers(this.state.username, this.state.zipcode, this.state.activeFilters)
             .then(searchResults => 
                 this.setState({
                     searchResults: searchResults
@@ -61,16 +72,18 @@ class ServiceSearchContainer extends React.Component {
     }
     updateFilter = e => {
         let {value, name} = e.target
+        var updatedFilters = this.state.activeFilters
         for (var q in this.state.activeFilters) {
             if (q === name) {
-                var updatedFilters = this.state.activeFilters
                 updatedFilters[name] = value
-                this.setState({
-                    activeFilters: updatedFilters
-                },
-                () => {console.log(this.state.activeFilters[name])})
             }
         }
+        this.setState({
+            activeFilters: updatedFilters
+        },
+        () => console.log(this.state.activeFilters))
+        
+        //this.handleSubmit(e)
     }
     render() {
         return (
@@ -79,25 +92,12 @@ class ServiceSearchContainer extends React.Component {
                     handleSubmit={this.handleSubmit}
                     updateUsername={this.updateUserName}
                     updateZipcode={this.updateZipcode}/>
-                <ServiceSearchFilters serviceSearchFilters={/*[
-                    {
-                        id : "hello",
-                        type : "choiceAnswer",
-                        question : "What's up?",
-                        choices : ["What", "Is", "Up"]
-                },
-                    {
-                        id : "world",
-                        type : "choiceAnswer",
-                        question : "What's down?",
-                        choices : ["What", "Is", "Down"]
-                }]*/
-                this.activeFilters
-                }
+                <ServiceSearchFilters
+                serviceSearchFilters= {this.state.filterQuestions}
                 handleSelection = {this.updateFilter}/>
                 <ServiceSearchResults
                     searchResults={[
-                        ...this.state.searchResults,
+                        //...this.state.searchResults,
                         {
                             id: 1,
                             username: "Ralph's Wreckage",

@@ -6,9 +6,9 @@ const ServiceSearchFilters = ({ serviceSearchFilters, handleSelection }) => {
         <div>
             <h3>Search Filters</h3>
             {
-                (serviceSearchFilters || [])
+                serviceSearchFilters
                     .map(serviceSearchFilter =>
-                        <ServiceSearchFilter filter={serviceSearchFilter} handleSelection={handleSelection}/>
+                        <ServiceSearchFilter key={serviceSearchFilter.id} question={serviceSearchFilter} handleSelection={handleSelection}/>
                     )
             }
         </div>
