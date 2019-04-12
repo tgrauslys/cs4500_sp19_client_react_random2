@@ -1,6 +1,7 @@
 import React from 'react'
-import AsyncSelect from 'react-select';
+
 import Select from "react-select";
+import AsyncSelect from "react-select/lib/Async"
 
 const userRoles = [
     {label: "Administrator", value: "admin"},
@@ -14,18 +15,29 @@ const UserDetails = ({
                          selectUser,
                          promiseOptions,
                          handleEvents,
-                         saveUser
+                         saveUser,
+                         goBack,
+                         deleteUser,
+                         enteredUsername
                      }) => {
 
     let role = userRoles.filter(elem => elem.value === user.role)[0];
-    role = role ? role : userRoles[2];
+    role = role ? role : "";
 
     return (<div>
             <h3>User Details</h3>
             <a role="button" className="btn btn-success" variant="outline-success"
                onClick={() => {
                    saveUser()
-               }}>Save</a><br/>
+               }}>Save</a> &nbsp;
+            <a role="button" className="btn btn-success" variant="outline-success"
+               onClick={() => {
+                   goBack()
+               }}>Cancel</a> &nbsp;
+            <a role="button" className="btn btn-danger" variant="outline-success"
+               onClick={() => {
+                   deleteUser()
+               }}>Delete</a><br/>
             <label>Username
                 <input
                     type="text"
@@ -56,6 +68,8 @@ const UserDetails = ({
                     className="form-control"
                     name="user-lastname"/>
             </label> <br/>
+            {enteredUsername ? "" : " You must enter a username!"}
+            <br/>
             <label>Description
                 <input
                     type="text"

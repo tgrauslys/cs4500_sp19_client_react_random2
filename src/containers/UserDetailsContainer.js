@@ -10,6 +10,8 @@ class UserDetailsContainer extends React.Component {
         this.userService = UserService.getInstance();
         this.serviceService = ServicesService.getInstance();
         this.state = {
+            enteredUsername: true,
+            isNewUser: false,
             users: [],
             // Empty user
             user: {
@@ -37,18 +39,23 @@ class UserDetailsContainer extends React.Component {
     componentDidMount() {
         this.userService.findUserById(this.state.user.id)
             .then(user => this.setState({
-                                            user: user
+                                            user: user,
+                                            isNewUser: ("" === user.username.trim())
                                         }));
     }
 
     saveUser = () => {
-        this.userService.updateUser(this.state.user)
-            .then(setTimeout(() => {
-                this.props.history.push("/admin/users")
-            }, 800));
+        if (this.state.user.username.trim() === "") {
+            this.setState({enteredUsername: false})
+        } else {
+            this.userService.updateUser(this.state.user)
+                .then(setTimeout(() => {
+                    this.props.history.push("/admin/users")
+                }, 800));
+        }
     };
 
-    promiseOptions = (input) => {
+    promiseOptions = input => {
         return new Promise(resolve => {
                                setTimeout(() =>
                                               resolve(this.serviceService.searchService(input)
@@ -66,9 +73,26 @@ class UserDetailsContainer extends React.Component {
         )
     };
 
+    goBack = () => {
+        if (this.state.isNewUser) {
+            this.userService.deleteUserById(this.state.user.id)
+                .then(setTimeout(() => {
+                    this.props.history.push("/admin/users")
+                }, 800));
+        } else {
+            this.props.history.push("/admin/users");
+        }
+    };
+
+    deleteUser = () => {
+        this.userService.deleteUserById(this.state.user.id)
+            .then(setTimeout(() => {
+                this.props.history.push("/admin/users")
+            }, 800));
+    };
+
     handleEvents = (e, type) => {
         let newUser = this.state.user;
-        console.log(e.toString())
         switch (type) {
             case "user-services":
                 newUser.services = e.map(elem => elem.serv);
@@ -112,7 +136,7 @@ class UserDetailsContainer extends React.Component {
         }
 
         this.setState({
-                          user: newUser
+                          user: newUser,
                       });
     };
 
@@ -136,7 +160,10 @@ class UserDetailsContainer extends React.Component {
                     handleEvents={this.handleEvents}
                     promiseOptions={this.promiseOptions}
                     saveUser={this.saveUser}
-                    selectUser={this.selectUser}/>
+                    selectUser={this.selectUser}
+                    goBack={this.goBack}
+                    deleteUser={this.deleteUser}
+                    enteredUsername={this.state.enteredUsername}/>
             </div>
         )
     }
