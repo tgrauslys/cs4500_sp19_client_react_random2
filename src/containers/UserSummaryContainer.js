@@ -2,7 +2,7 @@ import React from 'react'
 import UserService from "../services/UserService";
 import Users from "../components/Users";
 
-// Component that creates a list of ServiceCategories
+// Component that creates a list of Users
 class UserSummaryContainer extends React.Component {
 
     constructor(props) {
@@ -24,12 +24,12 @@ class UserSummaryContainer extends React.Component {
         const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
         const newPageNumber = (typeof pageNumber === "number") ? pageNumber : 0
         this.userService.findUserPage(newPageNumber, itemCount)
-            .then(servCat => {
+            .then(userPage => {
                 this.setState({
-                                  serviceCategories: servCat.content,
+                                  users: userPage.content,
                                   currentPage: newPageNumber,
                                   itemCount: itemCount,
-                                  totalPages: servCat.totalPages
+                                  totalPages: userPage.totalPages
                               })
             })
     };
