@@ -21,6 +21,7 @@ import ServiceCategoryService from "../services/ServiceCategoryService";
 import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
 import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
 import FAQService from "../services/FAQService";
+import UserSummaryContainer from "../containers/UserSummaryContainer";
 
 const faqService = FAQService.getInstance()
 const faqAnswerService = FAQAnswerService.getInstance()
@@ -52,8 +53,12 @@ const Admin = () =>
                 <div className="col-9">
                     <Route
                         path="/admin/users"
-                        exact
-                        component={Users}/>
+                        render={(props) => <UserSummaryContainer
+                            props = {props}
+                            service = {userService}
+                            currentPage={0}
+                            itemCount={10}
+                            optionValues={[1, 2, 5, 10, 25, 50]}/>}/>
                     <Route
                         path="/admin/services"
                         exact
@@ -69,7 +74,8 @@ const Admin = () =>
                     <Route
                         path="/admin/categories"
                         exact
-                        render={() => <ServiceCategoryContainer
+                        render={(props) => <ServiceCategoryContainer
+                            props = {props}
                             service = {categoryService}
                             currentPage={0}
                             itemCount={10}
