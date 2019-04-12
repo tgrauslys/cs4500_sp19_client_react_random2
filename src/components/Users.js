@@ -51,7 +51,7 @@ const Users = ({
                 <tr key="legend">
                     <td>Username</td>
                     <td>Full name</td>
-                    <td>Role</td>
+                    <td>Role</td><td/>
                 </tr>
                 {
                     users ? users
@@ -97,7 +97,7 @@ const Users = ({
                                                                                 + 1}</button>
                         {nextPageButton}
                         {nextButton}
-                    </td>
+                    </td><td/><td/><td/>
                 </tr>
                 </tbody>
             </table>
