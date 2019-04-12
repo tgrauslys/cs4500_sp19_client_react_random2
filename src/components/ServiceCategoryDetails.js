@@ -4,9 +4,7 @@ import AsyncSelect from 'react-select/lib/Async';
 const ServiceCategoryDetails = ({
                                     props,
                                     category,
-                                    categories,
                                     services,
-                                    selectServiceCategory,
                                     promiseOptions,
                                     handleEvents,
                                     saveCategory

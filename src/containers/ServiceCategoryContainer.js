@@ -58,7 +58,7 @@ class ServiceCategoryContainer extends React.Component {
         return this.serviceCategoryService.createServiceCategory().then((response) => {
             this.props.props.history.push(`/admin/categories/${response['id']}`);
         });
-    }
+    };
 
     deleteCategory = (id) =>
         this.serviceCategoryService.deleteServiceCategoryById(id)
@@ -66,7 +66,7 @@ class ServiceCategoryContainer extends React.Component {
 
     // Create table with service categories
     render() {
-        if(this.state.serviceCategories && this.state.serviceCategories.length > 0) {
+        if(this.state.serviceCategories) {
             return (
                 <div>
                     <ServiceCategories
