@@ -58,7 +58,11 @@ const Admin = () =>
                         path="/admin/services"
                         exact
                         // component={Services}/>
-                        render={() => <ServicesContainer service={services}/>}/>
+                        render={() => <ServicesContainer
+                            service={services}
+                            currentPage={0}
+                            itemCount={10}
+                            optionValues={[1, 2, 5, 10, 25, 50]}/>}/>
                     <Route
                         path="/admin/services/:id"
                         exact
@@ -70,7 +74,7 @@ const Admin = () =>
                         path="/admin/categories"
                         exact
                         render={() => <ServiceCategoryContainer
-                            service = {categoryService}
+                            service={categoryService}
                             currentPage={0}
                             itemCount={10}
                             optionValues={[1, 2, 5, 10, 25, 50]}/>}/>

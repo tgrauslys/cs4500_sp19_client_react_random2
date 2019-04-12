@@ -4,7 +4,6 @@ export default class ServicesService {
     static instance = null;
 
     static getInstance() {
-        // Allow only one instance
         if (ServicesService.instance === null) {
             ServicesService.instance = new ServicesService()
         }
@@ -27,6 +26,10 @@ export default class ServicesService {
                 'Content-Type': 'application/json',
             }
         });
+
+    findServicePage = (page, elements) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/services/paged?page=${page}&count=${elements}`)
+            .then(response => response.json())
 
     searchService = name =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services/filtered?name=${name}`)
