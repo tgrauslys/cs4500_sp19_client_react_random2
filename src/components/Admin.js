@@ -107,10 +107,11 @@ const Admin = () =>
                             optionValues={[1, 2, 5, 10, 25, 50]}
                         />}/>
                     <Route
-                        path="/admin/provider-search"
+                        path="/admin/provider-search/:id"
                         exact
                         render={() => <ServiceSearchContainer
                             service={userService}
+
                         />}/>
                     <Route
                         path="/admin/questions/:id"
