@@ -51,6 +51,7 @@ const Users = ({
                 <tr key="legend">
                     <td>Username</td>
                     <td>Full name</td>
+                    <td>Role</td>
                 </tr>
                 {
                     users ? users
@@ -63,6 +64,9 @@ const Users = ({
                                      </td>
                                      <td>
                                          {user.firstName + " " + user.lastName}
+                                     </td>
+                                     <td>
+                                         {user.role}
                                      </td>
                                      <td>
                                          <a role="button" className="btn btn-danger"

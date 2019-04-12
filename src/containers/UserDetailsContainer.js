@@ -68,6 +68,7 @@ class UserDetailsContainer extends React.Component {
 
     handleEvents = (e, type) => {
         let newUser = this.state.user;
+        console.log(e.toString())
         switch (type) {
             case "user-services":
                 newUser.services = e.map(elem => elem.serv);
@@ -82,7 +83,7 @@ class UserDetailsContainer extends React.Component {
                 newUser.lastName = e.target.value;
                 break;
             case "user-role":
-                newUser.role = e.target.value;
+                newUser.role = e.value;
                 break;
             case "user-description":
                 newUser.description = e.target.value;
@@ -91,11 +92,10 @@ class UserDetailsContainer extends React.Component {
                 newUser.startDate = e.target.value;
                 break;
             case "user-rating":
-                console.log(e.target.value);
                 newUser.rating = parseFloat(e.target.value);
                 break;
             case "user-backgroundChecked":
-                newUser.backgroundChecked = e.target.value;
+                newUser.backgroundChecked = e.value;
                 break;
             case "user-hires":
                 newUser.hires = e.target.value;
