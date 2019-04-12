@@ -19,7 +19,6 @@ class ServiceSearchContainer extends React.Component {
             username: "",
             zipcode: ""
         }
-        console.log(this.state.serviceQuestions)
     }
     
     componentDidMount() {
@@ -27,7 +26,7 @@ class ServiceSearchContainer extends React.Component {
             .filterUsers(this.state.username, this.state.zipcode)
             .then(searchResults => {
                 this.setState({
-                    searchResults: searchResults
+                    //searchResults: searchResults
                 })}
             )
         this.serviceService
@@ -58,7 +57,7 @@ class ServiceSearchContainer extends React.Component {
             .then(searchResults => 
                 this.setState({
                     searchResults: searchResults
-                }))    
+                }))
     }
     updateUserName = e => {
         this.setState({
@@ -80,12 +79,12 @@ class ServiceSearchContainer extends React.Component {
         }
         this.setState({
             activeFilters: updatedFilters
-        },
-        () => console.log(this.state.activeFilters))
+        }
         
         //this.handleSubmit(e)
     }
     render() {
+        
         return (
             <div>
                 <ServiceSearchBar 
@@ -93,21 +92,10 @@ class ServiceSearchContainer extends React.Component {
                     updateUsername={this.updateUserName}
                     updateZipcode={this.updateZipcode}/>
                 <ServiceSearchFilters
-                serviceSearchFilters= {this.state.filterQuestions}
-                handleSelection = {this.updateFilter}/>
+                    serviceSearchFilters= {this.state.filterQuestions}
+                    handleSelection = {this.updateFilter}/>
                 <ServiceSearchResults
-                    searchResults={[
-                        //...this.state.searchResults,
-                        {
-                            id: 1,
-                            username: "Ralph's Wreckage",
-                            rating: 4,
-                            reviews: ["This guy wrecks", "He doesn't"],
-                            yearsInBusiness: 3,
-                            hires: 7,
-                            price: "$15/hr"
-                        }
-                    ]}/>
+                    searchResults={this.state.searchResults}/>
             </div>
         )
     }
