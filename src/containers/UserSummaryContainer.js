@@ -32,7 +32,7 @@ class UserSummaryContainer extends React.Component {
                                   totalPages: servCat.totalPages
                               })
             })
-    }
+    };
 
     findAllUsers() {
         return this.userService

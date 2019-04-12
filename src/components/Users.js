@@ -48,6 +48,10 @@ const Users = ({
             >Create new</a>
             <table className="table">
                 <tbody>
+                <tr key="legend">
+                    <td>Username</td>
+                    <td>Full name</td>
+                </tr>
                 {
                     users ? users
                         .map(user =>
