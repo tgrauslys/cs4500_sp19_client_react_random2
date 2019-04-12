@@ -31,27 +31,14 @@ class ServiceCategoryContainer extends React.Component {
                                                 serviceCategory: category,
                                                 updatedCategory: category
                                             }))
-        /*this.serviceCategoryService
-            .findAllServiceCategories()
-            .then(serviceCategories => {
-                      //this.props.history.push("/admin/categories/" + serviceCategories[0].id);
-                      const desiredIndex = serviceCategories.findIndex((category) => {
-                          return parseInt(category.id) === parseInt(this.state.serviceCategory.id)
-                      });
-                      this.setState({
-                                        serviceCategories: serviceCategories,
-                                        serviceCategory: desiredIndex === -1 ? serviceCategories[0]
-                                            : serviceCategories[desiredIndex]
-                                    })
-                  }
-            )*/
     }
 
     saveCategory = () => {
         this.serviceCategoryService.updateServiceCategory(this.state.serviceCategory)
-            .then(setTimeout(() =>
-                             {this.props.history.push("/admin/categories")}, 800));
-    }
+            .then(setTimeout(() => {
+                this.props.history.push("/admin/categories")
+            }, 800));
+    };
 
     promiseOptions = (input) => {
         return new Promise(resolve => {
@@ -69,7 +56,7 @@ class ServiceCategoryContainer extends React.Component {
                                    , 1000)
                            }
         )
-    }
+    };
 
     handleEvents = (e, type) => {
         let newCat = this.state.serviceCategory;
@@ -83,9 +70,6 @@ class ServiceCategoryContainer extends React.Component {
         this.setState({
                           serviceCategory: newCat
                       });
-        //console.log(e.target.type)
-        //console.log(e.target.name);
-        //console.log(e.target.value);
     };
 
     selectServiceCategory = id =>
@@ -97,7 +81,7 @@ class ServiceCategoryContainer extends React.Component {
                                         serviceCategory: serviceCategory
                                     })
                   }
-            )
+            );
 
 // Create table with service categories
     render() {
@@ -105,7 +89,6 @@ class ServiceCategoryContainer extends React.Component {
             <div>
                 <ServiceCategoryDetails
                     category={this.state.serviceCategory}
-                    categories={this.state.serviceCategories}
                     services={this.state.serviceCategory.services}
                     handleEvents={this.handleEvents}
                     promiseOptions={this.promiseOptions}

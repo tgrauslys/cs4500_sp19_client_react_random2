@@ -4,9 +4,7 @@ import AsyncSelect from 'react-select/lib/Async';
 const ServiceCategoryDetails = ({
                                     props,
                                     category,
-                                    categories,
                                     services,
-                                    selectServiceCategory,
                                     promiseOptions,
                                     handleEvents,
                                     saveCategory
@@ -27,21 +25,21 @@ const ServiceCategoryDetails = ({
             }}
             className="form-control"
             name="category-name"/>
-
+            <AsyncSelect cacheOptions
+                         defaultOptions
+                         value={services ? services.map(service => {
+                             let opt = {};
+                             opt.label = service.serviceName;
+                             opt.value = service.id;
+                             opt.serv = service;
+                             return opt;
+                         }) : []}
+                         isMulti={true}
+                         loadOptions={promiseOptions}
+                         onChange={(e) => handleEvents(e, "category-services")}/>
         <label>Services in Category</label>
 
-        <AsyncSelect cacheOptions
-                     defaultOptions
-                     value={services ? services.map(service => {
-                         let opt = {};
-                         opt.label = service.serviceName;
-                         opt.value = service.id;
-                         opt.serv = service;
-                         return opt;
-                     }) : []}
-                     isMulti={true}
-                     loadOptions={promiseOptions}
-                     onChange={(e) => handleEvents(e, "category-services")}/>
+
     </div>
 )
 };
