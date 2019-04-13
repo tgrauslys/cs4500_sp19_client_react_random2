@@ -21,6 +21,7 @@ class BusinessDetailsContainer extends React.Component {
                 twitter: 'a twitter link'
             }
         }
+        this.handleChange = this.handleChange.bind(this)
     }
 /*    componentDidMount() {
         this.findAllQuotes()
@@ -34,13 +35,7 @@ class BusinessDetailsContainer extends React.Component {
                     })
                 }
             )
-    updateForm = e =>
-        this.setState({
-            quote: {
-                id: this.state.quote.id,
-                jobTitle: e.target.value
-            }
-        })
+
     createBusiness = () =>
         this.quoteService
             .createQuote(this.state.quote)
@@ -53,6 +48,12 @@ class BusinessDetailsContainer extends React.Component {
         this.quoteService
             .updateBusiness(this.state.business)
             .then(this.findAllBusinesses())*/
+    handleChange(e) {
+        let change = { business: { value : e.target.value}}
+        this.setState(change)
+
+    }
+
     render() {
         return (
             <div>
@@ -61,7 +62,7 @@ class BusinessDetailsContainer extends React.Component {
                     // deleteBusiness={this.deleteBusiness}
                     // createBusiness={this.createBusiness}
                     // updateForm={this.updateForm}
-                    updateForm={""}
+                    handleChange={this.handleChange}
                     business={this.state.business} />
             </div>
         )
