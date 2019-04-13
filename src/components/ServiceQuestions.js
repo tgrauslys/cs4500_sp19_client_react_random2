@@ -5,11 +5,10 @@ const ServiceQuestions = ({
                             serviceQuestions, 
                             optionValues, 
                             currentPage,
-                            itemCount, 
-                            totalPages,
+                            itemCount,
+                            first,
+                            last,
                             setPage}) => {
-    const isFirstPage = currentPage === 0;
-    const isLastPage = currentPage >= totalPages - 1;
 
     let previousButton = <button onClick= {(e) => setPage(e, currentPage - 1)}
                             style={{margin: '2px'}}
@@ -26,11 +25,11 @@ const ServiceQuestions = ({
                                 style={{margin: '2px'}}
                                 type="button" className="btn btn-primary next-page-btn">{currentPage + 2}</button>
 
-    if (isFirstPage) {
+    if (first) {
         previousButton = ''
         previousPageButton = ''
     } 
-    if (isLastPage) {
+    if (last) {
         nextButton = ''
         nextPageButton = ''
     }

@@ -1,4 +1,5 @@
-import questions from "/question.mock.json"
+import questions from '/question.mock.json'
+import pagedQuestions from '/pagedQuestions.mock.json'
 
 global.fetch = jest.fn()
 .mockImplementation(url => {
@@ -9,11 +10,11 @@ global.fetch = jest.fn()
                 return questions[0]
             }})
         })
-    } else if (url.includes("/api/questions/paged?page=0&count=1")) {
+    } else if (url.includes("/api/questions/paged?page=0&count=10")) {
         return new Promise((resolve, reject) => {
             resolve({
                 json: function() {
-                    return [questions[0]]
+                    return pagedQuestions
                 }
             })
         })

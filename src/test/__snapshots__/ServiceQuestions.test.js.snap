@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render all service questions correctly 1`] = `
+<div>
+  <div>
+    <h3>
+      Service Questions
+    </h3>
+    <table
+      className="table"
+    >
+      <tbody>
+        <tr>
+          <td>
+            <select
+              onChange={[Function]}
+              value={0}
+            />
+            
+            
+            <button
+              className="btn btn-primary"
+              disabled={true}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              1
+            </button>
+            <button
+              className="btn btn-primary next-page-btn"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              2
+            </button>
+            <button
+              className="btn btn-secondary next-btn"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              &gt;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Render all service questions correctly 2`] = `
+<div>
+  <div>
+    <h3>
+      Service Questions
+    </h3>
+    <table
+      className="table"
+    >
+      <tbody>
+        <tr>
+          <td>
+            <select
+              onChange={[Function]}
+              value={0}
+            />
+            
+            
+            <button
+              className="btn btn-primary"
+              disabled={true}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              1
+            </button>
+            <button
+              className="btn btn-primary next-page-btn"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              2
+            </button>
+            <button
+              className="btn btn-secondary next-btn"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              &gt;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

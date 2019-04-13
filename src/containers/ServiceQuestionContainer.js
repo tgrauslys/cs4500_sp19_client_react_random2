@@ -1,6 +1,5 @@
 import React from 'react'
 import ServiceQuestions from '../components/ServiceQuestions'
-import ServiceSearchBar from '../components/ServiceSearchBar';
 class ServiceQuestionContainer extends React.Component {
     constructor(props) {
         super(props)
@@ -13,7 +12,8 @@ class ServiceQuestionContainer extends React.Component {
             optionValues: [],
             currentPage: 0,
             itemCount: 0,
-            totalPages: 0
+            first: true,
+            last: false
         }
     }
     setPage = (e, pageNumber) => {
@@ -25,7 +25,8 @@ class ServiceQuestionContainer extends React.Component {
                     serviceQuestions: serviceQuestions.content,
 					currentPage: newPageNumber,
                     itemCount: itemCount,
-                    totalPages: serviceQuestions.totalPages
+                    first: serviceQuestions.first,
+                    last: serviceQuestions.last
                 })})
     }
     componentDidMount() {
@@ -37,20 +38,21 @@ class ServiceQuestionContainer extends React.Component {
                     optionValues: this.optionValues,
                     currentPage: serviceQuestions.pageable && serviceQuestions.pageable.pageNumber,
                     itemCount: serviceQuestions.size,
-                    totalPages: serviceQuestions.totalPages
+                    first: serviceQuestions.first,
+                    last: serviceQuestions.last
                 })
             )
     }
     render() {
         return (
             <div>
-                <ServiceSearchBar/>
                 <ServiceQuestions
                     serviceQuestions={this.state.serviceQuestions}
                     optionValues={this.state.optionValues}
                     currentPage={this.state.currentPage}
                     itemCount={this.state.itemCount}
-                    totalPages={this.state.totalPages}
+                    first={this.state.first}
+                    last={this.state.last}
                     setPage={this.setPage}/>
             </div>
         )
