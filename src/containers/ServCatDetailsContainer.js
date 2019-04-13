@@ -10,16 +10,12 @@ class ServiceCategoryContainer extends React.Component {
         this.serviceCategoryService = ServiceCategoryService.getInstance();
         this.serviceService = ServicesService.getInstance();
         this.state = {
-            // Throw in a default ServiceCategory
+            isNewCategory: false,
+            enteredCatName: true,
             serviceCategories: [],
             serviceCategory: {
                 serviceCategoryName: '',
                 services: [],
-                id: props.match.params.id
-            },
-
-            updatedCategory: {
-                serviceCategoryName: '',
                 id: props.match.params.id
             }
         }
@@ -29,15 +25,20 @@ class ServiceCategoryContainer extends React.Component {
         this.serviceCategoryService.findServiceCategoryById(this.state.serviceCategory.id)
             .then(category => this.setState({
                                                 serviceCategory: category,
-                                                updatedCategory: category
+                                                isNewCategory: (""
+                                                                === category.serviceCategoryName.trim())
                                             }))
     }
 
     saveCategory = () => {
-        this.serviceCategoryService.updateServiceCategory(this.state.serviceCategory)
-            .then(setTimeout(() => {
-                this.props.history.push("/admin/categories")
-            }, 800));
+        if (this.state.serviceCategory.serviceCategoryName.trim() === "") {
+            this.setState({enteredCatName: false})
+        } else {
+            this.serviceCategoryService.updateServiceCategory(this.state.serviceCategory)
+                .then(setTimeout(() => {
+                    this.props.history.push("/admin/categories")
+                }, 800));
+        }
     };
 
     promiseOptions = (input) => {
@@ -56,6 +57,21 @@ class ServiceCategoryContainer extends React.Component {
                                    , 1000)
                            }
         )
+    };
+
+    goBack = () => {
+        if (this.state.isNewCategory) {
+            this.deleteCategory()
+        } else {
+            this.props.history.push("/admin/categories");
+        }
+    };
+
+    deleteCategory = () => {
+        this.serviceCategoryService.deleteServiceCategoryById(this.state.serviceCategory.id)
+            .then(setTimeout(() => {
+                this.props.history.push("/admin/categories")
+            }, 800));
     };
 
     handleEvents = (e, type) => {
@@ -93,7 +109,10 @@ class ServiceCategoryContainer extends React.Component {
                     handleEvents={this.handleEvents}
                     promiseOptions={this.promiseOptions}
                     saveCategory={this.saveCategory}
-                    selectServiceCategory={this.selectServiceCategory}/>
+                    selectServiceCategory={this.selectServiceCategory}
+                    deleteCategory={this.deleteCategory}
+                    enteredCatName={this.state.enteredCatName}
+                    goBack={this.goBack}/>
             </div>
         )
     }
