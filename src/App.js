@@ -7,7 +7,8 @@ import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Provider from './components/Provider/Provider'
 import provider from "./data/provider.mock.json"
-import Profile from './components/Profile/Profile'
+import ProfileService from "./services/ProfileService";
+import ProfileContainer from './containers/ProfileContainer';
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
@@ -73,12 +74,14 @@ class App extends Component {
                             render={() => <Home
                                 pillServiceCategories={this.state.pillServiceCategories}/>}/>
                         <br/>
-                        <Link to="/profile">User Profile</Link>
+                        <Link to="/profile/1">User Profile</Link>
                         <Route
-                            path="/profile"
+                            path="/profile/:id"
                             exact
-                            render={()=>
-                            <Profile/>}
+                            render={(props)=>
+                            <ProfileContainer
+                                props = {props}
+                            />}
                         />
                         <br/>
                         <Link to="/services-nav">Service Navigator</Link>
