@@ -20,6 +20,7 @@ class BusinessServContainer extends React.Component {
             selectedServices: [],
             displayedService: null,
             services: [],
+            answers: []
         }
     }
 
@@ -81,6 +82,16 @@ class BusinessServContainer extends React.Component {
             )*/
     }
 
+    updateDisplayedService = e => {
+        console.log(e)
+        // this.setState({displayedService: e })
+    }
+
+    updateQnAnswer = (e, question) => {
+        console.log(e, question)
+        // this.setState({answer: e})
+    }
+
     findServicesForTerm(term) {
         let filtered = this.state.services.filter(service =>
                                                       service.serviceName.toLowerCase()
@@ -110,6 +121,7 @@ class BusinessServContainer extends React.Component {
                     findServicesForTerm={this.findServicesForTerm}
                     updateDisplay={this.updateDisplay}
                     displayedService={this.state.displayedService}
+                    updateQnAnswer={this.updateQnAnswer}
                 />
             </div>
         )
