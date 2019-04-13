@@ -8,9 +8,9 @@ class ServiceCategoryContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.currentPage = this.props.currentPage
-        this.itemCount = this.props.itemCount
-        this.optionValues = this.props.optionValues
+        this.currentPage = this.props.currentPage;
+        this.itemCount = this.props.itemCount;
+        this.optionValues = this.props.optionValues;
         this.serviceCategoryService = ServiceCategoryService.getInstance();
         this.state = {
             serviceCategories: [],
@@ -33,7 +33,7 @@ class ServiceCategoryContainer extends React.Component {
                                   totalPages: servCat.totalPages
                               })
             })
-    }
+    };
 
     findAllCategories() {
         return this.serviceCategoryService
@@ -51,15 +51,14 @@ class ServiceCategoryContainer extends React.Component {
     }
 
     componentDidMount() {
-        console.log("SCAT Container update");
         this.findAllCategories()
     }
 
     createCategory = () => {
         return this.serviceCategoryService.createServiceCategory().then((response) => {
-            this.props.history.push(`/admin/categories/${response['id']}`);
+            this.props.props.history.push(`/admin/categories/${response['id']}`);
         });
-    }
+    };
 
     deleteCategory = (id) =>
         this.serviceCategoryService.deleteServiceCategoryById(id)
@@ -67,7 +66,7 @@ class ServiceCategoryContainer extends React.Component {
 
     // Create table with service categories
     render() {
-        if(this.state.serviceCategories.length > 0) {
+        if(this.state.serviceCategories) {
             return (
                 <div>
                     <ServiceCategories

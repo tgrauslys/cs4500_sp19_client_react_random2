@@ -28,8 +28,7 @@ class ProfileContainer extends React.Component {
     }
 
     updateUserProfile =e=> {
-        console.log(this.state.user);
-        this.UserService.updateUserProfile(this.state.user);
+        this.UserService.updateUser(this.state.user);
     };
 
 
