@@ -30,12 +30,12 @@ const ServiceCategories = ({
                                  type="button" className="btn btn-primary">{currentPage + 2}</button>
 
     if (isFirstPage) {
-        previousButton = ''
-        previousPageButton = ''
+        previousButton = '';
+        previousPageButton = '';
     }
     if (isLastPage) {
-        nextButton = ''
-        nextPageButton = ''
+        nextButton = '';
+        nextPageButton = '';
     }
 
 
@@ -47,6 +47,7 @@ const ServiceCategories = ({
             >Create new</a>
             <table className="table">
                 <tbody>
+                <td>Category name</td><td/>
                 {
                     categories ?
                     categories
@@ -84,7 +85,7 @@ const ServiceCategories = ({
                             type="button" className="btn btn-primary" disabled>{currentPage + 1}</button>
                         {nextPageButton}
                         {nextButton}
-                    </td>
+                    </td><td/>
                 </tr>
                 </tbody>
             </table>
