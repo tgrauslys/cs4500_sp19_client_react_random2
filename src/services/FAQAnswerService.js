@@ -19,6 +19,11 @@ export default class FAQAnswerService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/paged?page=${page}&count=${elements}`)
             .then(response => response.json())
 
+    findFAQsByUserId = id =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/byUser/${id}`)
+            .then(response => response.json())
+
+
     findFAQAnswerFiltered = (question, answer) =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/filtered?question=${question}&answer=${answer}`)
             .then(response => response.json)

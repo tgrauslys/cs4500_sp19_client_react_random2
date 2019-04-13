@@ -1,6 +1,6 @@
 import React from 'react'
 import BusinessServices from "../components/BusinessServices";
-import servs from "../data/services.mock.json"
+// import servs from "../data/services.mock.json"
 
 class BusinessServContainer extends React.Component {
     categoryServ;

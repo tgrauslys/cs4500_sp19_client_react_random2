@@ -4,6 +4,8 @@ import Users from './Users'
 import UserService from '../services/UserService';
 import ServiceSearchContainer from '../containers/ServiceSearchContainer'
 import Services from './Services'
+import ReviewService from "../services/ReviewService"
+import ProviderContainer from "../containers/ProviderContainer"
 import ServicesService from "../services/ServicesService";
 import ServicesContainer from "../containers/ServicesContainer";
 import ServicesDetailsContainer from "../containers/ServicesDetailsContainer";
@@ -22,11 +24,12 @@ import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
 import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
 import FAQService from "../services/FAQService";
 
-const faqService = FAQService.getInstance()
-const faqAnswerService = FAQAnswerService.getInstance()
-const serviceQuestionService = ServiceQuestionService.getInstance()
-const userService = UserService.getInstance()
-const categoryService = ServiceCategoryService.getInstance()
+const reviewService = ReviewService.getInstance();
+const faqService = FAQService.getInstance();
+const faqAnswerService = FAQAnswerService.getInstance();
+const serviceQuestionService = ServiceQuestionService.getInstance();
+const userService = UserService.getInstance();
+const categoryService = ServiceCategoryService.getInstance();
 const services = ServicesService.getInstance();
 
 
@@ -115,7 +118,7 @@ const Admin = () =>
                         exact
                         render={() => <FaqAnswerContainer FAQService={faqService}
                                                           AnswerService={faqAnswerService}
-                                                          UserService = {userService}
+                                                          UserService={userService}
                                                           currentPage={0}
                                                           itemCount={10}
                                                           optionValues={[1, 2, 5, 10, 25, 50]}/>}/>
@@ -123,6 +126,18 @@ const Admin = () =>
                         path="/admin/faq-answers/:id"
                         exact
                         render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
+
+                    <Link to={"/provider"}>Provider</Link>
+                    <Route
+                        path="/provider"
+                        exact
+                        render={() =>
+                            <ProviderContainer
+                                userService={userService}
+                                reviewService={reviewService}
+                                faqAnswerService={faqAnswerService}
+                                providerId={112}/>}/>
+                    <br/>
                 </div>
 
             </div>

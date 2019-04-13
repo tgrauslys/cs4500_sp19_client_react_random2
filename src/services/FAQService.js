@@ -11,7 +11,4 @@ export default class FAQService {
             .then(response => response.json())
     findAllFAQs = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq`)
-            .then(response => response.json())
-
-
-}
+            .then(response => response.json())}

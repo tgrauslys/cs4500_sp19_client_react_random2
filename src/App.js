@@ -6,6 +6,7 @@ import Admin from './components/Admin'
 import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Provider from './components/Provider/Provider'
+import ProviderContainer from './containers/ProviderContainer'
 import provider from "./data/provider.mock.json"
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CategoryList from "./components/HomeScreen/CategoryList";
@@ -56,15 +57,6 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
-
-                        <Link to={"/provider"}>Provider</Link>
-                        <Route
-                        path="/provider"
-                        exact
-                        render={() =>
-                        <Provider provider = {provider}/>}/>
-                        <br/>
-
                         <Link to="/home">Home</Link>
                         <Route
                             path="/home"
