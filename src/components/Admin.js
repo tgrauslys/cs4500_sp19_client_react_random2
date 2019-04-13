@@ -19,7 +19,6 @@ import ServiceCategoryService from "../services/ServiceCategoryService";
 import ServiceCategoryContainer from "../containers/ServiceCategoryContainer";
 import ServCatDetailsContainer from "../containers/ServCatDetailsContainer";
 import FAQService from "../services/FAQService";
-
 import UserSummaryContainer from "../containers/UserSummaryContainer";
 import UserDetailsContainer from "../containers/UserDetailsContainer";
 
@@ -49,7 +48,6 @@ const Admin = () =>
                     <Link to="/admin/provider-search">Provider Search</Link>
                     <br/>
                     <Link to="/admin/faq-answers">FAQ Answers</Link>
-                    <Link to="/provider/business">Business</Link>
                 </div>
                 <div className="col-9">
 
@@ -139,11 +137,6 @@ const Admin = () =>
                         path="/admin/faq-answers/:id"
                         exact
                         render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
-
-                    <Route
-                        path="/provider/business"
-                        exact
-                        render={() => <BusinessDetailsContainer/>}/>
                 </div>
             </div>
         </Router>
