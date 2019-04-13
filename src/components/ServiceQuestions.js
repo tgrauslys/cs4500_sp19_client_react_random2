@@ -14,17 +14,17 @@ const ServiceQuestions = ({
     let previousButton = <button onClick= {(e) => setPage(e, currentPage - 1)}
                             style={{margin: '2px'}}
                             // &#60; displays "<"
-                            type="button" className="btn btn-secondary">&#60;</button>
+                            type="button" className="btn btn-secondary previous-btn">&#60;</button>
     let previousPageButton = <button onClick= {(e) => setPage(e, currentPage - 1)}
                                 style={{margin: '2px'}}
-                                type="button" className="btn btn-primary">{currentPage}</button>
+                                type="button" className="btn btn-primary previous-page-btn">{currentPage}</button>
     let nextButton = <button onClick= {(e) => setPage(e, currentPage + 1)}
                             style={{margin: '2px'}}
                             // &#62; displays ">"
-                            type="button" className="btn btn-secondary">&#62;</button>
+                            type="button" className="btn btn-secondary next-btn">&#62;</button>
     let nextPageButton = <button onClick= {(e) => setPage(e, currentPage + 1)}
                                 style={{margin: '2px'}}
-                                type="button" className="btn btn-primary">{currentPage + 2}</button>
+                                type="button" className="btn btn-primary next-page-btn">{currentPage + 2}</button>
 
     if (isFirstPage) {
         previousButton = ''
