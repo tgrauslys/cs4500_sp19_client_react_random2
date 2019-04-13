@@ -17,18 +17,21 @@ class ServiceQuestionContainer extends React.Component {
             last: false
         }
     }
-    setPage = (e, pageNumber) => {
+    setPage = async (e, pageNumber) => {
         const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
         const newPageNumber = (typeof pageNumber === "number") ? pageNumber : 0
-		this.serviceQuestionService.findQuestionPage(newPageNumber, itemCount)
-            .then(serviceQuestions => {
+        return new Promise((resolve, reject) => {
+            this.serviceQuestionService.findQuestionPage(newPageNumber, itemCount)
+            .then(serviceQuestions =>
                 this.setState({
                     serviceQuestions: serviceQuestions.content,
 					currentPage: newPageNumber,
                     itemCount: itemCount,
                     first: serviceQuestions.first,
                     last: serviceQuestions.last
-                })})
+                }, resolve()))
+        })
+        
     }
     componentDidMount() {
         this.serviceQuestionService
