@@ -15,4 +15,14 @@ export default class UserService {
     filterUsers = (username, zipcode) =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`)
             .then(response => response.json())
+
+    updateUserProfile = user =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users/${user.id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        });
 }
