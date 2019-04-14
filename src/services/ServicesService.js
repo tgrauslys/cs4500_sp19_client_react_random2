@@ -28,7 +28,7 @@ export default class ServicesService {
         });
 
     findServicePage = (page, elements) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/services/paged?page=${page}&count=${elements}`)
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/services/paged?page=${page}&count=${elements}`)
             .then(response => response.json())
 
     searchService = name =>

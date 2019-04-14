@@ -10,7 +10,7 @@ export default class ProfileService {
 
     updateProfile = userProfile =>
         // fetch(`http://localhost:8080/api/faq-answer/${frequentlyAskedAnswer.id}`, {
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/profile/${userProfile.id}`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}profile/${userProfile.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export default class ProfileService {
 
     deleteProfile = id =>
         // fetch(`http://localhost:8080/api/faq-answer/${id}`, {
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/profile/${id}`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}profile/${id}`, {
             method: "DELETE",
 
         });
