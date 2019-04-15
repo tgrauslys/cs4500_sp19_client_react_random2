@@ -2,7 +2,7 @@ import React from 'react';
 
 const Profile =
     ({
-        user, updateUserProfile, handleChange
+        user, updateUserProfile, handleChange,deleteUserProfile
      }) =>
 
     {
@@ -94,8 +94,11 @@ const Profile =
                         <div className="col-6">
                             <label htmlFor="zipcode">Zip</label>
                             <input id="zipcode"
+                                   name="zipcode"
                                    placeholder={user.zipcode}
-                                   onChange={e=> handleChange(e)}
+                                   onChange={(e) => {
+                                       handleChange(e);
+                                   }}
                                    className="form-control"/>
                         </div>
                     </div>
@@ -110,13 +113,20 @@ const Profile =
                     <div className="row">
                         <div className="col-12">
                             <a className="btn btn-success btn-block"
-
                                 onClick={() => updateUserProfile()}>
                                 Update Account
                             </a>
                         </div>
                     </div>
                     <br/>
+                    <div className="row">
+                        <div className="col-12">
+                            <a className="btn btn-danger btn-block"
+                                onClick={() => deleteUserProfile()}>
+                                Delete Account
+                            </a>
+                        </div>
+                    </div>
                     <br/>
                     <br/>
                     <br/>
