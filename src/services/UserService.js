@@ -1,3 +1,4 @@
+
 export default class UserService {
     static instance = null;
 
@@ -39,8 +40,14 @@ export default class UserService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/profile`)
             .then(response => response.json())
     findUserById = userId =>
+<<<<<<< HEAD
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users/${userId}`)
             .then(response => response.json())
+=======
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`)
+            .then(response => response.json(),
+                reject => console.log(reject));
+>>>>>>> master
     findAllUsers = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users`)
             .then(response => response.json())

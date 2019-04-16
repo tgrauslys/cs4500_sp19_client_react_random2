@@ -1,7 +1,6 @@
 import React from 'react'
 import Profile from '../components/Profile/Profile';
 import UserService from '../services/UserService';
-import ProfileService from '../services/ProfileService';
 
 
 class ProfileContainer extends React.Component {
@@ -32,23 +31,9 @@ class ProfileContainer extends React.Component {
     };
 
 
-    // deleteUserProfile = e => {
-    //     this.UserService.delet (this.state.user.id).then(this.setState({
-    //         FAQAnswer: {
-    //             first_name: '',
-    //             last_name: '',
-    //             day: ''
-    //             month: ''
-    //             year: ''
-    //             street: ''
-    //             city: ''
-    //             state: ''
-    //             zipcode: ''
-    //             email: ''
-    //             id: ''
-    //         }
-    //     }));
-    // };
+    deleteUserProfile =e=> {
+        this.UserService.deleteUserById(this.state.user.id);
+    };
 
     handleChange =e=> {
         let newUser = this.state.user;
@@ -77,7 +62,7 @@ class ProfileContainer extends React.Component {
                     user={this.state.user}
                     updateUserProfile={this.updateUserProfile}
                     handleChange={this.handleChange}
-                    // deleteUserProfile={this.deleteUserProfile()}
+                    deleteUserProfile={this.deleteUserProfile}
                 />
             </div>
         )

@@ -7,7 +7,6 @@ import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Provider from './components/Provider/Provider'
 import provider from "./data/provider.mock.json"
-import ProfileService from "./services/ProfileService";
 import ProfileContainer from './containers/ProfileContainer';
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CategoryList from "./components/HomeScreen/CategoryList";
