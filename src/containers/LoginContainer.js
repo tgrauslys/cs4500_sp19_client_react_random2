@@ -17,15 +17,16 @@ class LoginContainer extends React.Component {
         e.preventDefault()
         const username = this.state.username
         const password = this.state.password
-        const isLoggedIn = this.userService.login({username, password})
-        if (isLoggedIn) {
-            // Redirect to Profile Screen
-        } else {
-            this.setState({
-                isErrorMessageOn: true
-            })
-        }
-    };
+        this.userService.login({username, password}).then(isLoggedIn => {
+            if (isLoggedIn) {
+                // Redirect to Profile Screen
+            } else {
+                this.setState({
+                    isErrorMessageOn: true
+                })
+            }
+        })
+    }
     updateUsername = e => {
         this.setState({
             username: e.target.value
