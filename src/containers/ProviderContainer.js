@@ -8,7 +8,7 @@ class ProviderContainer extends React.Component {
         this.userService = props.userService;
         this.reviewService = props.reviewService;
         this.faqAnswerService = props.faqAnswerService;
-        this.providerId = props.providerId;
+        this.providerId = props.match.id;
         this.state = {
             provider : mockProvider,
             reviews : [],

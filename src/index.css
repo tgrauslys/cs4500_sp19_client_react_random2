@@ -1,47 +1,71 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+.bserv-table {
+    width: 60%;
+}
+
+.btn-lbl {
+    width: 100%;
+}
+
+.select-displayed:checked + label {
+    background-color: blue;
+}
+
+.bserv-table td {
+    table-layout: fixed;
+    vertical-align: top;
+    border: 1px solid black;
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 60px;
+}
+
+.nav {
+}
 
 .nav.nav-pills .nav-item {
-  margin-left: 10px;
-  background-color: white;
+    margin-left: 10px;
+    margin-top: 1px;
+    vertical-align: top;
+    background-color: #eee;
 }
 
 .wd-shadow {
-  box-shadow: 0 0 15px #aaa;
+    box-shadow: 0 0 15px #aaa;
 }
 
-.search-list  {
-  list-style-type: none;
-  background-color:#eee;
-  margin: 10px;
-  padding: 5px;
+.search-list {
+    list-style-type: none;
+    background-color: #eee;
+    margin: 10px;
+    padding: 5px;
 }
 
 .select-list {
-  list-style-type: none;
-  background-color:#eee;
-  margin-left: 10px;
-  padding: 5px;
+    list-style-type: none;
+    background-color: #eee;
+    margin-left: 10px;
+    padding: 5px;
 }
 
-
 .wd-padding-20 {
-  padding: 20px;
+    padding: 20px;
 }
 
 .wd-font-size-2-em {
-  font-size: 2em !important;
+    font-size: 2em !important;
 }
