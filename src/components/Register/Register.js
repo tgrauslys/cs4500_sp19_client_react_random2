@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Register = ({register, updateFirstName, updateLastName, updateUsername, updatePassword, isErrorMessageOn}) => {
-    let errorMessage = <div className="col-12">Email already taken! Please choose another email.</div>
+    let errorMessage = <div className="row"><div className="col-12">Email already taken! Please choose another email.</div></div>
     if (!isErrorMessageOn) {
         errorMessage = ''
     }
@@ -34,11 +34,7 @@ const Register = ({register, updateFirstName, updateLastName, updateUsername, up
                     </div>
                 </div>
                 <br/>
-                <div className="row">
-                    <div className="col-12">
-                        {errorMessage}
-                    </div>
-                </div>
+                {errorMessage}
                 <div className="row">
                     <div className="col-12">
                     <button onClick={register}
