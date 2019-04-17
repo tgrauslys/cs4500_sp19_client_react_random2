@@ -2,6 +2,10 @@ import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import UserService from '../services/UserService';
 import ServiceSearchContainer from '../containers/ServiceSearchContainer'
+
+import ReviewService from "../services/ReviewService"
+import ProviderContainer from "../containers/ProviderContainer"
+
 import ServicesService from "../services/ServicesService";
 import ServicesContainer from "../containers/ServicesContainer";
 import ServicesDetailsContainer from "../containers/ServicesDetailsContainer";
@@ -22,11 +26,12 @@ import FAQService from "../services/FAQService";
 import UserSummaryContainer from "../containers/UserSummaryContainer";
 import UserDetailsContainer from "../containers/UserDetailsContainer";
 
-const faqService = FAQService.getInstance()
-const faqAnswerService = FAQAnswerService.getInstance()
-const serviceQuestionService = ServiceQuestionService.getInstance()
-const userService = UserService.getInstance()
-const categoryService = ServiceCategoryService.getInstance()
+const reviewService = ReviewService.getInstance();
+const faqService = FAQService.getInstance();
+const faqAnswerService = FAQAnswerService.getInstance();
+const serviceQuestionService = ServiceQuestionService.getInstance();
+const userService = UserService.getInstance();
+const categoryService = ServiceCategoryService.getInstance();
 const services = ServicesService.getInstance();
 
 const Admin = () =>
@@ -137,6 +142,18 @@ const Admin = () =>
                         path="/admin/faq-answers/:id"
                         exact
                         render={() => <FaqAnswerDetailsContainer service={FAQAnswerService}/>}/>
+
+                    <Link to={"/provider"}>Provider</Link>
+                    <Route
+                        path="/provider"
+                        exact
+                        render={() =>
+                            <ProviderContainer
+                                userService={userService}
+                                reviewService={reviewService}
+                                faqAnswerService={faqAnswerService}
+                                providerId={112}/>}/>
+                    <br/>
                 </div>
             </div>
         </Router>

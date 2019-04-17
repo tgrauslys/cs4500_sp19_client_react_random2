@@ -10,7 +10,7 @@ export default class UserService {
     }
 
     login = user =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/login`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/login`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -18,41 +18,41 @@ export default class UserService {
             },
             body: JSON.stringify(user)
         }).then(response => response.json())
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     register = user =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/register`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/register`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(response => response.json())
+        }).then(response => response.json());
     logout = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/logout`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/logout`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }).then(response => response.json())
+        }).then(response => response.json());
     profile = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/profile`)
-            .then(response => response.json())
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/profile`)
+            .then(response => response.json());
     findUserById = userId =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`)
             .then(response => response.json(),
                 reject => console.log(reject));
     findAllUsers = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users`)
-            .then(response => response.json())
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
+            .then(response => response.json());
     filterUsers = (username, zipcode) =>
         fetch(
-            `${process.env.REACT_APP_MIDDLE_TIER_URL}api/users/filtered?username=${username}&zipcode=${zipcode}`)
-            .then(response => response.json())
+            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`)
+            .then(response => response.json());
 
     deleteUserById = userId =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users/${userId}`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -62,11 +62,11 @@ export default class UserService {
 
     findUserPage = (page, elements) =>
         fetch(
-            `${process.env.REACT_APP_MIDDLE_TIER_URL}api/users/paged?page=${page}&count=${elements}`)
+            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/paged?page=${page}&count=${elements}`)
             .then(response => response.json());
 
     updateUser = user =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users/${user.id}`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${user.id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -76,7 +76,7 @@ export default class UserService {
         });
 
     createUser = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -103,7 +103,7 @@ export default class UserService {
         }).then(response => response.json());
 
     createUserFromDict = (dict) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}api/users`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
