@@ -34,7 +34,11 @@ const Login = ({login, updateUsername, updatePassword, isErrorMessageOn}) => {
                 </div>
             </div>
             <br/>
-            {errorMessage}
+            <div className="row">
+                <div className="col-12">
+                    {errorMessage}
+                </div>
+            </div>
             <div className="row">
                 <div className="col-12">
                     <button onClick={login}
