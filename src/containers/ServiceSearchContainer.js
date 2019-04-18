@@ -12,7 +12,7 @@ class ServiceSearchContainer extends React.Component {
         this.questionService = this.props.questionService
         this.state = {
             serviceCategory: "",
-            serviceId: 202,
+            serviceId: 302,
             serviceQuestions: [],
             activeFilters: [],
             filterQuestions: [],
@@ -24,9 +24,8 @@ class ServiceSearchContainer extends React.Component {
     
     componentDidMount() {
         this.userService
-            .filterUsers(this.state.username, this.state.zipcode, [])
+            .filterUsers(this.state.serviceId, this.state.username, this.state.zipcode, [])
             .then(searchResults => {
-                console.log(searchResults)
                 this.setState({
                     searchResults: searchResults
                 })}
@@ -42,6 +41,7 @@ class ServiceSearchContainer extends React.Component {
                         displayedQuestion["choices"]= serviceQuestion.choices.split(',')
                         return displayedQuestion
                     })
+                console.log(service.serviceQuestions)
                 this.setState({
                     serviceQuestions: service.serviceQuestions,
                     filterQuestions: mappedQuestions
@@ -50,12 +50,25 @@ class ServiceSearchContainer extends React.Component {
     } 
     handleSubmit = e => {
         e.preventDefault()
+        const searchPredicates = []
+        this.state.activeFilters.forEach(activeFilter => {
+            const serviceQuestion = {}
+            serviceQuestion["type"] = activeFilter.serviceQuestion["type"]
+            serviceQuestion["question"]= activeFilter.serviceQuestion["question"]
+            serviceQuestion["choices"]= activeFilter.serviceQuestion["choices"]
+            const searchPredicate = {
+                serviceQuestion,
+                serviceAnswer: activeFilter.serviceAnswer
+            }
+            searchPredicates.push(searchPredicate)
+        })
         this.userService
-            .filterUsers(this.state.username, this.state.zipcode, this.state.activeFilters)
+            .filterUsers(this.state.serviceId, this.state.username, this.state.zipcode, searchPredicates)
             .then(searchResults => 
                 this.setState({
                     searchResults: searchResults
-                }))
+                }, 
+                console.log("SEARCH RESULT:" + this.state.searchResults)))
     }
     updateUserName = e => {
         this.setState({
@@ -70,10 +83,10 @@ class ServiceSearchContainer extends React.Component {
     updateFilter = e => {
         let {value, name} = e.target
         var updatedFilters = this.state.activeFilters
-        var actualUpdatedFilters = this.state.activeFilters
         let questionFound = false
-        for (var {serviceQuestion, serviceAnswer} in this.state.activeFilters) {
-            if (serviceQuestion.id === name) {
+        for (let i = 0; i < updatedFilters.length; i++) {
+            let {serviceQuestion, serviceAnswer} = updatedFilters[i]
+            if (serviceQuestion.id == name) {
                 questionFound = true
                 switch(serviceQuestion.type) {
                     case "TrueFalse":
@@ -91,6 +104,14 @@ class ServiceSearchContainer extends React.Component {
         }
         if (!questionFound) {
             const serviceAnswer = {}
+            let serviceQuestion = null
+            for (let i = 0; i < this.state.serviceQuestions.length; i++) {
+                if (this.state.serviceQuestions[i].id == name) {
+                    serviceQuestion = this.state.serviceQuestions[i]
+                    break
+                }
+            }
+            console.log(value)
             switch(serviceQuestion.type) {
                 case "TrueFalse":
                     serviceAnswer["trueFalseAnswer"] = value
@@ -103,11 +124,13 @@ class ServiceSearchContainer extends React.Component {
                     serviceAnswer["choiceAnswer"] = value
                     break
             }
-            actualUpdatedFilters.push({
+            updatedFilters.push({
                 serviceQuestion,
                 serviceAnswer
             })
+
         }
+        console.log(updatedFilters)
             
         this.setState({
             activeFilters: updatedFilters

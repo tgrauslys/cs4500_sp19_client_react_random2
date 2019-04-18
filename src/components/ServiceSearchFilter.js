@@ -5,7 +5,7 @@ const ServiceSearchFilter = ({ question, handleSelection }) => {
         <div>
             {
                 <div key={question.id}>
-                    {question.type === "choiceAnswer" &&
+                    {question.type === "MultipleChoice" &&
                         <div>
                             <h5>{question.question}</h5>
                             <form>
