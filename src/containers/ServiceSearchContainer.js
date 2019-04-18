@@ -14,6 +14,7 @@ class ServiceSearchContainer extends React.Component {
             serviceCategory: "",
             serviceId: 202,
             serviceQuestions: [],
+            activeFilters: [],
             filterQuestions: [],
             searchResults: [],
             username: "",
@@ -23,16 +24,16 @@ class ServiceSearchContainer extends React.Component {
     
     componentDidMount() {
         this.userService
-            .filterUsers(this.state.username, this.state.zipcode)
+            .filterUsers(this.state.username, this.state.zipcode, [])
             .then(searchResults => {
+                console.log(searchResults)
                 this.setState({
-                    //searchResults: searchResults
+                    searchResults: searchResults
                 })}
             )
         this.serviceService
             .findServiceById(this.state.serviceId)
             .then(service => {
-                var initFilters = {}
                 var mappedQuestions = service.serviceQuestions.map(serviceQuestion => {
                         var displayedQuestion = {}
                         displayedQuestion["id"] = serviceQuestion.id
@@ -41,12 +42,9 @@ class ServiceSearchContainer extends React.Component {
                         displayedQuestion["choices"]= serviceQuestion.choices.split(',')
                         return displayedQuestion
                     })
-                    service.serviceQuestions.forEach(serviceQuestion =>
-                    initFilters[serviceQuestion.id] = null
-                    )
                 this.setState({
-                    filterQuestions: mappedQuestions,
-                    activeFilters: initFilters
+                    serviceQuestions: service.serviceQuestions,
+                    filterQuestions: mappedQuestions
                 })
             })
     } 
@@ -72,14 +70,48 @@ class ServiceSearchContainer extends React.Component {
     updateFilter = e => {
         let {value, name} = e.target
         var updatedFilters = this.state.activeFilters
-        for (var q in this.state.activeFilters) {
-            if (q === name) {
-                updatedFilters[name] = value
+        var actualUpdatedFilters = this.state.activeFilters
+        let questionFound = false
+        for (var {serviceQuestion, serviceAnswer} in this.state.activeFilters) {
+            if (serviceQuestion.id === name) {
+                questionFound = true
+                switch(serviceQuestion.type) {
+                    case "TrueFalse":
+                        serviceAnswer["trueFalseAnswer"] = value
+                        break
+                    case "Range":
+                        serviceAnswer["minRangeAnswer"] = value
+                        serviceAnswer["maxRangeAnswer"] = value
+                        break
+                    case "MultipleChoice":
+                        serviceAnswer["choiceAnswer"] = value
+                        break
+                }
             }
         }
+        if (!questionFound) {
+            const serviceAnswer = {}
+            switch(serviceQuestion.type) {
+                case "TrueFalse":
+                    serviceAnswer["trueFalseAnswer"] = value
+                    break
+                case "Range":
+                    serviceAnswer["minRangeAnswer"] = value
+                    serviceAnswer["maxRangeAnswer"] = value
+                    break
+                case "MultipleChoice":
+                    serviceAnswer["choiceAnswer"] = value
+                    break
+            }
+            actualUpdatedFilters.push({
+                serviceQuestion,
+                serviceAnswer
+            })
+        }
+            
         this.setState({
             activeFilters: updatedFilters
-        }
+        }, this.handleSubmit(e))
         
         //this.handleSubmit(e)
     }
