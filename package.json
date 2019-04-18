@@ -7,8 +7,13 @@
     "heroku": "^7.22.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-paginate": "^6.3.0",
+    "react-pagination": "^1.0.0",
+    "react-pagination-library": "^0.1.14",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.5"
+    "react-scripts": "^2.1.8",
+    "react-select": "^2.4.2",
+    "react-test-renderer": "^16.8.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,7 +32,9 @@
   ],
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tgrauslys/cs4500_sp19_client_react_random2.git"

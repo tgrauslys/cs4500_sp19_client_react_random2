@@ -1,187 +1,132 @@
 import React from 'react'
-import FAQAnswerService from '../services/FAQAnswerService'
 import {Link} from "react-router-dom";
+import "react-pagination-library/build/css/index.css";
 
-class FAQAnswers extends React.Component {
-    constructor(props) {
-        super(props)
-        this.faqAnswerService = FAQAnswerService.getInstance()
-        this.state = {
-            faqAnswers: [],
-            editForm: {
-                question: "",
-                answer: "",
-            },
-            page: 0,
-            lastPage: false,
-            elementsInPage: 5
+
+const FAQAnswers =
+    ({
+         faqs, faq, faqAnswers, faqAnswer, users, user,
+         totalPages, currentPage, selectFAQAnswer,
+         updateForm, createFaqAnswer, updateFaqAnswer, deleteFAQAnswer, selectFAQ,
+         selectUser, setPage, optionValues, itemCount
+     }) => {
+        const isFirstPage = currentPage === 0;
+        const isLastPage = currentPage >= totalPages - 1;
+
+        let previousButton = <button onClick={(e) => setPage(e, currentPage - 1)}
+                                     style={{margin: '2px'}}
+            // &#60; displays "<"
+                                     type="button" className="btn btn-secondary">&#60;</button>
+        let previousPageButton = <button onClick={(e) => setPage(e, currentPage - 1)}
+                                         style={{margin: '2px'}}
+                                         type="button" className="btn btn-primary">{currentPage}</button>
+        let nextButton = <button onClick={(e) => setPage(e, currentPage + 1)}
+                                 style={{margin: '2px'}}
+            // &#62; displays ">"
+                                 type="button" className="btn btn-secondary">&#62;</button>
+        let nextPageButton = <button onClick={(e) => setPage(e, currentPage + 1)}
+                                     style={{margin: '2px'}}
+                                     type="button" className="btn btn-primary">{currentPage + 2}</button>
+
+        if (isFirstPage) {
+            previousButton = ''
+            previousPageButton = ''
+        }
+        if (isLastPage) {
+            nextButton = ''
+            nextPageButton = ''
         }
 
-    }
-
-    updateFormAnswer = e => this.setState({
-        editForm: {
-            question: this.state.editForm.question,
-            answer: e.target.value
-        }
-    })
-
-    updateFormQuestion = e => this.setState({
-        editForm: {
-            question: e.target.value,
-            answer: this.state.editForm.answer
-        }
-    })
-
-
-
-    componentDidMount() {
-        this.faqAnswerService.findFAQAnswerPage(this.state.page, this.state.elementsInPage).then(faqAnswers =>
-            this.setState({
-                faqAnswers: faqAnswers.content,
-                lastPage: faqAnswers.last
-            })
-        )
-
-    }
-
-
-    deleteFAQAnswers = (id) => {
-        this.faqAnswerService
-            .deleteFAQAnswers(id).then(()=>{
-        this.faqAnswerService.findAllFAQAnswers()
-                .then(faqAnswers =>
-                    this.setState({
-                        faqAnswers: faqAnswers,
-                        editForm: {
-                            question: "",
-                            answer: "",
-                        }
-                    })
-                )
-        })
-        }
-
-    // deleteFAQAnswers = (id) => {
-    //     this.faqAnswerService
-    //         .deleteFAQAnswers(id).then(()=>{
-    //         window.location.href='/admin/faq-answers';
-    //     });
-    // };
-
-
-    navigateToNextPage() {
-        this.setState({
-            page: this.state.page + 1
-        }.then(this.componentDidMount())
-    )
-    }
-
-    navigateToPrevPage() {
-        this.setState({
-                page: this.state.page - 1
-            }
-        ).then(this.componentDidMount())
-    }
-
-
-
-
-    render() {
         return (
             <div>
-                <h3>FAQ Answers</h3>
+                <h3> FAQ Answers </h3>
+                <h3> User </h3>
+                <select value={user.id}
+                        className="form-control"
+                        onChange={e => selectUser(e)}>
+                    {
+                        users.map(element =>
+                            <option value={element.id}
+                                    key={element.id}>
+                                {element.username}
+                            </option>
+                        )
+                    }
+                </select>
+                <h3> FAQ </h3>
+                <select value={faq.id}
+                        className="form-control"
+                        onChange={e => selectFAQ(e)}>
+                    {
+                        faqs.map(element =>
+                            <option value={element.id}
+                                    key={element.id}>
+                                {element.title}
+                            </option>
+                        )
+                    }
+                </select>
                 <table className="table">
-                    <tr>
-                        <th> Question</th>
-                        <th> Answer</th>
-                    </tr>
                     <tbody>
                     <tr>
                         <td>
                             <input
-                                onChange={e => this.updateFormQuestion(e)}
-                            />
+                                className="answer-fld"
+                                onChange={e => updateForm(e)}
+                                value={faqAnswer.answer}/>
+                            <a role="button"
+                               className="btn btn-primary btn-lg active"
+                               onClick={createFaqAnswer}>+</a>
+                            <a role="button"
+                               className="btn btn-primary btn-lg active"
+                               onClick={updateFaqAnswer}>Update</a>
                         </td>
-                        <td>
-                            <input
-                                onChange={e => this.updateFormAnswer(e)}
-                            />
-                        </td>
-
-                        <td>
-                            <button
-                                type="button" className="btn btn-primary"
-                                onClick={() => {
-                                    this.faqAnswerService.createFAQAnswers(this.state.editForm)
-                                }}
-                            >+
-                            </button>
-                        </td>
-
-                        <td>
-                            <button
-                                type="button" className="btn btn-success">Search
-                            </button>
-                        </td>
-
-
                     </tr>
-
                     {
-                        this.state.faqAnswers
-                            .map(faqAnswer =>
-                                <tr key={faqAnswer.id}>
-                                    <td>{faqAnswer.question}</td>
-                                    <td>
-                                        <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
-                                            {faqAnswer.answer}
-                                        </Link>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger btn-lg active" role="button" aria-pressed="true"
-                                           onClick={() => {
-                                               this.deleteFAQAnswers(faqAnswer.id)
-                                           }}
-                                        >X</a>
-                                    </td>
-                                    <td>
-                                        {/*<button type="button" className="btn btn-warning">Edit</button>*/}
-                                        <a class="btn btn-outline-warning btn-lg active" role="button"
-                                        >Edit</a>
-                                    </td>
-                                </tr>
-                            )
+                        faqAnswers.map(faqAnswer =>
+                            <tr key={faqAnswer.id}>
+                                <td>{faqAnswer.question}</td>
+                                <td>
+                                    <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
+                                        {faqAnswer.answer}
+                                    </Link>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger btn-lg active" role="button" aria-pressed="true"
+                                       onClick={() =>
+                                           deleteFAQAnswer(faqAnswer.id)}
+                                    >X</a>
+
+                                    <button className="select-faq-answer-btn"
+                                            onClick={() => selectFAQAnswer(faqAnswer.id)}>
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
+                        )
                     }
+                    <tr>
+                        <td>
+                            <select value={itemCount} onChange={e => setPage(e)}>
+                                {
+                                    optionValues.map(possibleItemCounts =>
+                                        <option key={possibleItemCounts}
+                                                value={possibleItemCounts}>{possibleItemCounts}</option>)
+                                }
+                            </select>
+                            {previousButton}
+                            {previousPageButton}
+                            <button
+                                style={{margin: '2px'}}
+                                type="button" className="btn btn-primary" disabled>{currentPage + 1}</button>
+                            {nextPageButton}
+                            {nextButton}
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
-                <button
-                    type="button" className="btn btn-primary"
-                    onClick={() => {
-                        this.navigateToPrevPage()
-                    }}
-
-                >Prev
-                </button>
-
-                <button
-                    type="button" className="btn btn-primary"
-                    onClick={() => {
-                        this.navigateToNextPage()
-                    }}
-
-
-                >{this.state.page}
-                </button>
-            </div>
-        )
+            </div>)
     }
-
-}
 
 
 export default FAQAnswers
-
-
-
-

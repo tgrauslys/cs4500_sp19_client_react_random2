@@ -5,7 +5,7 @@ import FAQ from './FAQ'
 // import Date from 'Date'
 
 
-const Provider = ({provider, history}) =>
+const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
     <div>
 
         <div className="row">
@@ -39,19 +39,19 @@ const Provider = ({provider, history}) =>
             </div>
             <div className="col-10">
                 <h3>{provider.username}</h3>
-                {provider.rating}
+                {ratings[0]}
                 <i className="fa fa-star cs4500-yellow"/>
                 <i className="fa fa-star cs4500-yellow"/>
                 <i className="fa fa-star cs4500-yellow"/>
                 <i className="fa fa-star cs4500-yellow"/>
                 <i className="fa fa-star cs4500-yellow"/>
-                ({provider.reviews.length})
+                ({reviews.length})
             </div>
         </div>
         <div>
             <br/>
             <p>
-                {provider.introduction}
+                {provider.description}
             </p>
         </div>
         <div className="row">
@@ -71,17 +71,13 @@ const Provider = ({provider, history}) =>
                 <br/>
                 <i className="fa fa-briefcase"/>
                 &nbsp;
-                {/*{*/}
-                    {/*(new Date().getFullYear() - new Date(provider.startDate).getFullYear())*/}
-                {/*} Years in business*/}
+                {provider.startDate}
             </div>
             <div className="col-6">
                 <h4>Payment methods</h4>
                 <i className="fa fa-usd"/>
                 {
-                    provider.paymentMethods.map(
-                        paymentMethod => ` ${paymentMethod},`
-                    )
+                    provider.paymentMethods
                 }
             </div>
         </div>
@@ -108,18 +104,18 @@ const Provider = ({provider, history}) =>
         </div>
         <div className="row">
             <div className="col-4">
-                <h4>{provider.rating}</h4>
+                <h4>{ratings[0]}</h4>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <br/>
-                {provider.reviews.length} reviews
+                {reviews.length} reviews
             </div>
             <div className="col-8">
                 {
-                    provider.ratingScores.map((score, index) =>
+                    ratings.slice(1,5).map((score, index) =>
                         <Rating key={index}
                                 index={5-index}
                                 score={score}/>
@@ -130,7 +126,7 @@ const Provider = ({provider, history}) =>
         <br/>
         <div>
             {
-                provider.reviews.map(review =>
+                reviews.map(review =>
                     <Review key={review.id} review={review}/>
                 )
             }
@@ -160,8 +156,8 @@ const Provider = ({provider, history}) =>
             <a name="faqs"/>
             <h3>FAQs</h3>
             {
-                provider.faqs.map(faq =>
-                    <FAQ key={faq.id} faq={faq}/>
+                FAQAnswers.map(faqAnswer =>
+                    <FAQ key={faqAnswer.id} faq={faqAnswer}/>
                 )
             }
         </div>

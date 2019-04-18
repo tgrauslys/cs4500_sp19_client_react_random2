@@ -13,20 +13,25 @@ class ServiceQuestionContainer extends React.Component {
             optionValues: [],
             currentPage: 0,
             itemCount: 0,
-            totalPages: 0
+            first: true,
+            last: false
         }
     }
-    setPage = (e, pageNumber) => {
+    setPage = async (e, pageNumber) => {
         const itemCount = (e && e.target && e.target.value) ? e.target.value : this.state.itemCount
         const newPageNumber = (typeof pageNumber === "number") ? pageNumber : 0
-		this.serviceQuestionService.findQuestionPage(newPageNumber, itemCount)
-            .then(serviceQuestions => {
+        return new Promise((resolve, reject) => {
+            this.serviceQuestionService.findQuestionPage(newPageNumber, itemCount)
+            .then(serviceQuestions =>
                 this.setState({
                     serviceQuestions: serviceQuestions.content,
 					currentPage: newPageNumber,
                     itemCount: itemCount,
-                    totalPages: serviceQuestions.totalPages
-                })})
+                    first: serviceQuestions.first,
+                    last: serviceQuestions.last
+                }, resolve()))
+        })
+        
     }
     componentDidMount() {
         this.serviceQuestionService
@@ -37,7 +42,8 @@ class ServiceQuestionContainer extends React.Component {
                     optionValues: this.optionValues,
                     currentPage: serviceQuestions.pageable && serviceQuestions.pageable.pageNumber,
                     itemCount: serviceQuestions.size,
-                    totalPages: serviceQuestions.totalPages
+                    first: serviceQuestions.first,
+                    last: serviceQuestions.last
                 })
             )
     }
@@ -50,7 +56,8 @@ class ServiceQuestionContainer extends React.Component {
                     optionValues={this.state.optionValues}
                     currentPage={this.state.currentPage}
                     itemCount={this.state.itemCount}
-                    totalPages={this.state.totalPages}
+                    first={this.state.first}
+                    last={this.state.last}
                     setPage={this.setPage}/>
             </div>
         )
