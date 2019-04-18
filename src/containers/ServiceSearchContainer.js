@@ -33,23 +33,21 @@ class ServiceSearchContainer extends React.Component {
         this.serviceService
             .findServiceById(this.state.serviceId)
             .then(service => {
-                var mappedQuestions = service.serviceQuestions.map(serviceQuestion => {
-                        var displayedQuestion = {}
+                let mappedQuestions = service.serviceQuestions.map(serviceQuestion => {
+                        let displayedQuestion = {}
                         displayedQuestion["id"] = serviceQuestion.id
                         displayedQuestion["type"]= serviceQuestion.type
                         displayedQuestion["question"]= serviceQuestion.question
                         displayedQuestion["choices"]= serviceQuestion.choices.split(',')
                         return displayedQuestion
                     })
-                console.log(service.serviceQuestions)
                 this.setState({
                     serviceQuestions: service.serviceQuestions,
                     filterQuestions: mappedQuestions
                 })
             })
     } 
-    handleSubmit = e => {
-        e.preventDefault()
+    handleSubmit = () => {
         const searchPredicates = []
         this.state.activeFilters.forEach(activeFilter => {
             const serviceQuestion = {}
@@ -67,8 +65,7 @@ class ServiceSearchContainer extends React.Component {
             .then(searchResults => 
                 this.setState({
                     searchResults: searchResults
-                }, 
-                console.log("SEARCH RESULT:" + this.state.searchResults)))
+                }))
     }
     updateUserName = e => {
         this.setState({
@@ -82,7 +79,7 @@ class ServiceSearchContainer extends React.Component {
     }
     updateFilter = e => {
         let {value, name} = e.target
-        var updatedFilters = this.state.activeFilters
+        let updatedFilters = this.state.activeFilters
         let questionFound = false
         for (let i = 0; i < updatedFilters.length; i++) {
             let {serviceQuestion, serviceAnswer} = updatedFilters[i]
@@ -111,7 +108,6 @@ class ServiceSearchContainer extends React.Component {
                     break
                 }
             }
-            console.log(value)
             switch(serviceQuestion.type) {
                 case "TrueFalse":
                     serviceAnswer["trueFalseAnswer"] = value
@@ -130,13 +126,10 @@ class ServiceSearchContainer extends React.Component {
             })
 
         }
-        console.log(updatedFilters)
             
         this.setState({
             activeFilters: updatedFilters
-        }, this.handleSubmit(e))
-        
-        //this.handleSubmit(e)
+        }, this.handleSubmit())
     }
     render() {
         
