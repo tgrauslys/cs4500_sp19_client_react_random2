@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from '../components/Login/Login';
+import {withRouter} from 'react-router-dom'
 
 class LoginContainer extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class LoginContainer extends React.Component {
         const password = this.state.password
         this.userService.login({username, password}).then(isLoggedIn => {
             if (isLoggedIn) {
-                // Redirect to Profile Screen
+                this.props.history.push('/profile')
             } else {
                 this.setState({
                     isErrorMessageOn: true
@@ -52,4 +53,4 @@ class LoginContainer extends React.Component {
     }
 }
 
-export default LoginContainer;
+export default withRouter(LoginContainer);
