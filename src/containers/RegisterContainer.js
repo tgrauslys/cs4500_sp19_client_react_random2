@@ -1,5 +1,6 @@
 import React from 'react'
 import Register from '../components/Register/Register';
+import {withRouter} from 'react-router-dom'
 
 class RegisterContainer extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class RegisterContainer extends React.Component {
         const password = this.state.password
         this.userService.register({firstName, lastName, username, password}).then(isRegistered => {
             if (isRegistered) {
-                // Redirect to Profile Screen
+                this.props.history.push('/profile')
             } else {
                 this.setState({
                     isErrorMessageOn: true
@@ -68,4 +69,4 @@ class RegisterContainer extends React.Component {
     }
 }
 
-export default RegisterContainer;
+export default withRouter(RegisterContainer)
