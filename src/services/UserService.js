@@ -42,7 +42,7 @@ export default class UserService {
     findUserById = userId =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`)
             .then(response => response.json(),
-                reject => console.log(reject));
+                reject => console.log("ERROR. This user doesn't exist."));
     findAllUsers = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json());
