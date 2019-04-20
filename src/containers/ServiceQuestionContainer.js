@@ -31,7 +31,6 @@ class ServiceQuestionContainer extends React.Component {
                     last: serviceQuestions.last
                 }, resolve()))
         })
-        
     }
     componentDidMount() {
         this.serviceQuestionService

@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from "react-router-dom";
 
 const ServiceQuestions = ({
                             serviceQuestions, 
@@ -9,7 +8,6 @@ const ServiceQuestions = ({
                             first,
                             last,
                             setPage}) => {
-
     let previousButton = <button onClick= {async (e) => await setPage(e, currentPage - 1)}
                             style={{margin: '2px'}}
                             // &#60; displays "<"
@@ -42,11 +40,11 @@ const ServiceQuestions = ({
                 {
                     serviceQuestions
                         .map(serviceQuestion =>
-                            <tr key={serviceQuestion.id}>
-                                <td>
-                                    <Link to={`/admin/questions/${serviceQuestion.id}`}>
+                            <tr className="question-row" key={serviceQuestion.id}>
+                                <td >
+                                    <a href={`/questions/${serviceQuestion.id}`}>
                                         {serviceQuestion.question}
-                                    </Link>
+                                    </a>
                                 </td>
                             </tr>
                         )
@@ -71,6 +69,7 @@ const ServiceQuestions = ({
                 </tbody>
             </table>
         </div>
+        
     )
 }
 

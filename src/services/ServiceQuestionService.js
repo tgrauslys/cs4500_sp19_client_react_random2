@@ -7,12 +7,12 @@ export default class ServiceQuestionService {
         return this.instance
     }
     findServiceQuestionById = id =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/questions/${id}`)
+        fetch(`http://localhost:8080/api/questions/${id}`)
             .then(response => response.json());
     findAllServiceQuestions = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/questions`)
+        fetch(`http://localhost:8080/api/questions`)
             .then(response => response.json());
     findQuestionPage = (page, elements) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/questions/paged?page=${page}&count=${elements}`)
+        fetch(`http://localhost:8080/api/questions/paged?page=${page}&count=${elements}`)
             .then(response => response.json());
 }

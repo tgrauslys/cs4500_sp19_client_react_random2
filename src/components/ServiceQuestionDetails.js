@@ -4,6 +4,7 @@ class ServiceQuestionDetails extends React.Component {
     constructor(props) {
         super(props)
         this.serviceQuestionService = ServiceQuestionService.getInstance()
+        console.log("HELO")
         this.state = {
             serviceQuestions: [],
             serviceQuestion: {
@@ -13,6 +14,7 @@ class ServiceQuestionDetails extends React.Component {
         }
     }
     componentDidMount() {
+        console.log("hello")
         this.serviceQuestionService
             .findAllServiceQuestions()
             .then(serviceQuestions => {
