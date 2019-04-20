@@ -64,6 +64,9 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
+                        <Link to="/home">Home</Link>
+                        <br/>
+                        <Link to="/provider/112"> Provider Demo </Link>
                         <Route
                             path="/provider/:id"
                             exact
@@ -93,6 +96,7 @@ class App extends Component {
                             <ProfileContainer
                                 props = {props}
                             />}/>
+
                         <Route
                             path="/categories/:id"
                             exact

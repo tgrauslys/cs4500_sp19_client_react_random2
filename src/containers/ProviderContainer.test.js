@@ -12,20 +12,18 @@ import { BrowserRouter } from "react-router-dom";
 import TestRenderer from 'react-test-renderer'
 import ProviderContainer from "./ProviderContainer";
 
-const ReviewService = ReviewService.getInstance();
-const UserService = UserService.getInstance();
-const FAQAnswerService = FAQAnswerService.getInstance();
+const reviewService = ReviewService.getInstance();
+const userService = UserService.getInstance();
+const faqAnswerService = FAQAnswerService.getInstance();
 
 
 test('Render profile correctly', async () => {
     const testRenderer = TestRenderer.create(
-        <BrowserRouter>
             <ProviderContainer
-                userService =  {UserService}
-                reviewService = {ReviewService}
-                faqAnswerService = {FAQAnswerService}
+                userService =  {userService}
+                reviewService = {reviewService}
+                faqAnswerService = {faqAnswerService}
                 providerId = {1}/>
-        </BrowserRouter>
     );
 
     let tree = testRenderer.toJSON();
