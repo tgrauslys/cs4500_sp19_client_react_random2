@@ -38,7 +38,7 @@ const Profile =
                     <div className="row">
                         <div className="col-4">
                             <label htmlFor="month">Month</label>
-                            <select className="form-control">
+                            <select className="form-control" placeholder={user.month}>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -48,7 +48,7 @@ const Profile =
                         </div>
                         <div className="col-4">
                             <label htmlFor="day">Day</label>
-                            <select className="form-control">
+                            <select className="form-control" placeholder={user.day}>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -58,7 +58,7 @@ const Profile =
                         </div>
                         <div className="col-4">
                             <label htmlFor="year">Year</label>
-                            <select className="form-control">
+                            <select className="form-control" placeholder={user.year}>
                                 <option>2000</option>
                                 <option>2001</option>
                                 <option>2002</option>
@@ -72,19 +72,19 @@ const Profile =
                     <div className="row">
                         <div className="col-12">
                             <label htmlFor="street">Street</label>
-                            <input id="street" className="form-control"/>
+                            <input id="street" placeholder={user.street} className="form-control"/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12">
                             <label htmlFor="city">City</label>
-                            <input id="city" className="form-control"/>
+                            <input id="city" placeholder={user.city} className="form-control"/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-6">
                             <label htmlFor="state">State</label>
-                            <select className="form-control">
+                            <select className="form-control" placeholder={user.state}>
                                 <option>MA</option>
                                 <option>NH</option>
                                 <option>NY</option>
@@ -106,7 +106,7 @@ const Profile =
                     <div className="row">
                         <div className="col-12">
                             <label htmlFor="email">Email</label>
-                            <input id="email" className="form-control"/>
+                            <input id="email" placeholder={user.email} className="form-control"/>
                         </div>
                     </div>
                     <br/>

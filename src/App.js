@@ -58,7 +58,7 @@ class App extends Component {
                         <Link to="/admin">Admin</Link> |
                         <Link to="/home"> Home</Link> |
                         <Link to="/login"> Login</Link> |
-                        <Link to="/profile/1"> User Profile</Link> |
+                        <Link to="/profile"> User Profile</Link> |
                         <Link to="/services-nav"> Service Navigator</Link> |
                         <br/>
                         <br/>
@@ -87,7 +87,7 @@ class App extends Component {
                             <LoginContainer userService={this.userService}
                             />}/>
                         <Route
-                            path="/profile/:id"
+                            path="/profile"
                             exact
                             render={(props)=>
                             <ProfileContainer

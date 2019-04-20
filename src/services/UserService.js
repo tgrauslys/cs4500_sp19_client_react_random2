@@ -26,6 +26,7 @@ export default class UserService {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify(user)
         }).then(response => response.json());
     logout = () =>
@@ -36,13 +37,16 @@ export default class UserService {
                 'Content-Type': 'application/json'
             }
         }).then(response => response.json());
-    profile = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/profile`)
-            .then(response => response.json());
+    Profile = () =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/profile`, {
+            credentials: "include"
+        })
+            .then(response => response.json())
+            .catch(error => console.error(error));
     findUserById = userId =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`)
-            .then(response => response.json(),
-                reject => console.log("ERROR. This user doesn't exist."));
+            .then(response => response.json())
+            .catch(reject => console.error(reject));
     findAllUsers = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json());
