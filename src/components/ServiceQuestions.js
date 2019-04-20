@@ -1,4 +1,5 @@
 import React from 'react'
+import './ServiceQuestions.css'
 
 const ServiceQuestions = ({
                             serviceQuestions, 
@@ -43,9 +44,9 @@ const ServiceQuestions = ({
                         .map(serviceQuestion =>
                             <tr className="question-row" key={serviceQuestion.id}>
                                 <td>
-                                    <div onClick={() => handleRedirect(serviceQuestion.id)}>
+                                    <body className="hyperlink"onClick={() => handleRedirect(serviceQuestion.id)}>
                                         {serviceQuestion.question}
-                                    </div>
+                                    </body>
                                 </td>
                             </tr>
                         )
