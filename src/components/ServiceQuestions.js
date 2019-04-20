@@ -7,7 +7,8 @@ const ServiceQuestions = ({
                             itemCount,
                             first,
                             last,
-                            setPage}) => {
+                            setPage,
+                            handleRedirect}) => {
     let previousButton = <button onClick= {async (e) => await setPage(e, currentPage - 1)}
                             style={{margin: '2px'}}
                             // &#60; displays "<"
@@ -41,10 +42,10 @@ const ServiceQuestions = ({
                     serviceQuestions
                         .map(serviceQuestion =>
                             <tr className="question-row" key={serviceQuestion.id}>
-                                <td >
-                                    <a href={`/questions/${serviceQuestion.id}`}>
+                                <td>
+                                    <div onClick={() => handleRedirect(serviceQuestion.id)}>
                                         {serviceQuestion.question}
-                                    </a>
+                                    </div>
                                 </td>
                             </tr>
                         )
