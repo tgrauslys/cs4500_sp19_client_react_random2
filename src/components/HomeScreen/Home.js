@@ -2,13 +2,12 @@ import React from 'react'
 import ServiceCategoryPills from "./ServiceCategoryPills";
 import ServiceSearchContainer from "../../containers/ServiceSearchContainer";
 import UserService from "../../services/UserService";
-import BusinessServContainer from "../../containers/BusinessServContainer";
-import ServiceCategoryService from "../../services/ServiceCategoryService";
-import ServicesService from "../../services/ServicesService";
+import ServiceNavigator from "../ServiceNavigator/ServiceNavigator";
 
 const userService = UserService.getInstance()
 
 const Home = (pillServiceCategories) => {
+    console.log(pillServiceCategories)
     return (
     <div>
         <h2>Home</h2>
@@ -29,28 +28,19 @@ const Home = (pillServiceCategories) => {
 
         <br/>
         <div>
+            <ServiceCategoryPills serviceCategories={pillServiceCategories.pillServiceCategories}/>
+        </div><br/>
+        <div>
             <ServiceSearchContainer
                 service={userService}/>
-        </div>
-        <br/>
+        </div><br/>
+
         <div>
-            <BusinessServContainer
-                categoryServ = {ServiceCategoryService.getInstance()}
-                userServ = {userService}
-                serviceServ = {ServicesService.getInstance()}
+            <ServiceNavigator
+                serviceCategories={pillServiceCategories.pillServiceCategories}
             />
         </div>
-        <br/>
-        <br/>
-        <div>
-            <ServiceCategoryPills serviceCategories={pillServiceCategories.pillServiceCategories}/>
-        </div>
-        <br/>
-        <br/>
 
-        <br/>
-        {/*<ServiceTabNavigator
-            serviceCategories={serviceCategories}/>*/}
     </div>
 )
 }
