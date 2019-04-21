@@ -13,110 +13,120 @@ exports[`click next button for pagination 1`] = `
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question1
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question2
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question3
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question4
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question5
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question6
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question7
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question8
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question9
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question10
-          </div>
+          </body>
         </td>
       </tr>
       <tr>
@@ -216,110 +226,120 @@ exports[`render all questions from services 1`] = `
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question1
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question2
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question3
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question4
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question5
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question6
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question7
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question8
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question9
-          </div>
+          </body>
         </td>
       </tr>
       <tr
         className="question-row"
       >
         <td>
-          <div
+          <body
+            className="hyperlink"
             onClick={[Function]}
           >
             Question10
-          </div>
+          </body>
         </td>
       </tr>
       <tr>

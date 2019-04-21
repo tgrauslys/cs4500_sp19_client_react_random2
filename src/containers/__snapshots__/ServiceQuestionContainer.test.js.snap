@@ -154,11 +154,12 @@ exports[`Render all service questions correctly 2`] = `
           className="question-row"
         >
           <td>
-            <div
+            <body
+              className="hyperlink"
               onClick={[Function]}
             >
               Question11
-            </div>
+            </body>
           </td>
         </tr>
         <tr>
