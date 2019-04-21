@@ -7,7 +7,6 @@ class ServiceSearchContainer extends React.Component {
         this.userService = this.props.service
         this.state = {
             searchResults: [],
-            serviceID: props.match.params.id,
             username: "",
             zipcode: ""
         }

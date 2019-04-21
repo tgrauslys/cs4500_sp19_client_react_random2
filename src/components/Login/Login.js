@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Login = ({login, updateUsername, updatePassword, isErrorMessageOn}) => {
-    let errorMessage = <div className="col-12">Invalid login information</div>
+    let errorMessage = <div className="row"><div className="col-12">Invalid login information</div></div>
     if (!isErrorMessageOn) {
         errorMessage = ''
     }

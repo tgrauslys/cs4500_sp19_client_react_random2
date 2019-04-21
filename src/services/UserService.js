@@ -27,7 +27,8 @@ export default class UserService {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(response => response.json());
+        }).then(response => response.json())
+            .catch(err => console.error(err));
     logout = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/logout`, {
             method: 'POST',

@@ -1,19 +1,17 @@
 import React from 'react'
 import BusinessServices from "../components/BusinessServices";
+import UserService from "../services/UserService";
+import ServicesService from "../services/ServicesService";
 
 // import servs from "../data/services.mock.json"
 
 
 class BusinessServContainer extends React.Component {
-    categoryServ;
-    userServ;
-    serviceServ;
 
     constructor(props) {
         super(props)
-        this.categoryService = this.props.categoryServ;
-        this.userService = this.props.userServ;
-        this.servService = this.props.serviceServ;
+        this.userService = UserService.getInstance();
+        this.servService = ServicesService.getInstance();
 
         this.state = {
             searchTerm: '',
@@ -81,17 +79,17 @@ class BusinessServContainer extends React.Component {
                                     })
                   }
             )*/
-    }
+    };
 
     updateDisplayedService = e => {
         console.log(e)
         // this.setState({displayedService: e })
-    }
+    };
 
     updateQnAnswer = (e, question) => {
         console.log(e, question)
         // this.setState({answer: e})
-    }
+    };
 
     findServicesForTerm(term) {
         let filtered = this.state.services.filter(service =>

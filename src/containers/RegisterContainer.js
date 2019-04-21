@@ -1,12 +1,14 @@
 import React from 'react'
-import Login from '../components/Login/Login';
+import Register from '../components/Register/Register';
 import {withRouter} from 'react-router-dom'
 
-class LoginContainer extends React.Component {
+class RegisterContainer extends React.Component {
     constructor(props) {
         super(props);
         this.userService = this.props.userService
         this.state = {
+            firstName: "",
+            lastName: "",
             username: "",
             password: "",
             isErrorMessageOn: false
@@ -14,18 +16,30 @@ class LoginContainer extends React.Component {
     }
 
     componentDidMount() {}
-    login = e => {
+    register = e => {
         e.preventDefault()
+        const firstName = this.state.firstName
+        const lastName = this.state.lastName
         const username = this.state.username
         const password = this.state.password
-        this.userService.login({username, password}).then(isLoggedIn => {
-            if (isLoggedIn) {
+        this.userService.register({firstName, lastName, username, password}).then(isRegistered => {
+            if (isRegistered) {
                 this.props.history.push('/profile')
             } else {
                 this.setState({
                     isErrorMessageOn: true
                 })
             }
+        })
+    }
+    updateFirstName = e => {
+        this.setState({
+            firstName: e.target.value
+        })
+    }
+    updateLastName = e => {
+        this.setState({
+            lastName: e.target.value
         })
     }
     updateUsername = e => {
@@ -42,8 +56,10 @@ class LoginContainer extends React.Component {
     render() {
         return(
             <div>
-                <Login
-                    login={this.login}
+                <Register
+                    register={this.register}
+                    updateFirstName={this.updateFirstName}
+                    updateLastName={this.updateLastName}
                     updateUsername={this.updateUsername}
                     updatePassword={this.updatePassword}
                     isErrorMessageOn={this.state.isErrorMessageOn}
@@ -53,4 +69,4 @@ class LoginContainer extends React.Component {
     }
 }
 
-export default withRouter(LoginContainer);
+export default withRouter(RegisterContainer)
