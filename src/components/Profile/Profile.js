@@ -38,33 +38,24 @@ const Profile =
                     <div className="row">
                         <div className="col-4">
                             <label htmlFor="month">Month</label>
-                            <select className="form-control" placeholder={user.month}>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                            <input id="month"
+                                   placeholder={user.month}
+                                    onChange={e => handleChange(e)}
+                                    className="form-control"/>
                         </div>
                         <div className="col-4">
                             <label htmlFor="day">Day</label>
-                            <select className="form-control" placeholder={user.day}>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                            <input id="day"
+                                   placeholder={user.day}
+                                   onChange={e => handleChange(e)}
+                                   className="form-control"/>
                         </div>
                         <div className="col-4">
                             <label htmlFor="year">Year</label>
-                            <select className="form-control" placeholder={user.year}>
-                                <option>2000</option>
-                                <option>2001</option>
-                                <option>2002</option>
-                                <option>2004</option>
-                                <option>2005</option>
-                            </select>
+                            <input id="year"
+                                   placeholder={user.year}
+                                   onChange={e => handleChange(e)}
+                                   className="form-control"/>
                         </div>
                     </div>
                     <br/>

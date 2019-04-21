@@ -38,13 +38,15 @@ class ProfileContainer extends React.Component {
         let newUser = this.state.user;
         newUser[e.target.name] = e.target.value;
         this.setState({user: newUser});
+        console.log(this.state.user);
     };
 
     componentDidMount() {
 
 
 
-        this.UserService.Profile()
+
+        this.UserService.profile()
             .then(user => {
                 this.setState(
                     {

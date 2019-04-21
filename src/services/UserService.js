@@ -12,21 +12,23 @@ export default class UserService {
     login = user =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/login`, {
             method: 'POST',
+            credentials: "include",
+            mode: "cors",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(response => response.json())
-            .catch(err => console.error(err));
+        }).then(response => response);
+
     register = user =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/register`, {
             method: 'POST',
+            credentials: "include",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify(user)
         }).then(response => response.json())
             .catch(err => console.error(err));
@@ -38,12 +40,16 @@ export default class UserService {
                 'Content-Type': 'application/json'
             }
         }).then(response => response.json());
-    Profile = () =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/profile`, {
-            credentials: "include"
-        })
-            .then(response => response.json())
-            .catch(error => console.error(error));
+
+
+    profile = () => {
+        return fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/profile`,
+            {
+                credentials: "include"
+            })
+            .then(response => response.json());
+    };
+
     findUserById = userId =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`)
             .then(response => response.json())
