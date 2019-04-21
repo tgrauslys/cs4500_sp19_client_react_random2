@@ -8,13 +8,16 @@ import '../services/ReviewService.mock'
 import '../services/FAQAnswerService.mock'
 import '../services/UserService.mock'
 
-import { BrowserRouter } from "react-router-dom";
+
 import TestRenderer from 'react-test-renderer'
 import ProviderContainer from "./ProviderContainer";
+
 
 const reviewService = ReviewService.getInstance();
 const userService = UserService.getInstance();
 const faqAnswerService = FAQAnswerService.getInstance();
+
+
 
 
 test('Render profile correctly', async () => {
