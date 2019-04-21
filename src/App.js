@@ -45,7 +45,6 @@ class App extends Component {
     };
 
     render() {
-        console.log(document.cookie)
         return (
             <div className="container-fluid">
                 <h1>ServicesRus</h1>

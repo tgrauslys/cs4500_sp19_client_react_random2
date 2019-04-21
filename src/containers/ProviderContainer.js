@@ -38,7 +38,6 @@ class ProviderContainer extends React.Component {
 
     submitReview(e) {
         let review = {}
-        console.log(document.cookie)
         review["description"] = this.state.reviewDescription;
         review["rating"] = this.state.reviewRating;
         review["userTo"] = this.state.provider;
