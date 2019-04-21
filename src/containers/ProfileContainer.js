@@ -8,7 +8,6 @@ class ProfileContainer extends React.Component {
     constructor(props) {
         super(props);
         this.UserService = UserService.getInstance();
-        this.id = this.props.id;
         this.state = {
             user: {
                 id: 1,
@@ -39,12 +38,15 @@ class ProfileContainer extends React.Component {
         let newUser = this.state.user;
         newUser[e.target.name] = e.target.value;
         this.setState({user: newUser});
+        console.log(this.state.user);
     };
 
     componentDidMount() {
 
-        const id = window.location.pathname.split('/')[2];
-        this.UserService.findUserById(id)
+
+
+
+        this.UserService.profile()
             .then(user => {
                 this.setState(
                     {
@@ -52,6 +54,9 @@ class ProfileContainer extends React.Component {
                     }
                 )
             })
+            .catch(reject => {
+               console.error(reject);
+            });
     }
 
     render() {

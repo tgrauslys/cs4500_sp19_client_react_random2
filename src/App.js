@@ -86,7 +86,7 @@ class App extends Component {
                             <LoginContainer userService={this.userService}
                             />}/>
                         <Route
-                            path="/profile/:id"
+                            path="/profile"
                             exact
                             render={(props)=>
                             <ProfileContainer
