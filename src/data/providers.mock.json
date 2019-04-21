@@ -1,0 +1,38 @@
+[
+    {
+        "username": "username1",
+        "password": "password1",
+        "email": "email1@mock.com",
+        "firstName": "firstName1",
+        "lastName": "lastName1",
+        "role": "provider",
+        "zipcode": "02115"
+    },
+    {
+        "username": "username2",
+        "password": "password2",
+        "email": "email2@mock.com",
+        "firstName": "firstName2",
+        "lastName": "lastName2",
+        "role": "provider",
+        "zipcode": "02115"
+    },
+    {
+        "username": "username3",
+        "password": "password3",
+        "email": "email3@mock.com",
+        "firstName": "firstName3",
+        "lastName": "lastName3",
+        "role": "provider",
+        "zipcode": "02115"
+    },
+    {
+        "username": "username4",
+        "password": "password4",
+        "email": "email4@mock.com",
+        "firstName": "firstName4",
+        "lastName": "lastName4",
+        "role": "provider",
+        "zipcode": "02115"
+    }
+]

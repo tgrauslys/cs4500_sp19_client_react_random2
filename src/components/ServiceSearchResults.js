@@ -11,7 +11,7 @@ const ServiceSearchResults = ({searchResults}) => {
                     (searchResults || [])
                         .map(serviceSearchResult =>
                             <tr key={serviceSearchResult.id}>
-                                <td>
+                                <td key={serviceSearchResult.id}>
                                     {/* <Link to={`/admin/questions/${serviceQuestion.id}`}> */}
                                         {serviceSearchResult.username}
                                     {/* </Link> */}

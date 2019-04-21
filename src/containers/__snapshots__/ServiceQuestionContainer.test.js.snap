@@ -10,14 +10,14 @@ exports[`Render all service questions correctly 1`] = `
         className="input-group mb-3"
       >
         <input
-          className="input"
+          className="input username"
           name="username"
           onChange={[Function]}
           placeholder="Search for providers..."
           type="text"
         />
         <input
-          className="input"
+          className="input zipcode"
           name="username"
           onChange={[Function]}
           placeholder="Zipcode"
@@ -27,7 +27,7 @@ exports[`Render all service questions correctly 1`] = `
           className="input-group-append"
         >
           <button
-            className="btn btn-success"
+            className="search-button btn btn-success"
             style={
               Object {
                 "margin": "2px",
@@ -111,14 +111,14 @@ exports[`Render all service questions correctly 2`] = `
         className="input-group mb-3"
       >
         <input
-          className="input"
+          className="input username"
           name="username"
           onChange={[Function]}
           placeholder="Search for providers..."
           type="text"
         />
         <input
-          className="input"
+          className="input zipcode"
           name="username"
           onChange={[Function]}
           placeholder="Zipcode"
@@ -128,7 +128,7 @@ exports[`Render all service questions correctly 2`] = `
           className="input-group-append"
         >
           <button
-            className="btn btn-success"
+            className="search-button btn btn-success"
             style={
               Object {
                 "margin": "2px",

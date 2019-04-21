@@ -12,8 +12,6 @@ class ServiceSearchContainer extends React.Component {
         }
     }
     componentDidMount() {
-        // const id = window.location.pathname.split('/')[3];
-
         this.userService
             .filterUsers(this.state.username, this.state.zipcode)
             .then(searchResults => {
@@ -22,14 +20,15 @@ class ServiceSearchContainer extends React.Component {
                 })}
             )
     } 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault()
-        this.userService.filterUsers(this.state.username, this.state.zipcode)
+        return new Promise((resolve, reject) => {
+            this.userService.filterUsers(this.state.username, this.state.zipcode)
             .then(searchResults => 
                 this.setState({
                     searchResults: searchResults
-                }))
-    
+                }, resolve()))
+        })
     }
     updateUserName = e => {
         this.setState({
