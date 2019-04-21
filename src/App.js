@@ -5,12 +5,10 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
 import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Provider from './components/Provider/Provider'
 import ProviderContainer from './containers/ProviderContainer'
 import provider from "./data/provider.mock.json"
 import ProfileContainer from './containers/ProfileContainer';
 import ServiceCategoryService from "./services/ServiceCategoryService";
-import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
 import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import LoginContainer from './containers/LoginContainer'
@@ -64,6 +62,7 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
+                        <Link to="/provider/112"> Provider Demo </Link>
                         <Route
                             path="/provider/:id"
                             exact
@@ -93,6 +92,7 @@ class App extends Component {
                             <ProfileContainer
                                 props = {props}
                             />}/>
+
                         <Route
                             path="/categories/:id"
                             exact

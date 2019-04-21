@@ -5,7 +5,7 @@ import FAQ from './FAQ'
 // import Date from 'Date'
 
 
-const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
+const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewDescription, reviewRating, submitReview, history}) =>
     <div>
 
         <div className="row">
@@ -151,6 +151,29 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
                 </nav>
             </div>
         </div>
+
+        <div>
+            <input className= 'review-fld'
+                   name='reviewDescription'
+                    onChange = {e => handleChange(e)}
+                   value = {reviewDescription}
+            />
+
+            <select className = 'star-fld'
+                    name = 'reviewRating'
+                    onChange = {e => handleChange(e)}
+                    value = {reviewRating}>{[1,2,3,4,5].map(starValue =>
+                <option key={starValue}
+                        value={starValue}>{starValue}</option>)}</select>
+
+            <button className='submit-review-btn'
+                    onClick={submitReview}>Submit Review</button>
+
+
+
+
+        </div>
+
         <div>
             <hr/>
             <a name="faqs"/>

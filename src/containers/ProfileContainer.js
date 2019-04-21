@@ -44,7 +44,6 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
 
         const id = window.location.pathname.split('/')[2];
-
         this.UserService.findUserById(id)
             .then(user => {
                 this.setState(
