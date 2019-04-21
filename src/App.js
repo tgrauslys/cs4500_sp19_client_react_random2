@@ -14,7 +14,9 @@ import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
 import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import LoginContainer from './containers/LoginContainer'
+import RegisterContainer from './containers/RegisterContainer'
 import UserService from './services/UserService'
+import BusinessServContainer from "./containers/BusinessServContainer";
 
 class App extends Component {
     constructor(props) {
@@ -25,7 +27,8 @@ class App extends Component {
             pillServiceCategories: [],
             category: [],
             provider: provider
-        }
+        };
+
         this.findServiceCategories()
     }
 
@@ -41,13 +44,7 @@ class App extends Component {
                           pillServiceCategories: serviceCategories
                                     })
             )
-    }
-
-    findCategoryById = (id) => {
-        return this.serviceCategoryService
-            .findServiceCategoryById(parseInt(id)).then(category =>
-                                                            this.setState({category: category}))
-    }
+    };
 
     render() {
         return (
@@ -57,11 +54,9 @@ class App extends Component {
                     <div>
                         <Link to="/admin">Admin</Link> |
                         <Link to="/home"> Home</Link> |
+                        <Link to="/register"> Register</Link> |
                         <Link to="/login"> Login</Link> |
-                        <Link to="/profile"> User Profile</Link> |
-                        <Link to="/services-nav"> Service Navigator</Link> |
-                        <br/>
-                        <br/>
+                        <Link to="/business-servs"> Business Services </Link>
                         <br/>
                         
                         <Route
@@ -69,7 +64,6 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
-                        <Link to="/home">Home</Link>
                         <Route
                             path="/provider/:id"
                             exact
@@ -80,6 +74,12 @@ class App extends Component {
                             exact
                             render={() => <Home
                                 pillServiceCategories={this.state.pillServiceCategories}/>}/>
+                        <Route
+                            path="/register"
+                            exact
+                            render={(props)=>
+                            <RegisterContainer userService={this.userService}
+                            />}/>
                         <Route
                             path="/login"
                             exact
@@ -94,18 +94,17 @@ class App extends Component {
                                 props = {props}
                             />}/>
                         <Route
-                            path="/services-nav"
-                            exact
-                            render={() =>
-                            <ServiceNavigator serviceCategories={this.state.pillServiceCategories}
-                            />}/>
-                        <Route
                             path="/categories/:id"
                             exact
                             render={(props) =>
                                 <CatListContainer
                                     props = {props}
                                     service = {this.serviceCategoryService}/>}/>
+                        <Route
+                            path="/business-servs"
+                            exact
+                            component={BusinessServContainer}
+                        />
                     </div>
                 </Router>
 
