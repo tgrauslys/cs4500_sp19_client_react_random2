@@ -17,7 +17,7 @@ export default class ReviewService {
 
 
     createReview = review =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/reviews`, {
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/review`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",

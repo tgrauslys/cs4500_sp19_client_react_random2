@@ -10,7 +10,7 @@ class ProviderContainer extends React.Component {
         this.userService = UserService.getInstance();
         this.reviewService = ReviewService.getInstance();
         this.faqAnswerService = FAQAnswerService.getInstance();
-        this.providerId = this.props.props.match.params.id;
+        this.providerId = this.props.props.match.params.id;;
         this.state = {
             provider : {},
             reviews : [],
@@ -38,12 +38,14 @@ class ProviderContainer extends React.Component {
 
     submitReview(e) {
         let review = {}
+        console.log(document.cookie)
         review["description"] = this.state.reviewDescription;
         review["rating"] = this.state.reviewRating;
         review["userTo"] = this.state.provider;
-        this.userService.profile().then(user => review["userFrom"] = user);
+        this.userService.profile().then(user => {review["userFrom"] = user
+            this.reviewService.createReview(review);});
 
-        this.reviewService.createReview(review);
+
     }
 
 
