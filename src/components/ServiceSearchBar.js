@@ -14,7 +14,7 @@ const ServiceSearchBar = ({handleSubmit, updateUsername, updateZipcode}) => {
                         placeholder="Search for providers..."/>
                     <input 
                         type="text"
-                        name="username" 
+                        name="zipcode" 
                         className="input zipcode" 
                         onChange={e => updateZipcode(e)} 
                         placeholder="Zipcode"/>

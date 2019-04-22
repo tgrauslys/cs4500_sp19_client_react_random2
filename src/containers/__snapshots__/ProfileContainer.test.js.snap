@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Profile Correctly 1`] = `
+<div>
+  <div
+    className="container"
+  >
+    <h1>
+      Profile
+    </h1>
+    <br />
+    <div>
+      <h4>
+        Legal name
+      </h4>
+      <div
+        className="row"
+      >
+        <div
+          className="col-6"
+        >
+          <label
+            htmlFor="firstName"
+          >
+            First name
+          </label>
+          <input
+            className="form-control"
+            id="firstName"
+            name="firstName"
+            onChange={[Function]}
+            placeholder=""
+            type="text"
+          />
+        </div>
+        <div
+          className="col-6"
+        >
+          <label
+            htmlFor="lastName"
+          >
+            Last name
+          </label>
+          <input
+            className="form-control"
+            id="lastName"
+            name="lastName"
+            onChange={[Function]}
+            placeholder=""
+          />
+        </div>
+      </div>
+      <br />
+      <h4>
+        Date of birth
+      </h4>
+      <div
+        className="row"
+      >
+        <div
+          className="col-4"
+        >
+          <label
+            htmlFor="month"
+          >
+            Month
+          </label>
+          <input
+            className="form-control"
+            id="month"
+            onChange={[Function]}
+            placeholder={1}
+          />
+        </div>
+        <div
+          className="col-4"
+        >
+          <label
+            htmlFor="day"
+          >
+            Day
+          </label>
+          <input
+            className="form-control"
+            id="day"
+            onChange={[Function]}
+            placeholder={1}
+          />
+        </div>
+        <div
+          className="col-4"
+        >
+          <label
+            htmlFor="year"
+          >
+            Year
+          </label>
+          <input
+            className="form-control"
+            id="year"
+            onChange={[Function]}
+            placeholder={1}
+          />
+        </div>
+      </div>
+      <br />
+      <h4>
+        Home address
+      </h4>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            htmlFor="street"
+          >
+            Street
+          </label>
+          <input
+            className="form-control"
+            id="street"
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            htmlFor="city"
+          >
+            City
+          </label>
+          <input
+            className="form-control"
+            id="city"
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-6"
+        >
+          <label
+            htmlFor="state"
+          >
+            State
+          </label>
+          <select
+            className="form-control"
+            placeholder=""
+          >
+            <option>
+              MA
+            </option>
+            <option>
+              NH
+            </option>
+            <option>
+              NY
+            </option>
+            <option>
+              CA
+            </option>
+          </select>
+        </div>
+        <div
+          className="col-6"
+        >
+          <label
+            htmlFor="zipcode"
+          >
+            Zip
+          </label>
+          <input
+            className="form-control"
+            id="zipcode"
+            name="zipcode"
+            onChange={[Function]}
+            placeholder=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            htmlFor="email"
+          >
+            Email
+          </label>
+          <input
+            className="form-control"
+            id="email"
+            placeholder=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <a
+            className="btn btn-success btn-block"
+            onClick={[Function]}
+          >
+            Update Account
+          </a>
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <a
+            className="btn btn-danger btn-block"
+            onClick={[Function]}
+          >
+            Delete Account
+          </a>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
+`;

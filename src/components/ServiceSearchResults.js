@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import ServiceProvider from './ServiceProvider';
 
 const ServiceSearchResults = ({searchResults}) => {
     return (
@@ -11,10 +12,8 @@ const ServiceSearchResults = ({searchResults}) => {
                     (searchResults || [])
                         .map(serviceSearchResult =>
                             <tr key={serviceSearchResult.id}>
-                                <td key={serviceSearchResult.id}>
-                                    {/* <Link to={`/admin/questions/${serviceQuestion.id}`}> */}
-                                        {serviceSearchResult.username}
-                                    {/* </Link> */}
+                                <td>
+                                    <ServiceProvider serviceProvider={serviceSearchResult}/>
                                 </td>
                             </tr>
                         )

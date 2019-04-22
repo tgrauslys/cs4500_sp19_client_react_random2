@@ -24,4 +24,4 @@ global.fetch = jest.fn()
                 return reviews
             })
         }
-    })
+    });
