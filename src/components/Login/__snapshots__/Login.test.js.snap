@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`click Log In to sign in 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Create your account
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="first-name"
+        >
+          First name
+        </label>
+        <input
+          className="form-control"
+          id="first-name"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-6"
+      >
+        <label
+          for="last-name"
+        >
+          Last name
+        </label>
+        <input
+          className="form-control"
+          id="last-name"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          htmlFor="username"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        Email already taken! Please choose another email.
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          onClick={[Function]}
+          style={
+            Object {
+              "margin": "2px",
+            }
+          }
+          type="button"
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`render login screen 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Welcome back
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="password"
+        >
+          <input
+            type="checkbox"
+          />
+            Remember me
+        </label>
+      </div>
+      <div
+        className="col-6"
+      >
+        <a
+          className="float-right"
+          href="#"
+        >
+          Forgot password?
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        Invalid login information
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          onClick={[Function]}
+          style={
+            Object {
+              "margin": "2px",
+            }
+          }
+          type="button"
+        >
+          Log in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
