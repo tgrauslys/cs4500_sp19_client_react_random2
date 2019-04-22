@@ -18,7 +18,8 @@ export default class UserService {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(response => response);
+        }).then(response => response.json())
+            .catch(reject => {console.log(reject)});
 
     register = user =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/register`, {
