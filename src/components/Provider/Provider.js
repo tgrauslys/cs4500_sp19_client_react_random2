@@ -104,7 +104,7 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewD
         </div>
         <div className="row">
             <div className="col-4">
-                <h4>{ratings[0]}</h4>
+                <h4>{"Rating: " + ratings[0]}</h4>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
@@ -115,7 +115,7 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewD
             </div>
             <div className="col-8">
                 {
-                    ratings.slice(1,5).map((score, index) =>
+                    ratings.slice(1,6).map((score, index) =>
                         <Rating key={index}
                                 index={5-index}
                                 score={score}/>

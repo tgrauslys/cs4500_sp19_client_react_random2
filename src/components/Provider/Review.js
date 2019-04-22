@@ -9,6 +9,8 @@ const Review = ({review}) =>
             <i className="fa fa-star cs4500-yellow"/>
             <i className="fa fa-star cs4500-yellow"/>
         </div>
+        <div> {review.rating} </div>
+        <br/>
         <br/>
         <div>{review.description}</div>
         <br/>

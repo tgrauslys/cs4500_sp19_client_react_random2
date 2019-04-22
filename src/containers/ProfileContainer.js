@@ -10,7 +10,6 @@ class ProfileContainer extends React.Component {
         this.UserService = UserService.getInstance();
         this.state = {
             user: {
-                id: 1,
                 firstName: '',
                 lastName: '',
                 day: 1,
