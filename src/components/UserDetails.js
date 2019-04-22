@@ -81,6 +81,83 @@ const UserDetails = ({
                     name="user-description"/>
             </label> <br/>
 
+            <label>Birth day
+                <input
+                    type="text"
+                    placeholder={user.day}
+                    onChange={(e) => {
+                        handleEvents(e, "user-day");
+                    }}
+                    className="form-control"
+                    name="user-day"/>
+            </label>
+
+            <label>Month
+                <input
+                    type="text"
+                    placeholder={user.month}
+                    onChange={(e) => {
+                        handleEvents(e, "user-month");
+                    }}
+                    className="form-control"
+                    name="user-month"/>
+            </label>
+
+            <label>Year
+                <input
+                    type="text"
+                    placeholder={user.year}
+                    onChange={(e) => {
+                        handleEvents(e, "user-year");
+                    }}
+                    className="form-control"
+                    name="user-year"/>
+            </label> <br/>
+
+            <label> Street
+                <input
+                    type="text"
+                    placeholder={user.street}
+                    onChange={(e) => {
+                        handleEvents(e, "user-street");
+                    }}
+                    className="form-control"
+                    name="user-street"/>
+            </label> <br/>
+
+            <label> City
+                <input
+                    type="text"
+                    placeholder={user.city}
+                    onChange={(e) => {
+                        handleEvents(e, "user-city");
+                    }}
+                    className="form-control"
+                    name="user-city"/>
+            </label>
+
+            <label> State
+                <input
+                    type="text"
+                    placeholder={user.state}
+                    onChange={(e) => {
+                        handleEvents(e, "user-state");
+                    }}
+                    className="form-control"
+                    name="user-state"/>
+            </label> <br/>
+
+            <label> Email
+                <input
+                    type="text"
+                    placeholder={user.email}
+                    onChange={(e) => {
+                        handleEvents(e, "user-email");
+                    }}
+                    className="form-control"
+                    name="user-email"/>
+            </label> <br/>
+
             <label>Role &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp;
