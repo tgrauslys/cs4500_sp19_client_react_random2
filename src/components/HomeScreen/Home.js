@@ -3,8 +3,10 @@ import ServiceCategoryPills from "./ServiceCategoryPills";
 import ServiceSearchContainer from "../../containers/ServiceSearchContainer";
 import UserService from "../../services/UserService";
 import ServiceNavigator from "../ServiceNavigator/ServiceNavigator";
+import ServicesService from "../../services/ServicesService";
 
 const userService = UserService.getInstance()
+const services = ServicesService.getInstance()
 
 const Home = (pillServiceCategories) => {
     console.log(pillServiceCategories)
@@ -32,9 +34,10 @@ const Home = (pillServiceCategories) => {
         </div><br/>
         <div>
             <ServiceSearchContainer
-                service={userService}/>
-        </div><br/>
-
+                serviceService={services}
+                userService={userService}/>
+        </div>
+        <br/>
         <div>
             <ServiceNavigator
                 serviceCategories={pillServiceCategories.pillServiceCategories}
