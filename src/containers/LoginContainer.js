@@ -1,11 +1,12 @@
 import React from 'react'
 import Login from '../components/Login/Login';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import UserService from '../services/UserService';
 
 class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.userService = this.props.userService
+        this.UserService = UserService.getInstance();
         this.state = {
             username: "",
             password: "",
@@ -19,7 +20,8 @@ class LoginContainer extends React.Component {
         //e.preventDefault();
         const username = this.state.username;
         const password = this.state.password;
-        this.userService.login({username, password}).then(isLoggedIn => {
+        this.UserService.login({username, password}).then(isLoggedIn => {
+            console.log(isLoggedIn);
             if (isLoggedIn) {
                 this.props.history.push('/profile')
             } else {

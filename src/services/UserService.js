@@ -13,7 +13,6 @@ export default class UserService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/login`, {
             method: 'POST',
             credentials: "include",
-            mode: "cors",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
