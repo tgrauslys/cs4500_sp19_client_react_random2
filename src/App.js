@@ -99,7 +99,7 @@ class App extends Component {
                             exact
                             render={(props)=>
                             <ServiceSearchContainer
-                                props = {props}
+                                {...props}
                                 serviceService={ServiceService.getInstance()}
                                 userService={this.userService}
                             />}/>

@@ -12,6 +12,7 @@ class ServiceSearchContainer extends React.Component {
         if (this.props.match !== undefined) {
             this.serviceId = this.props.match.params.id
         }
+        console.log(this.props.match)
         this.state = {
             serviceCategory: "",
             serviceQuestions: [],
@@ -26,12 +27,14 @@ class ServiceSearchContainer extends React.Component {
     componentDidMount() {
         if (this.serviceId !== undefined) {
         this.userService
-            .filterUsers(this.serviceId, this.state.username, this.state.zipcode, [])
+            .filterUsersByService(this.serviceId, this.state.username, this.state.zipcode, [])
             .then(searchResults => {
-                this.setState({
-                    searchResults: searchResults
-                })}
-            )
+                if (searchResults !== undefined) {
+                    this.setState({
+                        searchResults: searchResults
+                    })
+                }
+            })
         this.serviceService
             .findServiceById(this.serviceId)
             .then(service => {
@@ -52,10 +55,12 @@ class ServiceSearchContainer extends React.Component {
             this.userService
                 .filterUsers(this.state.username, this.state.zipcode)
                 .then(searchResults => {
-                    this.setState({
-                        searchResults: searchResults
-                    })}
-                )
+                    if (searchResults !== undefined){
+                        this.setState({
+                            searchResults: searchResults
+                        })
+                    }
+                })
         }
     } 
     handleSubmit = () => {
@@ -73,10 +78,13 @@ class ServiceSearchContainer extends React.Component {
         })
         this.userService
             .filterUsers(this.serviceId, this.state.username, this.state.zipcode, searchPredicates)
-            .then(searchResults => 
-                this.setState({
-                    searchResults: searchResults
-                }))
+            .then(searchResults => {
+                if (searchResults !== undefined) {
+                    this.setState({
+                        searchResults: searchResults
+                    })
+                }
+            })
     }
     updateUserName = e => {
         this.setState({
@@ -150,9 +158,9 @@ class ServiceSearchContainer extends React.Component {
                     handleSubmit={this.handleSubmit}
                     updateUsername={this.updateUserName}
                     updateZipcode={this.updateZipcode}/>
-                <ServiceSearchFilters
+                {this.serviceId !== undefined && <ServiceSearchFilters
                     serviceSearchFilters= {this.state.filterQuestions}
-                    handleSelection = {this.updateFilter}/>
+                    handleSelection = {this.updateFilter}/>}
                 <ServiceSearchResults
                     searchResults={this.state.searchResults}/>
             </div>

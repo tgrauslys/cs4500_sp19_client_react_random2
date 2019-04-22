@@ -58,7 +58,7 @@ export default class UserService {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json());
 
-    filterUsers = (serviceId, username, zipcode, filters) => {
+    filterUsersByService = (serviceId, username, zipcode, filters) => {
         return fetch(
             `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered/${serviceId}?username=${username}&zipcode=${zipcode}`, {
                 method: 'POST',
@@ -67,6 +67,18 @@ export default class UserService {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(filters)
+            })
+            .then(response => response.json())
+            .catch(reject => console.error(reject));
+        }
+    filterUsers = (username, zipcode) => {
+        return fetch(
+            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
             })
             .then(response => response.json())
             .catch(reject => console.error(reject));
