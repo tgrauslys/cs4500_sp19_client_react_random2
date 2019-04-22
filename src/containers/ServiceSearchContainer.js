@@ -12,7 +12,6 @@ class ServiceSearchContainer extends React.Component {
         if (this.props.match !== undefined) {
             this.serviceId = this.props.match.params.id
         }
-        console.log(this.props.match)
         this.state = {
             serviceCategory: "",
             serviceQuestions: [],
