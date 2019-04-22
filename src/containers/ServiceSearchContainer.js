@@ -24,7 +24,12 @@ class ServiceSearchContainer extends React.Component {
     }
     
     componentDidMount() {
+<<<<<<< HEAD
         if (this.serviceId !== undefined) {
+=======
+        // const id = window.location.pathname.split('/')[3];
+
+>>>>>>> master
         this.userService
             .filterUsers(this.serviceId, this.state.username, this.state.zipcode, [])
             .then(searchResults => {

@@ -5,18 +5,18 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
 import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Provider from './components/Provider/Provider'
 import ProviderContainer from './containers/ProviderContainer'
 import provider from "./data/provider.mock.json"
 import ProfileContainer from './containers/ProfileContainer';
 import ServiceCategoryService from "./services/ServiceCategoryService";
-import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
 import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import LoginContainer from './containers/LoginContainer'
+import RegisterContainer from './containers/RegisterContainer'
 import UserService from './services/UserService'
 import ServiceSearchContainer from './containers/ServiceSearchContainer';
 import ServiceService from './services/ServicesService'
+import BusinessServContainer from "./containers/BusinessServContainer";
 
 class App extends Component {
     constructor(props) {
@@ -27,7 +27,8 @@ class App extends Component {
             pillServiceCategories: [],
             category: [],
             provider: provider
-        }
+        };
+
         this.findServiceCategories()
     }
 
@@ -43,13 +44,7 @@ class App extends Component {
                           pillServiceCategories: serviceCategories
                                     })
             )
-    }
-
-    findCategoryById = (id) => {
-        return this.serviceCategoryService
-            .findServiceCategoryById(parseInt(id)).then(category =>
-                                                            this.setState({category: category}))
-    }
+    };
 
     render() {
         return (
@@ -59,11 +54,9 @@ class App extends Component {
                     <div>
                         <Link to="/admin">Admin</Link> |
                         <Link to="/home"> Home</Link> |
+                        <Link to="/register"> Register</Link> |
                         <Link to="/login"> Login</Link> |
-                        <Link to="/profile/1"> User Profile</Link> |
-                        <Link to="/services-nav"> Service Navigator</Link> |
-                        <br/>
-                        <br/>
+                        <Link to="/business-servs"> Business Services </Link>
                         <br/>
                         
                         <Route
@@ -71,7 +64,7 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
-                        <Link to="/home">Home</Link>
+                        <Link to="/provider/112"> Provider Demo </Link>
                         <Route
                             path="/provider/:id"
                             exact
@@ -83,13 +76,19 @@ class App extends Component {
                             render={() => <Home
                                 pillServiceCategories={this.state.pillServiceCategories}/>}/>
                         <Route
+                            path="/register"
+                            exact
+                            render={(props)=>
+                            <RegisterContainer userService={this.userService}
+                            />}/>
+                        <Route
                             path="/login"
                             exact
                             render={(props)=>
                             <LoginContainer userService={this.userService}
                             />}/>
                         <Route
-                            path="/profile/:id"
+                            path="/profile"
                             exact
                             render={(props)=>
                             <ProfileContainer
@@ -117,6 +116,11 @@ class App extends Component {
                                 <CatListContainer
                                     props = {props}
                                     service = {this.serviceCategoryService}/>}/>
+                        <Route
+                            path="/business-servs"
+                            exact
+                            component={BusinessServContainer}
+                        />
                     </div>
                 </Router>
 

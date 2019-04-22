@@ -1,10 +1,12 @@
 import React from 'react'
 import Login from '../components/Login/Login';
+import {withRouter} from 'react-router-dom';
+import UserService from '../services/UserService';
 
 class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.userService = this.props.userService
+        this.UserService = UserService.getInstance();
         this.state = {
             username: "",
             password: "",
@@ -14,29 +16,32 @@ class LoginContainer extends React.Component {
 
     componentDidMount() {}
     login = e => {
-        e.preventDefault()
-        const username = this.state.username
-        const password = this.state.password
+
+        //e.preventDefault();
+        const username = this.state.username;
+        const password = this.state.password;
         this.userService.login({username, password}).then(isLoggedIn => {
             if (isLoggedIn) {
-                // Redirect to Profile Screen
+                this.props.history.push('/profile')
             } else {
                 this.setState({
                     isErrorMessageOn: true
                 })
             }
         })
-    }
+    };
+
     updateUsername = e => {
         this.setState({
             username: e.target.value
         })
-    }
+    };
+
     updatePassword = e => {
         this.setState({
             password: e.target.value
         })
-    }
+    };
 
     render() {
         return(
@@ -52,4 +57,4 @@ class LoginContainer extends React.Component {
     }
 }
 
-export default LoginContainer;
+export default withRouter(LoginContainer);

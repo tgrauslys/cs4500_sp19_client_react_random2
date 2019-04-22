@@ -5,7 +5,7 @@ import FAQ from './FAQ'
 // import Date from 'Date'
 
 
-const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
+const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewDescription, reviewRating, submitReview, history}) =>
     <div>
 
         <div className="row">
@@ -104,7 +104,7 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
         </div>
         <div className="row">
             <div className="col-4">
-                <h4>{ratings[0]}</h4>
+                <h4>{"Rating: " + ratings[0]}</h4>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
                 <i className="fa fa-star cs4500-yellow wd-font-size-2-em"/>
@@ -115,7 +115,7 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
             </div>
             <div className="col-8">
                 {
-                    ratings.slice(1,5).map((score, index) =>
+                    ratings.slice(1,6).map((score, index) =>
                         <Rating key={index}
                                 index={5-index}
                                 score={score}/>
@@ -151,6 +151,29 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, history}) =>
                 </nav>
             </div>
         </div>
+
+        <div>
+            <input className= 'review-fld'
+                   name='reviewDescription'
+                    onChange = {e => handleChange(e)}
+                   value = {reviewDescription}
+            />
+
+            <select className = 'star-fld'
+                    name = 'reviewRating'
+                    onChange = {e => handleChange(e)}
+                    value = {reviewRating}>{[1,2,3,4,5].map(starValue =>
+                <option key={starValue}
+                        value={starValue}>{starValue}</option>)}</select>
+
+            <button className='submit-review-btn'
+                    onClick={submitReview}>Submit Review</button>
+
+
+
+
+        </div>
+
         <div>
             <hr/>
             <a name="faqs"/>
