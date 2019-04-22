@@ -7,7 +7,6 @@ import FAQ from './FAQ'
 
 const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewDescription, reviewRating, submitReview, history}) =>
     <div>
-
         <div className="row">
             {/*<div className="col-8">*/}
                 {/*<SearchBar/>*/}
@@ -155,13 +154,13 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewD
         <div>
             <input className= 'review-fld'
                    name='reviewDescription'
-                    onChange = {e => handleChange(e)}
+                    onChange = {[Function]}
                    value = {reviewDescription}
             />
 
             <select className = 'star-fld'
                     name = 'reviewRating'
-                    onChange = {e => handleChange(e)}
+                    onChange = {[Function]}
                     value = {reviewRating}>{[1,2,3,4,5].map(starValue =>
                 <option key={starValue}
                         value={starValue}>{starValue}</option>)}</select>
