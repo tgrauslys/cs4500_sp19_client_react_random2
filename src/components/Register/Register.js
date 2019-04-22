@@ -37,7 +37,7 @@ const Register = ({register, updateFirstName, updateLastName, updateUsername, up
                 <div className="row">
                     <div className="col-12">
                         <label for="password">Password</label>
-                        <input id="password" className="form-control" onChange={e => updatePassword(e)}/>
+                        <input id="password" type="password" className="form-control" onChange={e => updatePassword(e)}/>
                     </div>
                 </div>
                 <br/>
