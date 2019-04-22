@@ -45,7 +45,16 @@ const ServiceAnswers = ({
                             <tr className="answer-row" key={serviceAnswer.id}>
                                 <td>
                                     <body className="hyperlink"onClick={() => handleRedirect(serviceAnswer.id)}>
-                                        {serviceAnswer.answer}
+                                        {
+                                            (serviceAnswer.trueFalseAnswer != null &&
+                                            <label>{serviceAnswer.trueFalseAnswer}</label>) ||
+                                            (serviceAnswer.minRangeAnswer != null &&
+                                            <label>{serviceAnswer.minRangeAnswer}</label>) ||
+                                            (serviceAnswer.maxRangeAnswer != null &&
+                                            <label>{serviceAnswer.maxRangeAnswer}</label>) ||
+                                            (serviceAnswer.choiceAnswer != null &&
+                                            <label>{serviceAnswer.choiceAnswer}</label>)
+                                        }
                                     </body>
                                 </td>
                             </tr>
