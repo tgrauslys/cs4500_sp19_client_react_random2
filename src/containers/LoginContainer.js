@@ -19,7 +19,6 @@ class LoginContainer extends React.Component {
         const username = this.state.username;
         const password = this.state.password;
         this.userService.login({username, password}).then(isLoggedIn => {
-            console.log(isLoggedIn.headers)
             if (isLoggedIn) {
                 this.props.history.push('/profile')
             } else {

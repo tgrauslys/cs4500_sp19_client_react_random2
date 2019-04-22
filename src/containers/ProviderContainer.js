@@ -40,11 +40,16 @@ class ProviderContainer extends React.Component {
         let review = {}
         review["description"] = this.state.reviewDescription;
         review["rating"] = this.state.reviewRating;
-        review["userTo"] = this.state.provider;
-        this.userService.profile().then(user => {review["userFrom"] = user
-            this.reviewService.createReview(review);});
+        this.userService.profile().then(user => {
+            this.reviewService.createReview(review).then(reviewresponse => {
+                console.log(reviewresponse);
+                this.reviewService.linkUserFrom(reviewresponse.id, user.id).then( linkresponse => {
+                        console.log(reviewresponse)
+                        this.reviewService.linkUserTo(reviewresponse.id, this.providerId)
+                }
 
-
+                );
+            })});
     }
 
 
