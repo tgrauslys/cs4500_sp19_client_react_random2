@@ -15,9 +15,10 @@ class LoginContainer extends React.Component {
 
     componentDidMount() {}
     login = e => {
-        e.preventDefault()
-        const username = this.state.username
-        const password = this.state.password
+
+        //e.preventDefault();
+        const username = this.state.username;
+        const password = this.state.password;
         this.userService.login({username, password}).then(isLoggedIn => {
             if (isLoggedIn) {
                 this.props.history.push('/profile')
@@ -27,17 +28,19 @@ class LoginContainer extends React.Component {
                 })
             }
         })
-    }
+    };
+
     updateUsername = e => {
         this.setState({
             username: e.target.value
         })
-    }
+    };
+
     updatePassword = e => {
         this.setState({
             password: e.target.value
         })
-    }
+    };
 
     render() {
         return(
