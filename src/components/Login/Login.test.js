@@ -1,4 +1,4 @@
-import userInfo from '../data/Register.mock.json'
+import registry from '../data/Register.mock.json'
 import React from 'react'
 import Login from './Login'
 import TestRenderer from 'react-test-renderer'
@@ -26,21 +26,22 @@ test('render login screen', () => {
 
     const usernameField = testInstance.findByProps({id: "username"})
     const passwordField = testInstance.findByProps({id: "password"})
-    const loginButton = testInstance.findByProps({className="btn btn-primary btn-block"})
+    const checkbox = testInstance.findByProps({type: "checkbox"})
+    const forgotPasswordLink = testInstance.findByProps({href: "#"})
+    const loginButton = testInstance.findByProps({className: "btn btn-primary btn-block"})
 
     expect(usernameField.onChange).toBeDefined()
     expect(passwordField.onChange).toBeDefined()
+    expect(checkbox).toBeDefined()
+    expect(forgotPasswordLink).toBeDefined()
     expect(loginButton.onClick).toBeDefined()
 })
 
-test('click register to sign up', (done) => {
-    let updateFirstName = () => {}
-    let updateLastName = () => {}
-    let updateEmail = () => {}
+test('click Log In to sign in', (done) => {
     let updateUsername = () => {}
     let updatePassword = () => {}
     let submit = () => {
-        userService.register(userInfo)
+        userService.register(registry.validInput)
         let tree = testRenderer.toJSON
         expect(tree).toMatchSnapshot()
         done()
@@ -63,12 +64,12 @@ test('click register to sign up', (done) => {
     registerButton.props.onClick()
 })
 
-test('profile screen is displayed once registered'), (done) => {
+test('profile screen is displayed once logged in'), (done) => {
     let updateUserProfile = () => {}
     let deleteUserProfile = () => {}
 
     const testRenderer = TestRenderer.create(<Profile 
-        user={userInfo}
+        user={registry.validInput}
         updateUserProfile={updateUserProfile}
         deleteUserProfile={deleteUserProfile}/>)
 }

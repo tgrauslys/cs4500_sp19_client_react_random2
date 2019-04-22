@@ -1,7 +1,40 @@
 {
-    "firstName": "John",
-    "lastName": "Smith",
-    "email": "smith.j@northeastern.edu",
-    "username": "jsmith",
-    "password": "hunter3"
+    "validInput" : {        
+        "firstName": "John",
+        "lastName": "Smith",
+        "email": "smith.j@northeastern.edu",
+        "username": "jsmith",
+        "password": "hunter3"
+    },
+    "invalidInput": {        
+        "firstName": "Johnny",
+        "lastName": "Bravo",
+        "email": "boson.h@duke.edu",
+        "username": "woahmama",
+        "password": "foxylady"
+    
+    },
+    "alreadyRegistered" : [
+        {        
+            "firstName": "Eric",
+            "lastName": "Martineau",
+            "email": "martineau.e@northeastern.edu",
+            "username": "emart",
+            "password": "this is secure"
+        },
+        {        
+            "firstName": "Higgs",
+            "lastName": "Boson",
+            "email": "boson.h@duke.edu",
+            "username": "b055man",
+            "password": "shyza"
+        },
+        {        
+            "firstName": "Silva",
+            "lastName": "O'Leary",
+            "email": "silva.@rit.edu",
+            "username": "msilva744",
+            "password": "MONEY"
+        }
+    ]
 }

@@ -1,8 +1,8 @@
-import userInfo from '../data/Register.mock.json'
+import registry from '../data/Register.mock.json'
 import React from 'react'
 import Register from './Register'
 import TestRenderer from 'react-test-renderer'
-import UserService from '../services/UserService'
+import UserService from '../services/UserService.mock'
 
 const userService = UserService.getInstance()
 
@@ -35,14 +35,15 @@ test('render register screen', () => {
     const emailField = testInstance.findByProps({id: "email"})
     const usernameField = testInstance.findByProps({id: "username"})
     const passwordField = testInstance.findByProps({id: "password"})
-    const registerButton = testInstance.findByProps({className="btn btn-primary btn-block"})
+    const registerButton = testInstance.findAllByProps({className: "btn btn-primary btn-block"})
 
     expect(firstNameField.onChange).toBeDefined()
     expect(lastNameField.onChange).toBeDefined()
     expect(emailField.onChange).toBeDefined()
     expect(usernameField.onChange).toBeDefined()
     expect(passwordField.onChange).toBeDefined()
-    expect(registerButton.onClick).toBeDefined()
+    expect(registerButton[0].onClick).toBeDefined()
+    expext(registerButton.length).toBe(1)
 })
 
 test('click register to sign up', (done) => {
@@ -52,7 +53,7 @@ test('click register to sign up', (done) => {
     let updateUsername = () => {}
     let updatePassword = () => {}
     let submit = () => {
-        userService.register(userInfo)
+        userService.register(registry.validInput)
         let tree = testRenderer.toJSON
         expect(tree).toMatchSnapshot()
         done()
@@ -86,7 +87,7 @@ test('profile screen is displayed once registered'), (done) => {
     let deleteUserProfile = () => {}
 
     const testRenderer = TestRenderer.create(<Profile 
-        user={userInfo}
+        user={registry.validInput}
         updateUserProfile={updateUserProfile}
         deleteUserProfile={deleteUserProfile}/>)
 }
