@@ -114,16 +114,6 @@ const Admin = () =>
                         exact
                         component={ServiceQuestionDetails}/>
                     <Route
-<<<<<<< HEAD
-=======
-                        path="/admin/provider-search/:id"
-                        exact
-                        render={() => <ServiceSearchContainer
-                            service={userService}
-
-                        />}/>
-                    <Route
->>>>>>> master
                         path="/admin/faqs"
                         exact
                         component={FAQs}/>
