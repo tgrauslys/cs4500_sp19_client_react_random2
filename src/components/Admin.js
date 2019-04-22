@@ -14,6 +14,7 @@ import ServiceQuestionService from '../services/ServiceQuestionService';
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerContainer from '../containers/ServiceAnswerContainer'
 import ServiceAnswerService from '../services/ServiceAnswerService';
+import ServiceAnswerDetails from './ServiceAnswerDetails'
 import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FaqAnswerContainer from "../containers/FaqAnswerContainer";
@@ -130,6 +131,10 @@ const Admin = () =>
                             itemCount={10}
                             optionValues={[1, 2, 5, 10, 25, 50]}
                         />}/>
+                        <Route
+                            path="/admin/answers/:id"
+                            exact
+                            component={ServiceAnswerDetails}/>
                     <Route
                         path="/admin/provider-search/:id"
                         exact
