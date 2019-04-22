@@ -7,6 +7,7 @@ import ServiceCategoryService from "../../services/ServiceCategoryService";
 import ServicesService from "../../services/ServicesService";
 
 const userService = UserService.getInstance()
+const services = ServicesService.getInstance()
 
 const Home = (pillServiceCategories) => {
     return (
@@ -30,7 +31,8 @@ const Home = (pillServiceCategories) => {
         <br/>
         <div>
             <ServiceSearchContainer
-                service={userService}/>
+                serviceService={services}
+                userService={userService}/>
         </div>
         <br/>
         <div>

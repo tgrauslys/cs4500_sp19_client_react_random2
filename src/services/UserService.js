@@ -52,10 +52,8 @@ export default class UserService {
             .then(response => response.json());
 
     filterUsers = (serviceId, username, zipcode, filters) => {
-        console.log("filterUsers")
-        console.log(JSON.stringify(filters))
         return fetch(
-            `http://localhost:8080/api/users/filtered/${serviceId}?username=${username}`, {
+            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered/${serviceId}?username=${username}&zipcode=${zipcode}`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -63,7 +61,8 @@ export default class UserService {
                 },
                 body: JSON.stringify(filters)
             })
-            .then(response => response.json());
+            .then(response => response.json())
+            .catch(reject => console.error(reject));
         }
 
     deleteUserById = userId =>

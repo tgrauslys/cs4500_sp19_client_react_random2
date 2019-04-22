@@ -6,7 +6,6 @@ import ServiceSearchFilters from '../components/ServiceSearchFilters';
 class ServiceSearchContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.service = this.props.service
         this.serviceService = this.props.serviceService
         this.userService = this.props.userService
         this.questionService = this.props.questionService
@@ -23,6 +22,7 @@ class ServiceSearchContainer extends React.Component {
     }
     
     componentDidMount() {
+        if (this.state.serviceId !== null) {
         this.userService
             .filterUsers(this.state.serviceId, this.state.username, this.state.zipcode, [])
             .then(searchResults => {
@@ -46,6 +46,15 @@ class ServiceSearchContainer extends React.Component {
                     filterQuestions: mappedQuestions
                 })
             })
+        } else {
+            this.userService
+                .filterUsers(this.state.username, this.state.zipcode)
+                .then(searchResults => {
+                    this.setState({
+                        searchResults: searchResults
+                    })}
+                )
+        }
     } 
     handleSubmit = () => {
         const searchPredicates = []
