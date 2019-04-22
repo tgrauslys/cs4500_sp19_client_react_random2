@@ -8,7 +8,7 @@ const ServiceProvider = ({serviceProvider}) =>
                 <img src="https://picsum.photos/130/130"/>
             </div>
             <div className="col-7">
-                <a href="#">
+                <a href={`/users/${serviceProvider.id}`}>
                     {serviceProvider.username}
                 </a>
                 <div>

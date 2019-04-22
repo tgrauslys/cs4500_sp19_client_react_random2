@@ -15,6 +15,8 @@ import CatListContainer from "./containers/CatListContainer";
 import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import LoginContainer from './containers/LoginContainer'
 import UserService from './services/UserService'
+import ServiceSearchContainer from './containers/ServiceSearchContainer';
+import ServiceService from './services/ServicesService'
 
 class App extends Component {
     constructor(props) {
@@ -92,6 +94,15 @@ class App extends Component {
                             render={(props)=>
                             <ProfileContainer
                                 props = {props}
+                            />}/>
+                        <Route
+                            path="/provider-search/:id"
+                            exact
+                            render={(props)=>
+                            <ServiceSearchContainer
+                                props = {props}
+                                serviceService={ServiceService.getInstance()}
+                                userService={this.userService}
                             />}/>
                         <Route
                             path="/services-nav"

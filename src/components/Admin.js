@@ -50,8 +50,6 @@ const Admin = () =>
                     <br/>
                     <Link to="/admin/faqs">FAQs</Link>
                     <br/>
-                    <Link to="/admin/provider-search">Provider Search</Link>
-                    <br/>
                     <Link to="/admin/faq-answers">FAQ Answers</Link>
                 </div>
                 <div className="col-9">
@@ -110,13 +108,6 @@ const Admin = () =>
                             currentPage={0}
                             itemCount={10}
                             optionValues={[1, 2, 5, 10, 25, 50]}
-                        />}/>
-                    <Route
-                        path="/admin/provider-search"
-                        exact
-                        render={() => <ServiceSearchContainer
-                            serviceService={services}
-                            userService={userService}
                         />}/>
                     <Route
                         path="/admin/questions/:id"

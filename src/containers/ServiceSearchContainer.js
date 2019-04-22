@@ -9,7 +9,9 @@ class ServiceSearchContainer extends React.Component {
         this.serviceService = this.props.serviceService
         this.userService = this.props.userService
         this.questionService = this.props.questionService
-        this.serviceId = this.props.match.params.id
+        if (this.props.match !== undefined) {
+            this.serviceId = this.props.match.params.id
+        }
         this.state = {
             serviceCategory: "",
             serviceQuestions: [],
@@ -22,7 +24,7 @@ class ServiceSearchContainer extends React.Component {
     }
     
     componentDidMount() {
-        if (this.serviceId !== null) {
+        if (this.serviceId !== undefined) {
         this.userService
             .filterUsers(this.serviceId, this.state.username, this.state.zipcode, [])
             .then(searchResults => {

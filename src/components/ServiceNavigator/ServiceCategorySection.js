@@ -15,7 +15,7 @@ const ServiceCategorySection = ({serviceCategory}) =>
                     serviceCategory.services.map(service =>
                         <div key={service.id}
                              className="col-6 list-group-item no-border">
-                            <a href="/provider"> {service.serviceName}</a>
+                            <a href={`/provider-search/${service.id}`}> {service.serviceName}</a>
                         </div>
                     )
                 }
