@@ -40,9 +40,8 @@ export default class FAQAnswerService {
         })
             .then(response => response.json()); // parses response to JSON
 
-    createFAQAnswer = (frequentlyAskedQuestion, frequentlyAskedAnswer) => {
-        console.log(frequentlyAskedQuestion);
-        return fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${frequentlyAskedQuestion.id}/answer`, {
+    createFAQAnswer = (frequentlyAskedQuestion, frequentlyAskedAnswer) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${frequentlyAskedQuestion.id}/answer`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +50,6 @@ export default class FAQAnswerService {
             body: JSON.stringify(frequentlyAskedAnswer), // body data type must match "Content-Type" header
         })
             .then(response => response.json()); // parses response to
-    };
 
     updateUser = (frequentlyAskedAnswer, user) =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/${frequentlyAskedAnswer.id}/user/${user.id}`, {
