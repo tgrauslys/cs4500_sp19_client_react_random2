@@ -150,14 +150,16 @@ exports[`Render all service questions correctly 2`] = `
       className="table"
     >
       <tbody>
-        <tr>
+        <tr
+          className="question-row"
+        >
           <td>
-            <a
-              href="/admin/questions/11"
+            <body
+              className="hyperlink"
               onClick={[Function]}
             >
               Question11
-            </a>
+            </body>
           </td>
         </tr>
         <tr>
