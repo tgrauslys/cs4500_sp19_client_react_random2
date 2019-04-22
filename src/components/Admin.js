@@ -12,6 +12,9 @@ import ServicesDetailsContainer from "../containers/ServicesDetailsContainer";
 import ServiceQuestionContainer from '../containers/ServiceQuestionContainer'
 import ServiceQuestionService from '../services/ServiceQuestionService';
 import ServiceQuestionDetails from './ServiceQuestionDetails'
+import ServiceAnswerContainer from '../containers/ServiceAnswerContainer'
+import ServiceAnswerService from '../services/ServiceAnswerService';
+import ServiceAnswerDetails from './ServiceAnswerDetails'
 import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FaqAnswerContainer from "../containers/FaqAnswerContainer";
@@ -30,6 +33,7 @@ const reviewService = ReviewService.getInstance();
 const faqService = FAQService.getInstance();
 const faqAnswerService = FAQAnswerService.getInstance();
 const serviceQuestionService = ServiceQuestionService.getInstance();
+const serviceAnswerService = ServiceAnswerService.getInstance();
 const userService = UserService.getInstance();
 const categoryService = ServiceCategoryService.getInstance();
 const services = ServicesService.getInstance();
@@ -47,6 +51,8 @@ const Admin = () =>
                     <Link to="/admin/categories">Service Categories</Link>
                     <br/>
                     <Link to="/admin/questions">Service Questions</Link>
+                    <br/>
+                    <Link to="/admin/answers">Service Answers</Link>
                     <br/>
                     <Link to="/admin/faqs">FAQs</Link>
                     <br/>
@@ -115,12 +121,25 @@ const Admin = () =>
                         path="/admin/questions/:id"
                         exact
                         component={ServiceQuestionDetails}/>
+
+                    <Route
+                        path="/admin/answers"
+                        exact
+                        render={() => <ServiceAnswerContainer
+                            service={serviceAnswerService}
+                            currentPage={0}
+                            itemCount={10}
+                            optionValues={[1, 2, 5, 10, 25, 50]}
+                        />}/>
+                        <Route
+                            path="/admin/answers/:id"
+                            exact
+                            component={ServiceAnswerDetails}/>
                     <Route
                         path="/admin/provider-search/:id"
                         exact
                         render={() => <ServiceSearchContainer
                             service={userService}
-
                         />}/>
                     <Route
                         path="/admin/faqs"
