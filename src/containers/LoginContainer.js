@@ -6,7 +6,7 @@ import UserService from '../services/UserService';
 class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.UserService = UserService.getInstance();
+        this.userService = UserService.getInstance();
         this.state = {
             username: "",
             password: "",

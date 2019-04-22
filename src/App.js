@@ -14,6 +14,8 @@ import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import LoginContainer from './containers/LoginContainer'
 import RegisterContainer from './containers/RegisterContainer'
 import UserService from './services/UserService'
+import ReviewService from './services/ReviewService'
+import FAQAnswerService from './services/FAQAnswerService'
 import BusinessServContainer from "./containers/BusinessServContainer";
 
 class App extends Component {
@@ -67,7 +69,10 @@ class App extends Component {
                             path="/provider/:id"
                             exact
                             render={(props) =>
-                            <ProviderContainer props = {props}/>}/>
+                            <ProviderContainer id = {props.match.params.id}
+                                ReviewService = {ReviewService.getInstance()}
+                                UserService = {UserService.getInstance()}
+                                FAQAnswerService = {FAQAnswerService.getInstance()} />}/>
                         <Route
                             path="/home"
                             exact
