@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "title": "Start",
+    "question": "How did you start your business?",
+    "answers": [
+      {
+        "id": 1,
+        "answer": "I fell in love with my craft in school and started it there.",
+        "question": "How did you start your business?",
+        "username": "Christina H"
+      },
+      {
+        "id": 2,
+        "answer": "My friends told me I should start a business.",
+        "question": "How did you start your business?",
+        "username": "kakade-o"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Media",
+    "question": "Where can I find you online?",
+    "answers": [
+      {
+        "id": 1,
+        "answer": "Facebook!",
+        "question": "Where can I find you online?",
+        "username": "Christina H"
+      },
+      {
+        "id": 2,
+        "answer": "Twitter!",
+        "question": "Where can I find you online?",
+        "username": "kakade-o"
+      }
+    ]
+  }
+]
