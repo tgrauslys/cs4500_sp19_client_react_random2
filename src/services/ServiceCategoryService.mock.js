@@ -41,6 +41,12 @@ global.fetch = jest.fn()
                         })
             })
         } else {
-            return "ERROR"
+            return new Promise((resolve, reject) => {
+                resolve({
+                            json: function () {
+                                return "@@@@@@@@ERROR: " + url;
+                            }
+                        })
+            })
         }
     });

@@ -7,7 +7,6 @@ import ServiceNavigator from "../ServiceNavigator/ServiceNavigator";
 const userService = UserService.getInstance()
 
 const Home = (pillServiceCategories) => {
-    console.log(pillServiceCategories)
     return (
     <div>
         <h2>Home</h2>
