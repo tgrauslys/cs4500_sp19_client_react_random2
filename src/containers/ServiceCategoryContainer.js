@@ -11,7 +11,7 @@ class ServiceCategoryContainer extends React.Component {
         this.currentPage = this.props.currentPage;
         this.itemCount = this.props.itemCount;
         this.optionValues = this.props.optionValues;
-        this.serviceCategoryService = ServiceCategoryService.getInstance();
+        this.serviceCategoryService = this.props.service ? this.props.service : ServiceCategoryService.getInstance();
         this.state = {
             serviceCategories: [],
             optionValues: this.optionValues,

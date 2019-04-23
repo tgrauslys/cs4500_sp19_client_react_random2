@@ -40,8 +40,8 @@ export default class FAQAnswerService {
         })
             .then(response => response.json()); // parses response to JSON
 
-    createFAQAnswer = (frequentlyAskedQuestion, frequentlyAskedAnswer) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${frequentlyAskedQuestion.id}/answer`, {
+    createFAQAnswer = (frequentlyAskedQuestion, frequentlyAskedAnswer, User) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${frequentlyAskedQuestion.id}/user/${User.id}/answer`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",

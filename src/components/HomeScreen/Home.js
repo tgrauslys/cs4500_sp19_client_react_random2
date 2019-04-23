@@ -9,7 +9,6 @@ const userService = UserService.getInstance()
 const services = ServicesService.getInstance()
 
 const Home = (pillServiceCategories) => {
-    console.log(pillServiceCategories)
     return (
     <div>
         <h2>Home</h2>
