@@ -48,10 +48,12 @@ class FAQAnswerContainer extends React.Component {
     componentDidMount() {
         this.findFAQAnswers();
         this.FAQService.findAllFAQs().then(FAQs => this.setState({
-            FAQs: FAQs
+            FAQs: FAQs,
+            FAQ: FAQs[0]
         }));
         this.UserService.findAllUsers().then(Users => this.setState({
-            Users: Users
+            Users: Users,
+            User: Users[0]
         }));
 
     }
@@ -67,16 +69,17 @@ class FAQAnswerContainer extends React.Component {
     };
 
     createFAQAnswer = e => {
-        this.AnswerService.createFAQAnswer(this.state.FAQ, this.state.FAQAnswer)
-            .then(FAQAnswer => this.AnswerService.updateUser(FAQAnswer, this.state.User)
-                .then(finalAnswer =>  { this.state.FAQAnswers.push(finalAnswer);
-                this.setState({FAQAnswers: this.state.FAQAnswers})
-        }));
+        this.AnswerService.createFAQAnswer(this.state.FAQ, this.state.FAQAnswer, this.state.User)
+            .then(FAQAnswer => {
+                    this.state.FAQAnswers.push(FAQAnswer);
+                    this.setState({FAQAnswers: this.state.FAQAnswers});
+                });
 
     };
 
     deleteFAQAnswer = e => {
-        this.AnswerService.deleteFAQAnswers(this.state.FAQAnswer.id).then(() => {this.setState({
+        this.AnswerService.deleteFAQAnswers(this.state.FAQAnswer.id).then(() => {
+            this.setState({
                 FAQAnswer: {
                     question: '',
                     answer: '',
@@ -84,7 +87,8 @@ class FAQAnswerContainer extends React.Component {
                 }
             })
 
-        this.findFAQAnswers()});
+            this.findFAQAnswers()
+        });
     };
 
     findFAQAnswers = () => {
