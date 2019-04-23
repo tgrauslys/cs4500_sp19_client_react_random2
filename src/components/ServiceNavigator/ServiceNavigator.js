@@ -33,6 +33,7 @@ const ServiceNavigator = ({
             <div className="col-9">
                 {serviceCategories.map(serviceCategory =>
                                            <Route
+                                               key={serviceCategory.serviceCategoryName}
                                                path={"/services-nav/categories/" + serviceCategory.id}
                                                exact
                                                render={() => <ServiceCategorySection
