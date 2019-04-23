@@ -67,19 +67,24 @@ class FAQAnswerContainer extends React.Component {
     };
 
     createFAQAnswer = e => {
-        this.AnswerService.createFAQAnswer(this.state.FAQ, this.state.FAQAnswer).then(FAQAnswer => this.AnswerService.updateUser(FAQAnswer, this.state.User));
+        this.AnswerService.createFAQAnswer(this.state.FAQ, this.state.FAQAnswer)
+            .then(FAQAnswer => this.AnswerService.updateUser(FAQAnswer, this.state.User)
+                .then(finalAnswer =>  { this.state.FAQAnswers.push(finalAnswer);
+                this.setState({FAQAnswers: this.state.FAQAnswers})
+        }));
 
     };
 
     deleteFAQAnswer = e => {
-        this.AnswerService.deleteFAQAnswers(this.state.FAQAnswer.id).then(this.setState({
-            FAQAnswer: {
-                question: '',
-                answer: '',
-                id: ''
-            }
-        }));
-        this.findFAQAnswers()
+        this.AnswerService.deleteFAQAnswers(this.state.FAQAnswer.id).then(() => {this.setState({
+                FAQAnswer: {
+                    question: '',
+                    answer: '',
+                    id: ''
+                }
+            })
+
+        this.findFAQAnswers()});
     };
 
     findFAQAnswers = () => {
