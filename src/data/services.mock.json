@@ -1,0 +1,146 @@
+[
+  {
+    "content": [
+      {
+        "id": 123,
+        "serviceName": "Appliance Installation",
+        "providers": [],
+        "serviceCategories": [],
+        "serviceQuestions": []
+      },
+      {
+        "id": 234,
+        "serviceName": "Cabinetry",
+        "providers": [],
+        "serviceCategories": [],
+        "serviceQuestions": []
+      }
+      ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "offset": 2,
+      "pageNumber": 1,
+      "pageSize": 2,
+      "paged": true,
+      "unpaged": false
+    },
+    "totalPages": 3,
+    "last": false,
+    "totalElements": 5,
+    "size": 2,
+    "number": 1,
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "numberOfElements": 2,
+    "first": false,
+    "empty": false
+  },
+  {
+    "content": [
+      {
+        "id": 345,
+        "serviceName": "Door Installation",
+        "providers": [
+          {
+            "id": 1,
+            "username": "bm",
+            "password": "123456",
+            "firstName": "bach",
+            "lastName": "mai",
+            "role": "provider",
+            "description": "door installation",
+            "rating": 1.23,
+            "startDate": "",
+            "employees": 3,
+            "backgroundChecked": true,
+            "hires": 2,
+            "paymentMethods": "credit",
+            "zipcode": "123456",
+            "day": "01",
+            "month": "01",
+            "year": "2019",
+            "street": "tremont",
+            "city": "boston",
+            "state": "MA",
+            "email": "abc@xyz"
+          },
+          {
+            "id": 2,
+            "username": "jd",
+            "password": "123456",
+            "firstName": "john",
+            "lastName": "doe",
+            "role": "provider",
+            "description": "door installation",
+            "rating": 2.34,
+            "startDate": "",
+            "employees": 3,
+            "backgroundChecked": false,
+            "hires": 2,
+            "paymentMethods": "credit",
+            "zipcode": "123456",
+            "day": "01",
+            "month": "01",
+            "year": "2019",
+            "street": "tremont",
+            "city": "boston",
+            "state": "MA",
+            "email": "xyz@abc"
+          }
+        ],
+        "serviceCategories": [],
+        "serviceQuestions": []
+      },
+      {
+        "id": 456,
+        "serviceName": "Concrete Removal",
+        "providers": [],
+        "serviceCategories": [
+          {
+            "id": 2652,
+            "serviceCategoryName": "Beyond",
+            "services": []
+          },
+          {
+            "id": 1234,
+            "serviceCategoryName": "Removal",
+            "services": []
+          }
+        ],
+        "serviceQuestions": []
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "offset": 2,
+      "pageNumber": 1,
+      "pageSize": 2,
+      "paged": true,
+      "unpaged": false
+    },
+    "totalPages": 3,
+    "last": false,
+    "totalElements": 5,
+    "size": 2,
+    "number": 1,
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "numberOfElements": 2,
+    "first": false,
+    "empty": false
+  }
+]
