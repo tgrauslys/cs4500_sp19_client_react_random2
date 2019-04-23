@@ -4,7 +4,6 @@ const CategoryList = ({
                           props,
                           category
                       }) => {
-    console.log(category.services)
     return (<div>
         <h3>Category: {category.serviceCategoryName}</h3>
         <table className="table">
@@ -13,11 +12,13 @@ const CategoryList = ({
                 category.services
                     .map(service =>
                              <tr key={service.id}>
-                                 <a className="nav-link btn-lg text-center"
-                                    href={"/provider-search/"  + service.id}>
-                                     {/*<i className={`fa ${serviceCategory.icon}`}/>*/}
-                                     {service.serviceCategoryName}
-                                 </a>
+                                 <td>
+                                     <a className="nav-link btn-lg text-center"
+                                        href={"/provider-search/" + service.id}>
+                                         {/*<i className={`fa ${serviceCategory.icon}`}/>*/}
+                                         {service.serviceName}
+                                     </a>
+                                 </td>
                              </tr>
                     )
             }
