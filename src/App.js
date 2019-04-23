@@ -10,10 +10,15 @@ import provider from "./data/provider.mock.json"
 import ProfileContainer from './containers/ProfileContainer';
 import ServiceCategoryService from "./services/ServiceCategoryService";
 import CatListContainer from "./containers/CatListContainer";
-import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
-import LoginContainer from './containers/LoginContainer'
-import RegisterContainer from './containers/RegisterContainer'
-import UserService from './services/UserService'
+import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator';
+import LoginContainer from './containers/LoginContainer';
+import RegisterContainer from './containers/RegisterContainer';
+import UserService from './services/UserService';
+
+import ReviewService from './services/ReviewService';
+import FAQAnswerService from './services/FAQAnswerService';
+import ServiceSearchContainer from './containers/ServiceSearchContainer';
+import ServiceService from './services/ServicesService';
 import BusinessServContainer from "./containers/BusinessServContainer";
 
 class App extends Component {
@@ -67,7 +72,10 @@ class App extends Component {
                             path="/provider/:id"
                             exact
                             render={(props) =>
-                            <ProviderContainer props = {props}/>}/>
+                            <ProviderContainer id = {props.match.params.id}
+                                ReviewService = {ReviewService.getInstance()}
+                                UserService = {UserService.getInstance()}
+                                FAQAnswerService = {FAQAnswerService.getInstance()} />}/>
                         <Route
                             path="/home"
                             exact
@@ -92,7 +100,21 @@ class App extends Component {
                             <ProfileContainer
                                 props = {props}
                             />}/>
-
+                        <Route
+                            path="/provider-search/:id"
+                            exact
+                            render={(props)=>
+                            <ServiceSearchContainer
+                                {...props}
+                                serviceService={ServiceService.getInstance()}
+                                userService={this.userService}
+                            />}/>
+                        <Route
+                            path="/services-nav"
+                            exact
+                            render={() =>
+                            <ServiceNavigator serviceCategories={this.state.pillServiceCategories}
+                            />}/>
                         <Route
                             path="/categories/:id"
                             exact

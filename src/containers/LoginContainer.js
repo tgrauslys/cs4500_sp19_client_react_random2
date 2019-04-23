@@ -1,11 +1,12 @@
 import React from 'react'
 import Login from '../components/Login/Login';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import UserService from '../services/UserService';
 
 class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.userService = this.props.userService
+        this.userService = UserService.getInstance();
         this.state = {
             username: "",
             password: "",

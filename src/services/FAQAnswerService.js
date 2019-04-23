@@ -41,7 +41,6 @@ export default class FAQAnswerService {
             .then(response => response.json()); // parses response to JSON
 
     createFAQAnswer = (frequentlyAskedQuestion, frequentlyAskedAnswer) =>
-        // fetch(`http://localhost:8080/api/faq-answer`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq/${frequentlyAskedQuestion.id}/answer`, {
             method: 'post',
             headers: {
@@ -50,16 +49,17 @@ export default class FAQAnswerService {
             },
             body: JSON.stringify(frequentlyAskedAnswer), // body data type must match "Content-Type" header
         })
-            .then(response => response.json()); // parses response to JSON
+            .then(response => response.json()); // parses response to
 
     updateUser = (frequentlyAskedAnswer, user) =>
-        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/${frequentlyAskedAnswer.id}/user/${user.id}`).then(response => response.json());
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/${frequentlyAskedAnswer.id}/user/${user.id}`, {
+            method: "POST"
+        }).then(response => response.json());
 
     deleteFAQAnswers = id =>
         // fetch(`http://localhost:8080/api/faq-answer/${id}`, {
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/faq-answer/${id}`, {
             method: "DELETE",
-
         });
     //.then(response => response.json()); // parses response to JSON
 

@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render all service questions correctly 1`] = `
+<div>
+  <div>
+    <h3>
+      Service Categories
+    </h3>
+    <a
+      className="btn btn-success"
+      onClick={[Function]}
+      role="button"
+      variant="outline-success"
+    >
+      Create new
+    </a>
+    <table
+      className="table"
+    >
+      <tbody>
+        <td>
+          Category name
+        </td>
+        <td />
+        <tr>
+          <td>
+            <select
+              className="cat-select"
+              onChange={[Function]}
+              value={2}
+            >
+              <option
+                value={1}
+              >
+                1
+              </option>
+              <option
+                value={2}
+              >
+                2
+              </option>
+              <option
+                value={5}
+              >
+                5
+              </option>
+              <option
+                value={10}
+              >
+                10
+              </option>
+              <option
+                value={25}
+              >
+                25
+              </option>
+              <option
+                value={50}
+              >
+                50
+              </option>
+            </select>
+            <button
+              className="btn btn-secondary"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              &lt;
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              1
+            </button>
+            <button
+              className="btn btn-primary"
+              disabled={true}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              2
+            </button>
+            
+            
+          </td>
+          <td />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Render all service questions correctly 2`] = `
+<div>
+  <div>
+    <h3>
+      Service Categories
+    </h3>
+    <a
+      className="btn btn-success"
+      onClick={[Function]}
+      role="button"
+      variant="outline-success"
+    >
+      Create new
+    </a>
+    <table
+      className="table"
+    >
+      <tbody>
+        <td>
+          Category name
+        </td>
+        <td />
+        <tr>
+          <td>
+            <select
+              className="cat-select"
+              onChange={[Function]}
+              value={2}
+            >
+              <option
+                value={1}
+              >
+                1
+              </option>
+              <option
+                value={2}
+              >
+                2
+              </option>
+              <option
+                value={5}
+              >
+                5
+              </option>
+              <option
+                value={10}
+              >
+                10
+              </option>
+              <option
+                value={25}
+              >
+                25
+              </option>
+              <option
+                value={50}
+              >
+                50
+              </option>
+            </select>
+            <button
+              className="btn btn-secondary"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              &lt;
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={[Function]}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              1
+            </button>
+            <button
+              className="btn btn-primary"
+              disabled={true}
+              style={
+                Object {
+                  "margin": "2px",
+                }
+              }
+              type="button"
+            >
+              2
+            </button>
+            
+            
+          </td>
+          <td />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

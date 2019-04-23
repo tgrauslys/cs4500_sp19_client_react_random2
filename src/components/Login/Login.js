@@ -12,8 +12,8 @@ const Login = ({login, updateUsername, updatePassword, isErrorMessageOn}) => {
         <div>
             <div className="row">
                 <div className="col-12">
-                    <label for="email">Email</label>
-                    <input id="email" className="form-control" onChange={e => updateUsername(e)} />
+                    <label for="username">Username</label>
+                    <input id="username" className="form-control" onChange={e => updateUsername(e)} />
                 </div>
                 <div className="col-12">
                     <br/>

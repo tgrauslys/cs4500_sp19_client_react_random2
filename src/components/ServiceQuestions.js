@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import './ServiceQuestions.css'
 
 const ServiceQuestions = ({
                             serviceQuestions, 
@@ -8,8 +8,8 @@ const ServiceQuestions = ({
                             itemCount,
                             first,
                             last,
-                            setPage}) => {
-
+                            setPage,
+                            handleRedirect}) => {
     let previousButton = <button onClick= {async (e) => await setPage(e, currentPage - 1)}
                             style={{margin: '2px'}}
                             // &#60; displays "<"
@@ -42,11 +42,11 @@ const ServiceQuestions = ({
                 {
                     serviceQuestions
                         .map(serviceQuestion =>
-                            <tr key={serviceQuestion.id}>
+                            <tr className="question-row" key={serviceQuestion.id}>
                                 <td>
-                                    <Link to={`/admin/questions/${serviceQuestion.id}`}>
+                                    <body className="hyperlink"onClick={() => handleRedirect(serviceQuestion.id)}>
                                         {serviceQuestion.question}
-                                    </Link>
+                                    </body>
                                 </td>
                             </tr>
                         )
@@ -71,6 +71,7 @@ const ServiceQuestions = ({
                 </tbody>
             </table>
         </div>
+        
     )
 }
 

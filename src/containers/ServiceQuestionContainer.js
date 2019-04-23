@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceQuestions from '../components/ServiceQuestions'
 import ServiceSearchBar from '../components/ServiceSearchBar';
+import {withRouter} from 'react-router-dom'
 class ServiceQuestionContainer extends React.Component {
     constructor(props) {
         super(props)
@@ -31,7 +32,6 @@ class ServiceQuestionContainer extends React.Component {
                     last: serviceQuestions.last
                 }, resolve()))
         })
-        
     }
     componentDidMount() {
         this.serviceQuestionService
@@ -47,6 +47,7 @@ class ServiceQuestionContainer extends React.Component {
                 })
             )
     }
+    handleRedirect = questionId => this.props.history.push(`/admin/questions/${questionId}`)
     render() {
         return (
             <div>
@@ -58,10 +59,11 @@ class ServiceQuestionContainer extends React.Component {
                     itemCount={this.state.itemCount}
                     first={this.state.first}
                     last={this.state.last}
-                    setPage={this.setPage}/>
+                    setPage={this.setPage}
+                    handleRedirect={this.handleRedirect}/>
             </div>
         )
     }
 }
 
-export default ServiceQuestionContainer
+export default withRouter(ServiceQuestionContainer)
