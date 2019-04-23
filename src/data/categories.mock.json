@@ -1,115 +1,78 @@
 [
   {
-    "content": [
+    "id": 1722,
+    "serviceCategoryName": "Dog",
+    "services": [
       {
-        "id": 1742,
-        "serviceCategoryName": "Pool",
-        "services": []
+        "id": 312,
+        "serviceName": "Dog Walking",
+        "serviceQuestions": []
       },
       {
-        "id": 2542,
-        "serviceCategoryName": "Internet",
-        "services": []
+        "id": 282,
+        "serviceName": "Stove Installation",
+        "serviceQuestions": []
       }
-    ],
-    "pageable": {
-      "sort": {
-        "sorted": false,
-        "unsorted": true,
-        "empty": true
-      },
-      "offset": 2,
-      "pageNumber": 1,
-      "pageSize": 2,
-      "paged": true,
-      "unpaged": false
-    },
-    "totalPages": 3,
-    "last": false,
-    "totalElements": 5,
-    "size": 2,
-    "number": 1,
-    "sort": {
-      "sorted": false,
-      "unsorted": true,
-      "empty": true
-    },
-    "numberOfElements": 2,
-    "first": false,
-    "empty": false
+    ]
   },
   {
-    "content": [
+    "id": 1732,
+    "serviceCategoryName": "Cave",
+    "services": []
+  },
+  {
+    "id": 1742,
+    "serviceCategoryName": "Pool",
+    "services": []
+  },
+  {
+    "id": 2542,
+    "serviceCategoryName": "Internet",
+    "services": []
+  },
+  {
+    "id": 2652,
+    "serviceCategoryName": "Beyond",
+    "services": [
       {
-        "id": 2652,
-        "serviceCategoryName": "Beyond",
-        "services": [
+        "id": 382,
+        "serviceName": "Kid Walking",
+        "serviceQuestions": [
           {
-            "id": 372,
-            "serviceName": "Kid Removal",
-            "serviceQuestions": []
+            "id": 12,
+            "question": "Is this an emergency?",
+            "type": "TrueFalse",
+            "choices": "10",
+            "serviceAnswers": []
           },
           {
-            "id": 382,
-            "serviceName": "Kid Walking",
-            "serviceQuestions": [
-              {
-                "id": 12,
-                "question": "Is this an emergency?",
-                "type": "TrueFalse",
-                "choices": "10",
-                "serviceAnswers": []
-              },
-              {
-                "id": 122,
-                "question": "What type of children do you walk?",
-                "type": "MultipleChoice",
-                "choices": "Small ones,Big ones,Anywhere in between",
-                "serviceAnswers": []
-              },
-              {
-                "id": 132,
-                "question": "Child weight range",
-                "type": "Range",
-                "choices": "",
-                "serviceAnswers": []
-              },
-              {
-                "id": 142,
-                "question": "Child infestation range",
-                "type": "Range",
-                "choices": "",
-                "serviceAnswers": []
-              }
-            ]
+            "id": 122,
+            "question": "What type of children do you walk?",
+            "type": "MultipleChoice",
+            "choices": "Small ones,Big ones,Anywhere in between",
+            "serviceAnswers": []
+          },
+          {
+            "id": 132,
+            "question": "Child weight range",
+            "type": "Range",
+            "choices": "",
+            "serviceAnswers": []
+          },
+          {
+            "id": 142,
+            "question": "Child infestation range",
+            "type": "Range",
+            "choices": "",
+            "serviceAnswers": []
           }
         ]
-      }
-    ],
-    "pageable": {
-      "sort": {
-        "sorted": false,
-        "unsorted": true,
-        "empty": true
       },
-      "offset": 4,
-      "pageNumber": 2,
-      "pageSize": 2,
-      "paged": true,
-      "unpaged": false
-    },
-    "totalPages": 3,
-    "last": true,
-    "totalElements": 5,
-    "size": 2,
-    "number": 2,
-    "sort": {
-      "sorted": false,
-      "unsorted": true,
-      "empty": true
-    },
-    "numberOfElements": 1,
-    "first": false,
-    "empty": false
+      {
+        "id": 372,
+        "serviceName": "Kid Removal",
+        "serviceQuestions": []
+      }
+    ]
   }
 ]

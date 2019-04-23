@@ -1,215 +1,195 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render all service questions correctly 1`] = `
+exports[`Correct rendering of service categories 1`] = `
 <div>
-  <div>
-    <h3>
-      Service Categories
-    </h3>
-    <a
-      className="btn btn-success"
-      onClick={[Function]}
-      role="button"
-      variant="outline-success"
-    >
-      Create new
-    </a>
-    <table
-      className="table"
-    >
-      <tbody>
+  <h3>
+    Service Categories
+  </h3>
+  <a
+    className="btn btn-success"
+    role="button"
+    variant="outline-success"
+  >
+    Create new
+  </a>
+  <table
+    className="table"
+  >
+    <tbody>
+      <td>
+        Category name
+      </td>
+      <td />
+      <tr>
         <td>
-          Category name
+          <a
+            href="/admin/categories/1722"
+            onClick={[Function]}
+          >
+            Dog
+          </a>
         </td>
-        <td />
-        <tr>
-          <td>
-            <select
-              className="cat-select"
-              onChange={[Function]}
-              value={2}
-            >
-              <option
-                value={1}
-              >
-                1
-              </option>
-              <option
-                value={2}
-              >
-                2
-              </option>
-              <option
-                value={5}
-              >
-                5
-              </option>
-              <option
-                value={10}
-              >
-                10
-              </option>
-              <option
-                value={25}
-              >
-                25
-              </option>
-              <option
-                value={50}
-              >
-                50
-              </option>
-            </select>
-            <button
-              className="btn btn-secondary"
-              onClick={[Function]}
-              style={
-                Object {
-                  "margin": "2px",
-                }
-              }
-              type="button"
-            >
-              &lt;
-            </button>
-            <button
-              className="btn btn-primary"
-              onClick={[Function]}
-              style={
-                Object {
-                  "margin": "2px",
-                }
-              }
-              type="button"
+        <td>
+          <a
+            className="btn btn-danger"
+            onClick={[Function]}
+            role="button"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="/admin/categories/1732"
+            onClick={[Function]}
+          >
+            Cave
+          </a>
+        </td>
+        <td>
+          <a
+            className="btn btn-danger"
+            onClick={[Function]}
+            role="button"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="/admin/categories/1742"
+            onClick={[Function]}
+          >
+            Pool
+          </a>
+        </td>
+        <td>
+          <a
+            className="btn btn-danger"
+            onClick={[Function]}
+            role="button"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="/admin/categories/2542"
+            onClick={[Function]}
+          >
+            Internet
+          </a>
+        </td>
+        <td>
+          <a
+            className="btn btn-danger"
+            onClick={[Function]}
+            role="button"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="/admin/categories/2652"
+            onClick={[Function]}
+          >
+            Beyond
+          </a>
+        </td>
+        <td>
+          <a
+            className="btn btn-danger"
+            onClick={[Function]}
+            role="button"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select
+            className="cat-select"
+            onChange={[Function]}
+            value={2}
+          >
+            <option
+              value={1}
             >
               1
-            </button>
-            <button
-              className="btn btn-primary"
-              disabled={true}
-              style={
-                Object {
-                  "margin": "2px",
-                }
-              }
-              type="button"
-            >
-              2
-            </button>
-            
-            
-          </td>
-          <td />
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`Render all service questions correctly 2`] = `
-<div>
-  <div>
-    <h3>
-      Service Categories
-    </h3>
-    <a
-      className="btn btn-success"
-      onClick={[Function]}
-      role="button"
-      variant="outline-success"
-    >
-      Create new
-    </a>
-    <table
-      className="table"
-    >
-      <tbody>
-        <td>
-          Category name
-        </td>
-        <td />
-        <tr>
-          <td>
-            <select
-              className="cat-select"
-              onChange={[Function]}
+            </option>
+            <option
               value={2}
             >
-              <option
-                value={1}
-              >
-                1
-              </option>
-              <option
-                value={2}
-              >
-                2
-              </option>
-              <option
-                value={5}
-              >
-                5
-              </option>
-              <option
-                value={10}
-              >
-                10
-              </option>
-              <option
-                value={25}
-              >
-                25
-              </option>
-              <option
-                value={50}
-              >
-                50
-              </option>
-            </select>
-            <button
-              className="btn btn-secondary"
-              onClick={[Function]}
-              style={
-                Object {
-                  "margin": "2px",
-                }
-              }
-              type="button"
-            >
-              &lt;
-            </button>
-            <button
-              className="btn btn-primary"
-              onClick={[Function]}
-              style={
-                Object {
-                  "margin": "2px",
-                }
-              }
-              type="button"
-            >
-              1
-            </button>
-            <button
-              className="btn btn-primary"
-              disabled={true}
-              style={
-                Object {
-                  "margin": "2px",
-                }
-              }
-              type="button"
-            >
               2
-            </button>
-            
-            
-          </td>
-          <td />
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </option>
+            <option
+              value={5}
+            >
+              5
+            </option>
+            <option
+              value={10}
+            >
+              10
+            </option>
+            <option
+              value={20}
+            >
+              20
+            </option>
+          </select>
+          
+          
+          <button
+            className="btn btn-primary"
+            disabled={true}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            1
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            2
+          </button>
+          <button
+            className="btn btn-secondary next-btn"
+            onClick={[Function]}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            &gt;
+          </button>
+        </td>
+        <td />
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
