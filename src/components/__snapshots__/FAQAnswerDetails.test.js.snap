@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render FAQAnswer Details page 1`] = `
+<div>
+  <h3>
+    FAQ Answer Details
+  </h3>
+  <select
+    className="form-control"
+    value={1}
+  >
+    <option
+      value={1}
+    >
+      1
+    </option>
+    <option
+      value={2}
+    >
+      2
+    </option>
+  </select>
+  <label>
+    FAQ Answer Question
+  </label>
+  <br />
+  <input
+    className="form-control"
+    value="What should the customer know about your pricing (e.g., discounts, fees)?"
+  />
+  <label>
+    FAQ Answer Answer
+  </label>
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+    value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  />
+  <br />
+  <td>
+    <a
+      class="btn btn-danger btn-lg active"
+      onClick={[Function]}
+      role="button"
+    >
+      Cancel
+    </a>
+  </td>
+  <td>
+    <a
+      class="btn btn-warning btn-lg"
+      onClick={[Function]}
+      role="button"
+    >
+      Edit
+    </a>
+  </td>
+</div>
+`;
