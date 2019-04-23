@@ -1,3 +1,5 @@
+import React from 'react'
+import jest from 'jest-mock'
 import category from '../data/category.mock'
 import categories from "../data/categories.mock";
 import pagedCategories from "../data/pagedCategories.mock"
@@ -22,19 +24,19 @@ global.fetch = jest.fn()
                         })
             })
         }
-        else if (url.includes("paged?page=1&count=2")) {
+        else if (url.includes("paged?page=0&count=2")) {
             return new Promise((resolve, reject) => {
                 resolve({
                             json: function () {
-                                return pagedCategories
+                                return pagedCategories[0]
                             }
                         })
             })
-        } else if (url.includes("paged?page=2&count=2")) {
+        } else if (url.includes("paged?page=1&count=2")) {
             return new Promise((resolve, reject) => {
                 resolve({
                             json: function () {
-                                return pagedCategories
+                                return pagedCategories[1]
                             }
                         })
             })
