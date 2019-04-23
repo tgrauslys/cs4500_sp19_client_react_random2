@@ -13,9 +13,11 @@ const CategoryList = ({
                 category.services
                     .map(service =>
                              <tr key={service.id}>
-                                 <td>
-                                     <h4>{service.serviceName}</h4>
-                                 </td>
+                                 <a className="nav-link btn-lg text-center"
+                                    href={"/provider-search/"  + service.id}>
+                                     {/*<i className={`fa ${serviceCategory.icon}`}/>*/}
+                                     {service.serviceCategoryName}
+                                 </a>
                              </tr>
                     )
             }
@@ -26,6 +28,6 @@ const CategoryList = ({
         >Back</a>
 
     </div>)
-}
+};
 
 export default CategoryList;
