@@ -15,4 +15,13 @@ export default class ServiceAnswerService {
     findAnswerPage = (page, elements) =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/answers/paged?page=${page}&count=${elements}`)
             .then(response => response.json());
+    createServiceAnswer = (serviceAnswer) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/answers`, {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(serviceAnswer)
+        })
+            .then(response => response.json()); // parses response to JSON
 }
