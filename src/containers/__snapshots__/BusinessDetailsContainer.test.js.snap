@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessDetailsContainer renders correctly 1`] = `
+<div>
+  <div>
+    <h2>
+      Business
+    </h2>
+    Business Name
+    <input
+      id="name"
+      onChange={[Function]}
+      value="Example"
+    />
+    <br />
+    Year Founded
+    <input
+      id="yearFounded"
+      onChange={[Function]}
+      value="2000"
+    />
+    <br />
+    Number of Employees
+    <input
+      id="employees"
+      onChange={[Function]}
+      value="20"
+    />
+    <br />
+    Email
+    <input
+      id="email"
+      onChange={[Function]}
+      value="an email"
+    />
+    <br />
+    <h3>
+      Business Address (optional)
+    </h3>
+    <br />
+    Street
+    <input
+      id="street"
+      onChange={[Function]}
+      value="a street"
+    />
+    <br />
+    City
+    <input
+      id="city"
+      onChange={[Function]}
+      value="a city"
+    />
+    <br />
+    State
+    <input
+      id="state"
+      onChange={[Function]}
+      value="a state"
+    />
+    <br />
+    Zip
+    <input
+      id="zip"
+      onChange={[Function]}
+      value="a zip"
+    />
+    <br />
+    <h2>
+      Payment Methods
+    </h2>
+    <input
+      id="paymentMethods"
+      onChange={[Function]}
+      value="some payment methods"
+    />
+    <br />
+    <h2>
+      Social Media
+    </h2>
+    Facebook
+    <input
+      id="facebook"
+      onChange={[Function]}
+      value="a facebook link"
+    />
+    <br />
+    Instagram
+    <input
+      id="instagram"
+      onChange={[Function]}
+      value="an instagram link"
+    />
+    <br />
+    Twitter
+    <input
+      id="twitter"
+      onChange={[Function]}
+      value="a twitter link"
+    />
+    <br />
+    <button>
+      SAVE
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BusinessDetailsContainer renders correctly 2`] = `
+<div>
+  <div>
+    <h2>
+      Business
+    </h2>
+    Business Name
+    <input
+      id="name"
+      onChange={[Function]}
+      value="Different"
+    />
+    <br />
+    Year Founded
+    <input
+      id="yearFounded"
+      onChange={[Function]}
+      value="2000"
+    />
+    <br />
+    Number of Employees
+    <input
+      id="employees"
+      onChange={[Function]}
+      value="20"
+    />
+    <br />
+    Email
+    <input
+      id="email"
+      onChange={[Function]}
+      value="an email"
+    />
+    <br />
+    <h3>
+      Business Address (optional)
+    </h3>
+    <br />
+    Street
+    <input
+      id="street"
+      onChange={[Function]}
+      value="a street"
+    />
+    <br />
+    City
+    <input
+      id="city"
+      onChange={[Function]}
+      value="a city"
+    />
+    <br />
+    State
+    <input
+      id="state"
+      onChange={[Function]}
+      value="a state"
+    />
+    <br />
+    Zip
+    <input
+      id="zip"
+      onChange={[Function]}
+      value="a zip"
+    />
+    <br />
+    <h2>
+      Payment Methods
+    </h2>
+    <input
+      id="paymentMethods"
+      onChange={[Function]}
+      value="some payment methods"
+    />
+    <br />
+    <h2>
+      Social Media
+    </h2>
+    Facebook
+    <input
+      id="facebook"
+      onChange={[Function]}
+      value="a facebook link"
+    />
+    <br />
+    Instagram
+    <input
+      id="instagram"
+      onChange={[Function]}
+      value="an instagram link"
+    />
+    <br />
+    Twitter
+    <input
+      id="twitter"
+      onChange={[Function]}
+      value="a twitter link"
+    />
+    <br />
+    <button>
+      SAVE
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BusinessDetailsContainer renders correctly 3`] = `
+<div>
+  <div>
+    <h2>
+      Business
+    </h2>
+    Business Name
+    <input
+      id="name"
+      onChange={[Function]}
+      value="Different"
+    />
+    <br />
+    Year Founded
+    <input
+      id="yearFounded"
+      onChange={[Function]}
+      value="1"
+    />
+    <br />
+    Number of Employees
+    <input
+      id="employees"
+      onChange={[Function]}
+      value="20"
+    />
+    <br />
+    Email
+    <input
+      id="email"
+      onChange={[Function]}
+      value="an email"
+    />
+    <br />
+    <h3>
+      Business Address (optional)
+    </h3>
+    <br />
+    Street
+    <input
+      id="street"
+      onChange={[Function]}
+      value="a street"
+    />
+    <br />
+    City
+    <input
+      id="city"
+      onChange={[Function]}
+      value="a city"
+    />
+    <br />
+    State
+    <input
+      id="state"
+      onChange={[Function]}
+      value="a state"
+    />
+    <br />
+    Zip
+    <input
+      id="zip"
+      onChange={[Function]}
+      value="a zip"
+    />
+    <br />
+    <h2>
+      Payment Methods
+    </h2>
+    <input
+      id="paymentMethods"
+      onChange={[Function]}
+      value="some payment methods"
+    />
+    <br />
+    <h2>
+      Social Media
+    </h2>
+    Facebook
+    <input
+      id="facebook"
+      onChange={[Function]}
+      value="a facebook link"
+    />
+    <br />
+    Instagram
+    <input
+      id="instagram"
+      onChange={[Function]}
+      value="an instagram link"
+    />
+    <br />
+    Twitter
+    <input
+      id="twitter"
+      onChange={[Function]}
+      value="a twitter link"
+    />
+    <br />
+    <button>
+      SAVE
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BusinessDetailsContainer renders correctly 4`] = `
+<div>
+  <div>
+    <h2>
+      Business
+    </h2>
+    Business Name
+    <input
+      id="name"
+      onChange={[Function]}
+      value="Different"
+    />
+    <br />
+    Year Founded
+    <input
+      id="yearFounded"
+      onChange={[Function]}
+      value="1"
+    />
+    <br />
+    Number of Employees
+    <input
+      id="employees"
+      onChange={[Function]}
+      value="321"
+    />
+    <br />
+    Email
+    <input
+      id="email"
+      onChange={[Function]}
+      value="an email"
+    />
+    <br />
+    <h3>
+      Business Address (optional)
+    </h3>
+    <br />
+    Street
+    <input
+      id="street"
+      onChange={[Function]}
+      value="a street"
+    />
+    <br />
+    City
+    <input
+      id="city"
+      onChange={[Function]}
+      value="a city"
+    />
+    <br />
+    State
+    <input
+      id="state"
+      onChange={[Function]}
+      value="a state"
+    />
+    <br />
+    Zip
+    <input
+      id="zip"
+      onChange={[Function]}
+      value="a zip"
+    />
+    <br />
+    <h2>
+      Payment Methods
+    </h2>
+    <input
+      id="paymentMethods"
+      onChange={[Function]}
+      value="some payment methods"
+    />
+    <br />
+    <h2>
+      Social Media
+    </h2>
+    Facebook
+    <input
+      id="facebook"
+      onChange={[Function]}
+      value="a facebook link"
+    />
+    <br />
+    Instagram
+    <input
+      id="instagram"
+      onChange={[Function]}
+      value="an instagram link"
+    />
+    <br />
+    Twitter
+    <input
+      id="twitter"
+      onChange={[Function]}
+      value="a twitter link"
+    />
+    <br />
+    <button>
+      SAVE
+    </button>
+  </div>
+</div>
+`;

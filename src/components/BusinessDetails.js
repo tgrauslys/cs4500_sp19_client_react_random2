@@ -24,12 +24,12 @@ const BusinessDetails = ({
                value={business.name}></input>
         <br/>
         Year Founded
-        <input id='year' onChange={e => handleChange(e)}
+        <input id='yearFounded' onChange={e => handleChange(e)}
                value={business.yearFounded}></input>
         <br/>
         Number of Employees
         <input id='employees' onChange={e => handleChange(e)}
-               value={business.numEmployees}></input>
+               value={business.employees}></input>
         <br/>
         Email
         <input id='email' onChange={e => handleChange(e)}
@@ -54,7 +54,7 @@ const BusinessDetails = ({
                value={business.zip}></input>
         <br/>
         <h2>Payment Methods</h2>
-        <input id='payment' onChange={e => handleChange(e)}
+        <input id='paymentMethods' onChange={e => handleChange(e)}
                value={business.paymentMethods}></input>
         <br/>
         <h2>Social Media</h2>
