@@ -80,7 +80,7 @@ class FaqAnswerDetailsContainer extends React.Component {
             <div>
                 <FAQAnswerDetails
                     navigateBack={this.navigateBack}
-                    editAnswer={this.editAnswer}
+                    editAnswer={this.editAnswer.bind(this)}
                     updateFormAnswer={this.updateFormAnswer}
                     selectFAQAnswer={this.selectFAQAnswer}
                     faqAnswers={this.state.faqAnswers}

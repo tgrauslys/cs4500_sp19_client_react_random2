@@ -1,4 +1,3 @@
-
 export default class UserService {
     static instance = null;
 
@@ -161,4 +160,10 @@ export default class UserService {
                 reviews: dict.reviews
             })
         }).then(response => response.json());
+
+    linkUserToServiceAnswer = (userId, answerId) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}/answers/${answerId}`, {
+            method: "PUT"
+        })
+            .then(response => response.json());
 }

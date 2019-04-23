@@ -6,7 +6,7 @@ import UserService from '../services/UserService';
 class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.UserService = UserService.getInstance();
+        this.userService = UserService.getInstance();
         this.state = {
             username: "",
             password: "",
@@ -16,11 +16,11 @@ class LoginContainer extends React.Component {
 
     componentDidMount() {}
     login = e => {
-        const userService = UserService.getInstance();
+
         //e.preventDefault();
         const username = this.state.username;
         const password = this.state.password;
-        userService.login({username, password}).then(isLoggedIn => {
+        this.userService.login({username, password}).then(isLoggedIn => {
             if (isLoggedIn) {
                 this.props.history.push('/profile')
             } else {
