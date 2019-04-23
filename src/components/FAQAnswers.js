@@ -85,6 +85,7 @@ const FAQAnswers =
                     {
                         faqAnswers.map(faqAnswer =>
                             <tr key={faqAnswer.id}>
+                                <td> {faqAnswer.username}</td>
                                 <td>{faqAnswer.question}</td>
                                 <td>
                                     <Link to={`/admin/faq-answers/${faqAnswer.id}`}>
