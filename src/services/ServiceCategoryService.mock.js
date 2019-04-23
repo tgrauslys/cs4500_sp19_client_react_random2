@@ -1,5 +1,4 @@
 import React from 'react'
-import jest from 'jest-mock'
 import category from '../data/category.mock'
 import categories from "../data/categories.mock";
 import pagedCategories from "../data/pagedCategories.mock"

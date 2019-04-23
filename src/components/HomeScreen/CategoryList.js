@@ -14,7 +14,12 @@ const CategoryList = ({
                     .map(service =>
                              <tr key={service.id}>
                                  <td>
-                                     <h4>{service.serviceName}</h4>
+
+                                     <a className="nav-link btn-lg text-center"
+                                        href={"/provider-search/"  + service.id}>
+                                         {/*<i className={`fa ${serviceCategory.icon}`}/>*/}
+                                         {service.serviceName}
+                                     </a>
                                  </td>
                              </tr>
                     )
