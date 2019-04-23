@@ -23,6 +23,6 @@ const ServiceCategoryPills = ({serviceCategories}) =>
                 More
             </a>
         </li>*/}
-    </ul>
+    </ul>;
 
 export default ServiceCategoryPills
