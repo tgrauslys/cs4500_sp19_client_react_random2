@@ -154,13 +154,13 @@ const Provider = ({provider, reviews, ratings, FAQAnswers, handleChange, reviewD
         <div>
             <input className= 'review-fld'
                    name='reviewDescription'
-                    onChange = {[Function]}
+                    onChange = {handleChange}
                    value = {reviewDescription}
             />
 
             <select className = 'star-fld'
                     name = 'reviewRating'
-                    onChange = {[Function]}
+                    onChange = {handleChange}
                     value = {reviewRating}>{[1,2,3,4,5].map(starValue =>
                 <option key={starValue}
                         value={starValue}>{starValue}</option>)}</select>
