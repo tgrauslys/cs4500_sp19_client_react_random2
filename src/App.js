@@ -5,17 +5,21 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
 import Home from './components/HomeScreen/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Provider from './components/Provider/Provider'
 import ProviderContainer from './containers/ProviderContainer'
 import provider from "./data/provider.mock.json"
 import ProfileContainer from './containers/ProfileContainer';
 import ServiceCategoryService from "./services/ServiceCategoryService";
-import CategoryList from "./components/HomeScreen/CategoryList";
 import CatListContainer from "./containers/CatListContainer";
-import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
-import LoginContainer from './containers/LoginContainer'
-import RegisterContainer from './containers/RegisterContainer'
-import UserService from './services/UserService'
+import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator';
+import LoginContainer from './containers/LoginContainer';
+import RegisterContainer from './containers/RegisterContainer';
+import UserService from './services/UserService';
+
+import ReviewService from './services/ReviewService';
+import FAQAnswerService from './services/FAQAnswerService';
+import ServiceSearchContainer from './containers/ServiceSearchContainer';
+import ServiceService from './services/ServicesService';
+import BusinessServContainer from "./containers/BusinessServContainer";
 
 class App extends Component {
     constructor(props) {
@@ -26,7 +30,8 @@ class App extends Component {
             pillServiceCategories: [],
             category: [],
             provider: provider
-        }
+        };
+
         this.findServiceCategories()
     }
 
@@ -42,13 +47,7 @@ class App extends Component {
                           pillServiceCategories: serviceCategories
                                     })
             )
-    }
-
-    findCategoryById = (id) => {
-        return this.serviceCategoryService
-            .findServiceCategoryById(parseInt(id)).then(category =>
-                                                            this.setState({category: category}))
-    }
+    };
 
     render() {
         return (
@@ -60,10 +59,7 @@ class App extends Component {
                         <Link to="/home"> Home</Link> |
                         <Link to="/register"> Register</Link> |
                         <Link to="/login"> Login</Link> |
-                        <Link to="/profile/1"> User Profile</Link> |
-                        <Link to="/services-nav"> Service Navigator</Link> |
-                        <br/>
-                        <br/>
+                        <Link to="/business-servs"> Business Services </Link>
                         <br/>
                         
                         <Route
@@ -71,12 +67,15 @@ class App extends Component {
                             exact
                             component={Admin}/>
                         <br/>
-                        <Link to="/home">Home</Link>
+                        <Link to="/provider/112"> Provider Demo </Link>
                         <Route
                             path="/provider/:id"
                             exact
                             render={(props) =>
-                            <ProviderContainer props = {props}/>}/>
+                            <ProviderContainer id = {props.match.params.id}
+                                ReviewService = {ReviewService.getInstance()}
+                                UserService = {UserService.getInstance()}
+                                FAQAnswerService = {FAQAnswerService.getInstance()} />}/>
                         <Route
                             path="/home"
                             exact
@@ -95,11 +94,20 @@ class App extends Component {
                             <LoginContainer userService={this.userService}
                             />}/>
                         <Route
-                            path="/profile/:id"
+                            path="/profile"
                             exact
                             render={(props)=>
                             <ProfileContainer
                                 props = {props}
+                            />}/>
+                        <Route
+                            path="/provider-search/:id"
+                            exact
+                            render={(props)=>
+                            <ServiceSearchContainer
+                                {...props}
+                                serviceService={ServiceService.getInstance()}
+                                userService={this.userService}
                             />}/>
                         <Route
                             path="/services-nav"
@@ -114,6 +122,11 @@ class App extends Component {
                                 <CatListContainer
                                     props = {props}
                                     service = {this.serviceCategoryService}/>}/>
+                        <Route
+                            path="/business-servs"
+                            exact
+                            component={BusinessServContainer}
+                        />
                     </div>
                 </Router>
 

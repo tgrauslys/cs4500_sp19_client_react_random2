@@ -1,0 +1,46 @@
+[
+    {
+        "id":1,
+        "choiceAnswer":"Hello"
+    },
+    {
+        "id":2,
+        "choiceAnswer":"World"
+    },
+    {
+        "id":3,
+        "trueFalseAnswer":true
+    },
+    {
+        "id":4,
+        "choiceAnswer":"Meanie Mario"
+    },
+    {
+        "id":5,
+        "minRangeAnswer":1
+    },
+    {
+        "id":6,
+        "maxRangeAnswer":19
+    },
+    {
+        "id":7,
+        "choiceAnswer":"hello"
+    },
+    {
+        "id":8,
+        "maxRangeAnswer":0
+    },
+    {
+        "id":9,
+        "trueFalseAnswer":false
+    },
+    {
+        "id":10,
+        "choiceAnswer":true
+    },
+    {
+        "id":11,
+        "minRangeAnswer":100
+    }
+]

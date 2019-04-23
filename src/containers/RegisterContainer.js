@@ -1,15 +1,18 @@
 import React from 'react'
 import Register from '../components/Register/Register';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import UserService from '../services/UserService';
+
 
 class RegisterContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.userService = this.props.userService
+        this.userService = UserService.getInstance();
         this.state = {
             firstName: "",
             lastName: "",
             username: "",
+            email: "",
             password: "",
             isErrorMessageOn: false
         }
@@ -17,12 +20,13 @@ class RegisterContainer extends React.Component {
 
     componentDidMount() {}
     register = e => {
-        e.preventDefault()
-        const firstName = this.state.firstName
-        const lastName = this.state.lastName
-        const username = this.state.username
-        const password = this.state.password
-        this.userService.register({firstName, lastName, username, password}).then(isRegistered => {
+        e.preventDefault();
+        const firstName = this.state.firstName;
+        const lastName = this.state.lastName;
+        const username = this.state.username;
+        const password = this.state.password;
+        const email = this.state.email;
+        this.userService.register({firstName, lastName, email, username, password}).then(isRegistered => {
             if (isRegistered) {
                 this.props.history.push('/profile')
             } else {
@@ -31,27 +35,34 @@ class RegisterContainer extends React.Component {
                 })
             }
         })
-    }
+    };
     updateFirstName = e => {
         this.setState({
             firstName: e.target.value
         })
-    }
+    };
     updateLastName = e => {
         this.setState({
             lastName: e.target.value
         })
-    }
+    };
     updateUsername = e => {
         this.setState({
             username: e.target.value
         })
-    }
+    };
+
+    updateEmail = e => {
+        this.setState({
+            email: e.target.value
+        })
+    };
+
     updatePassword = e => {
         this.setState({
             password: e.target.value
         })
-    }
+    };
 
     render() {
         return(
@@ -61,6 +72,7 @@ class RegisterContainer extends React.Component {
                     updateFirstName={this.updateFirstName}
                     updateLastName={this.updateLastName}
                     updateUsername={this.updateUsername}
+                    updateEmail={this.updateEmail}
                     updatePassword={this.updatePassword}
                     isErrorMessageOn={this.state.isErrorMessageOn}
                 />

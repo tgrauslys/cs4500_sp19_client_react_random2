@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Register = ({register, updateFirstName, updateLastName, updateUsername, updatePassword, isErrorMessageOn}) => {
+const Register = ({register, updateFirstName, updateLastName, updateUsername, updateEmail, updatePassword, isErrorMessageOn}) => {
     let errorMessage = <div className="row"><div className="col-12">Email already taken! Please choose another email.</div></div>
     if (!isErrorMessageOn) {
         errorMessage = ''
@@ -23,7 +23,14 @@ const Register = ({register, updateFirstName, updateLastName, updateUsername, up
                 <div className="row">
                     <div className="col-12">
                         <label for="email">Email</label>
-                        <input id="email" className="form-control" onChange={e => updateUsername(e)}/>
+                        <input id="email" className="form-control" onChange={e => updateEmail(e)}/>
+                    </div>
+                </div>
+                <br/>
+                <div className="row">
+                    <div className="col-12">
+                        <label htmlFor="username">Username</label>
+                        <input id="username" className="form-control" onChange={e => updateUsername(e)}/>
                     </div>
                 </div>
                 <br/>

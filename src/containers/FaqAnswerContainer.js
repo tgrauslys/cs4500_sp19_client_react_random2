@@ -15,8 +15,7 @@ class FAQAnswerContainer extends React.Component {
 
             FAQAnswer: {
                 question: '',
-                answer: '',
-                id: ''
+                answer: ''
             },
             FAQ: {
                 question: '',
