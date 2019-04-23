@@ -46,6 +46,22 @@ test('Render all service categories correctly', (done) => {
 
 test('Correct rendering of service categories', () => {
 
+    const deleteCat = (cat) => {
+        this.categories.splice(0,1);
+
+        let tree = testRenderer.toJSON();
+        expect(tree).toMatchSnapshot();
+        done();
+    };
+
+    const addCat = (cat) => {
+        this.categories.push({id: this.categories.length+1, jobTitle:"J123-" + this.categories.length+1});
+
+        let tree = testRenderer.toJSON();
+        expect(tree).toMatchSnapshot();
+        done();
+    };
+
     servCatServ.findAllServiceCategories().then(categories => {
         const testRenderer = TestRenderer.create(
             <BrowserRouter>
@@ -54,6 +70,7 @@ test('Correct rendering of service categories', () => {
                     totalPages={2}
                     itemCount={2}
                     optionValues={[1, 2, 5, 10, 20]}
+                    deleteCategory={deleteCat}
                     currentPage={0}
                 />
             </BrowserRouter>
@@ -65,12 +82,18 @@ test('Correct rendering of service categories', () => {
 
         const testInstance = testRenderer.root;
 
-        const delBtns = testInstance.findAllByProps({className: "btn btn-danger"});
+        let delBtns = testInstance.findAllByProps({className: "btn btn-danger"});
         expect(delBtns.length).toBe(5);
         expect(delBtns[0].props.children).toBe("Delete");
 
+        delBtns[0].props.onClick();
+
         const pageBtns = testInstance.findAllByProps({className: "btn btn-primary"});
         expect(pageBtns.length).toBe(2);
+
+        let addBtn = testInstance.findAllByProps({className: "btn btn-success"});
+
+        addBtn.props.onClick();
 
 
     })
