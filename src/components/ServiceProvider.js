@@ -37,7 +37,7 @@ const ServiceProvider = ({serviceProvider}) =>
                     <br/>
                     <br/>
                     <br/>
-                    <a className="btn btn-primary float-right" href="#">
+                    <a className="btn btn-primary float-right" href={`/provider/${serviceProvider.id}`}>
                         View Profile
                     </a>
                 </div>
