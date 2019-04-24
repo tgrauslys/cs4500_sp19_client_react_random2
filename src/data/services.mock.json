@@ -1,0 +1,22 @@
+[
+{
+	"id" : 1,
+	"serviceName" : "Dog sitting"
+},
+{
+  "id" : 2,
+  "serviceName" : "Dog grooming"
+},
+{
+  "id" : 3,
+  "serviceName" : "Kitchen cleaning"
+},
+{
+  "id" : 4,
+  "serviceName" : "Living room cleaning"
+},
+{
+  "id" : 5,
+  "serviceName" : "Toilet cleaning"
+}
+]

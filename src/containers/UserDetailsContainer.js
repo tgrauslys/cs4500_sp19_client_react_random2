@@ -31,7 +31,14 @@ class UserDetailsContainer extends React.Component {
                 zipcode: "",
                 services: [],
                 serviceAnswers: [],
-                reviews: []
+                reviews: [],
+                day: "",
+                month: "",
+                year: "",
+                street: "",
+                city: "",
+                state: "",
+                email: ""
             },
         }
     }
@@ -132,6 +139,27 @@ class UserDetailsContainer extends React.Component {
                 break;
             case "user-zipcode":
                 newUser.zipcode = e.target.value;
+                break;
+            case "user-day":
+                newUser.day = e.target.value;
+                break;
+            case "user-month":
+                newUser.month = e.target.value;
+                break;
+            case "user-year":
+                newUser.year = e.target.value;
+                break;
+            case "user-street":
+                newUser.street = e.target.value;
+                break;
+            case "user-city":
+                newUser.city = e.target.value;
+                break;
+            case "user-state":
+                newUser.state = e.target.value;
+                break;
+            case "user-email":
+                newUser.email = e.target.value;
                 break;
         }
 

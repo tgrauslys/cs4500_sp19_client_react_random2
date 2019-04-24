@@ -18,7 +18,7 @@ const Login = ({login, updateUsername, updatePassword, isErrorMessageOn}) => {
                 <div className="col-12">
                     <br/>
                     <label for="password">Password</label>
-                    <input id="password" className="form-control"onChange={e => updatePassword(e)}/>
+                    <input id="password" className="form-control" type="password" onChange={e => updatePassword(e)}/>
                 </div>
             </div>
             <br/>

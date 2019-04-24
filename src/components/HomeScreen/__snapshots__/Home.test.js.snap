@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render home screen correctly 1`] = `
+<div>
+  <h2>
+    Home
+  </h2>
+  <div
+    className="row"
+  >
+    <div
+      className="col-8"
+    >
+      <h1>
+        Find professionals near you.
+      </h1>
+    </div>
+    <div
+      className="col-3 text-right"
+    >
+      <a
+        href="#"
+      >
+        Sign up
+      </a>
+    </div>
+    <div
+      className="col-1"
+    >
+      <a
+        href="#"
+      >
+        Log in
+      </a>
+    </div>
+  </div>
+  <br />
+  <div>
+    <ul
+      className="nav nav-pills nav-fill wd-shadow wd-padding-20"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link btn-lg text-center"
+          href="/categories/1722"
+        >
+          Dog
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link btn-lg text-center"
+          href="/categories/1732"
+        >
+          Cave
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link btn-lg text-center"
+          href="/categories/1742"
+        >
+          Pool
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link btn-lg text-center"
+          href="/categories/2542"
+        >
+          Internet
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link btn-lg text-center"
+          href="/categories/2652"
+        >
+          Beyond
+        </a>
+      </li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <div>
+      <div>
+        <form
+          className="form"
+        >
+          <div
+            className="input-group mb-3"
+          >
+            <input
+              className="input"
+              name="username"
+              onChange={[Function]}
+              placeholder="Search for providers..."
+              type="text"
+            />
+            <input
+              className="input"
+              name="username"
+              onChange={[Function]}
+              placeholder="Zipcode"
+              type="text"
+            />
+            <div
+              className="input-group-append"
+            >
+              <button
+                className="btn btn-success"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "margin": "2px",
+                  }
+                }
+                type="button"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div>
+        <h3>
+          Service Providers
+        </h3>
+        <table
+          className="table"
+        >
+          <tbody />
+        </table>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+    <div>
+      <h2>
+        ServiceNavigator
+      </h2>
+      <div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-3"
+          >
+            <table
+              className="table"
+            >
+              <tbody>
+                <td>
+                  <a
+                    href="/services-nav/categories/1722"
+                    onClick={[Function]}
+                  >
+                    Dog
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="/services-nav/categories/1732"
+                    onClick={[Function]}
+                  >
+                    Cave
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="/services-nav/categories/1742"
+                    onClick={[Function]}
+                  >
+                    Pool
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="/services-nav/categories/2542"
+                    onClick={[Function]}
+                  >
+                    Internet
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="/services-nav/categories/2652"
+                    onClick={[Function]}
+                  >
+                    Beyond
+                  </a>
+                </td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div
+          className="col-9"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

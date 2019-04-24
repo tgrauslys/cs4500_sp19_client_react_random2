@@ -19,7 +19,7 @@ const FAQAnswers =
                                      type="button" className="btn btn-secondary">&#60;</button>
         let previousPageButton = <button onClick={(e) => setPage(e, currentPage - 1)}
                                          style={{margin: '2px'}}
-                                         type="button" className="btn btn-primary">{currentPage}</button>
+                                         type="button" className="btn btn-primary page-no">{currentPage}</button>
         let nextButton = <button onClick={(e) => setPage(e, currentPage + 1)}
                                  style={{margin: '2px'}}
             // &#62; displays ">"
@@ -85,6 +85,7 @@ const FAQAnswers =
                     {
                         faqAnswers.map(faqAnswer =>
                             <tr key={faqAnswer.id}>
+                                <td> {faqAnswer.username}</td>
                                 <td>{faqAnswer.question}</td>
                                 <td>
                                     <Link to={`/admin/faq-answers/${faqAnswer.id}`}>

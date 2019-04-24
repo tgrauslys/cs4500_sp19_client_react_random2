@@ -1,4 +1,3 @@
-
 export default class UserService {
     static instance = null;
 
@@ -18,7 +17,8 @@ export default class UserService {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(response => response);
+        }).then(response => response.json())
+            .catch(reject => {console.log(reject)});
 
     register = user =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/register`, {
@@ -56,10 +56,32 @@ export default class UserService {
     findAllUsers = () =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users`)
             .then(response => response.json());
-    filterUsers = (username, zipcode) =>
-        fetch(
-            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`)
-            .then(response => response.json());
+
+    filterUsersByService = (serviceId, username, zipcode, filters) => {
+        return fetch(
+            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered/${serviceId}?username=${username}&zipcode=${zipcode}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(filters)
+            })
+            .then(response => response.json())
+            .catch(reject => console.error(reject));
+        }
+    filterUsers = (username, zipcode) => {
+        return fetch(
+            `${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/filtered?username=${username}&zipcode=${zipcode}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .catch(reject => console.error(reject));
+        }
 
     deleteUserById = userId =>
         fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}`, {
@@ -138,4 +160,10 @@ export default class UserService {
                 reviews: dict.reviews
             })
         }).then(response => response.json());
+
+    linkUserToServiceAnswer = (userId, answerId) =>
+        fetch(`${process.env.REACT_APP_MIDDLE_TIER_URL}/api/users/${userId}/answers/${answerId}`, {
+            method: "PUT"
+        })
+            .then(response => response.json());
 }

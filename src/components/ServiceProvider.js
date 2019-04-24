@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+=======
+import {Link} from "react-router-dom";
+>>>>>>> master
 
 const ServiceProvider = ({serviceProvider}) =>
     <div>
@@ -8,11 +12,15 @@ const ServiceProvider = ({serviceProvider}) =>
                 <img src="https://picsum.photos/130/130"/>
             </div>
             <div className="col-7">
+<<<<<<< HEAD
             {
                 var url = "/admin/users"
                 <Link to={url}>Users</Link>
             }
                 <a href="#">
+=======
+                <a href={`/provider/${serviceProvider.id}`}>
+>>>>>>> master
                     {serviceProvider.username}
                 </a>
                 <div>
@@ -41,7 +49,11 @@ const ServiceProvider = ({serviceProvider}) =>
                     <br/>
                     <br/>
                     <br/>
+<<<<<<< HEAD
                     <a className="btn btn-primary float-right" href="#">
+=======
+                    <a className="btn btn-primary float-right" href={`/provider/${serviceProvider.id}`}>
+>>>>>>> master
                         View Profile
                     </a>
                 </div>
