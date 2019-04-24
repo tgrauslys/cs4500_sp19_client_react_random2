@@ -11,14 +11,15 @@ class ServiceCategoryContainer extends React.Component {
         this.currentPage = this.props.currentPage;
         this.itemCount = this.props.itemCount;
         this.optionValues = this.props.optionValues;
-        this.serviceCategoryService = ServiceCategoryService.getInstance();
+        this.serviceCategoryService = this.props.service ? this.props.service : ServiceCategoryService.getInstance();
         this.state = {
             serviceCategories: [],
-            optionValues: [],
-            currentPage: 0,
-            itemCount: 0,
+            optionValues: this.optionValues,
+            currentPage: this.currentPage,
+            itemCount: this.itemCount,
             totalPages: 0
-        }
+        };
+        this.componentDidMount();
     }
 
     setPage = (e, pageNumber) => {
@@ -35,8 +36,8 @@ class ServiceCategoryContainer extends React.Component {
             })
     };
 
-    findAllCategories() {
-        return this.serviceCategoryService
+    componentDidMount() {
+        this.serviceCategoryService
             .findServCatPage(this.currentPage, this.itemCount)
             .then(servCat =>
                       this.setState({
@@ -48,10 +49,6 @@ class ServiceCategoryContainer extends React.Component {
                                         totalPages: servCat.totalPages
                                     })
             )
-    }
-
-    componentDidMount() {
-        this.findAllCategories()
     }
 
     createCategory = () => {

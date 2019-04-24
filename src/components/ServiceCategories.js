@@ -24,7 +24,7 @@ const ServiceCategories = ({
     let nextButton = <button onClick= {(e) => setPage(e, currentPage + 1)}
                              style={{margin: '2px'}}
         // &#62; displays ">"
-                             type="button" className="btn btn-secondary">&#62;</button>
+                             type="button" className="btn btn-secondary next-btn">&#62;</button>
     let nextPageButton = <button onClick= {(e) => setPage(e, currentPage + 1)}
                                  style={{margin: '2px'}}
                                  type="button" className="btn btn-primary">{currentPage + 2}</button>
@@ -72,7 +72,7 @@ const ServiceCategories = ({
                 }
                 <tr>
                     <td>
-                        <select value={itemCount} onChange={e => setPage(e)}>
+                        <select className="cat-select" value={itemCount} onChange={e => setPage(e)}>
                             {
                                 optionValues.map(possibleItemCounts =>
                                                      <option key={possibleItemCounts} value={possibleItemCounts}>{possibleItemCounts}</option>)

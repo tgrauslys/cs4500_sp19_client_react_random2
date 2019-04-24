@@ -1,16 +1,14 @@
 import React from 'react'
 import Provider from "../components/Provider/Provider";
-import UserService from "../services/UserService"
-import ReviewService from "../services/ReviewService"
-import FAQAnswerService from "../services/FAQAnswerService"
+
 class ProviderContainer extends React.Component {
 
     constructor(props) {
-        super(props)
-        this.userService = UserService.getInstance();
-        this.reviewService = ReviewService.getInstance();
-        this.faqAnswerService = FAQAnswerService.getInstance();
-        this.providerId = this.props.props.match.params.id;;
+        super(props);
+        this.userService = props.UserService;
+        this.reviewService = props.ReviewService;
+        this.faqAnswerService = props.FAQAnswerService;
+        this.providerId = this.props.id;
         this.state = {
             provider : {},
             reviews : [],
@@ -26,10 +24,10 @@ class ProviderContainer extends React.Component {
 
 
     componentDidMount() {
-        this.userService.findUserById(this.providerId).then(provider => this.setState({provider: provider}));
-        this.reviewService.findReviewsForUser(this.providerId).then(reviews => this.setState({reviews: reviews}));
-        this.reviewService.findRatingScores(this.providerId).then(ratingScores => this.setState({ratingScores : ratingScores}));
-        this.faqAnswerService.findFAQsByUserId(this.providerId).then(FAQAnswers => this.setState({FAQAnswers : FAQAnswers}));
+        this.userService.findUserById(this.providerId).then(provider => this.setState({provider: provider})).catch();
+        this.reviewService.findReviewsForUser(this.providerId).then(reviews => this.setState({reviews: reviews})).catch();
+        this.reviewService.findRatingScores(this.providerId).then(ratingScores => this.setState({ratingScores : ratingScores})).catch();
+        this.faqAnswerService.findFAQsByUserId(this.providerId).then(FAQAnswers => this.setState({FAQAnswers : FAQAnswers})).catch();
     }
 
     handleChange(e) {
@@ -40,11 +38,16 @@ class ProviderContainer extends React.Component {
         let review = {}
         review["description"] = this.state.reviewDescription;
         review["rating"] = this.state.reviewRating;
-        review["userTo"] = this.state.provider;
-        this.userService.profile().then(user => {review["userFrom"] = user
-            this.reviewService.createReview(review);});
+        this.userService.profile().then(user => {
+            this.reviewService.createReview(review).then(reviewresponse => {
+                console.log(reviewresponse);
+                this.reviewService.linkUserFrom(reviewresponse.id, user.id).then( linkresponse => {
+                        console.log(reviewresponse)
+                        this.reviewService.linkUserTo(reviewresponse.id, this.providerId)
+                }
 
-
+                );
+            })});
     }
 
 

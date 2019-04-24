@@ -1,5 +1,5 @@
 {
-  "title": "Christina's Custom Cleaning, CCC",
+  "userName": "Christina's Custom Cleaning, CCC",
   "rating": 4.4,
   "ratingScores": [
     93,
@@ -12,7 +12,7 @@
   "hires": 17,
   "latestReview": "It's so wonderful to have the burden of cleaning - especially with an injury - removed. Christina is excellent with communication and I've been very pleased with the quality of work.",
   "price": "$75",
-  "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
   "backgroundChecked": true,
   "employees": 2,
   "paymentMethods": [

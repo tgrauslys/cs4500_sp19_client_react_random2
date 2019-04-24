@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "username": "luci",
+    "password": "luci",
+    "firstName": "Lucifer",
+    "lastName": "Morningstar",
+    "day": "1",
+    "month": "6",
+    "year": "1996",
+    "email": "lucifer@yahoo.com",
+    "street": "221B Baker St",
+    "city": "London",
+    "zipcode": "6XE",
+    "state": "London"
+  },
+  {
+    "id": 2,
+    "username": "jack",
+    "password": "jack",
+    "firstName": "Jack",
+    "lastName": "Reacher",
+    "day": "1",
+    "month": "6",
+    "year": "1996",
+    "email": "lucifer@yahoo.com",
+    "street": "221B Baker St",
+    "city": "London",
+    "zipcode": "6XE",
+    "state": "London",
+    "role": "plumber"
+  }
+]

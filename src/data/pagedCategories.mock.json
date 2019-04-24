@@ -1,0 +1,86 @@
+[
+  {
+    "content": [
+      {
+        "id": 1722,
+        "serviceCategoryName": "Dog",
+        "services": [
+          {
+            "id": 312,
+            "serviceName": "Dog Walking",
+            "serviceQuestions": []
+          }
+        ]
+      },
+      {
+        "id": 1732,
+        "serviceCategoryName": "Cave",
+        "services": []
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "offset": 0,
+      "pageNumber": 0,
+      "pageSize": 2,
+      "paged": true,
+      "unpaged": false
+    },
+    "totalPages": 3,
+    "last": false,
+    "totalElements": 5,
+    "size": 2,
+    "number": 0,
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "numberOfElements": 2,
+    "first": true,
+    "empty": false
+  },
+  {
+    "content": [
+      {
+        "id": 1742,
+        "serviceCategoryName": "Pool",
+        "services": []
+      },
+      {
+        "id": 2542,
+        "serviceCategoryName": "Internet",
+        "services": []
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "offset": 2,
+      "pageSize": 2,
+      "pageNumber": 1,
+      "unpaged": false,
+      "paged": true
+    },
+    "totalElements": 5,
+    "last": false,
+    "totalPages": 3,
+    "size": 2,
+    "number": 1,
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "numberOfElements": 2,
+    "first": false,
+    "empty": false
+  }
+]
