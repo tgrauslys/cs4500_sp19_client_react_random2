@@ -569,21 +569,11 @@ exports[`Render provider profile page 1`] = `
     <input
       className="review-fld"
       name="reviewDescription"
-      onChange={
-        Array [
-          [Function],
-        ]
-      }
       value=""
     />
     <select
       className="star-fld"
       name="reviewRating"
-      onChange={
-        Array [
-          [Function],
-        ]
-      }
       value={1}
     >
       <option

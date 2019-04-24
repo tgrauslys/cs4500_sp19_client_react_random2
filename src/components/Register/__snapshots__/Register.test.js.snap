@@ -95,6 +95,7 @@ exports[`Register Page Test Register page renders correctly 1`] = `
           className="form-control"
           id="password"
           onChange={[Function]}
+          type="password"
         />
       </div>
     </div>

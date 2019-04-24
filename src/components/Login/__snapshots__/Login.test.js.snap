@@ -39,6 +39,7 @@ exports[`login page render login screen 1`] = `
           className="form-control"
           id="password"
           onChange={[Function]}
+          type="password"
         />
       </div>
     </div>
