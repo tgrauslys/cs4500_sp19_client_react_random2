@@ -1,0 +1,961 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render FAQAnswers in stateless component 1`] = `
+<div>
+  <h3>
+     FAQ Answers 
+  </h3>
+  <h3>
+     User 
+  </h3>
+  <select
+    className="form-control"
+    onChange={[Function]}
+    value={1}
+  >
+    <option
+      value={1}
+    >
+      luci
+    </option>
+    <option
+      value={2}
+    >
+      jack
+    </option>
+  </select>
+  <h3>
+     FAQ 
+  </h3>
+  <select
+    className="form-control"
+    onChange={[Function]}
+    value={1}
+  >
+    <option
+      value={1}
+    >
+      Start
+    </option>
+    <option
+      value={2}
+    >
+      Media
+    </option>
+  </select>
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <td>
+          <input
+            className="answer-fld"
+            onChange={[Function]}
+            value="1"
+          />
+          <a
+            className="btn btn-primary btn-lg active"
+            role="button"
+          >
+            +
+          </a>
+          <a
+            className="btn btn-primary btn-lg active"
+            role="button"
+          >
+            Update
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 1
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/1"
+            onClick={[Function]}
+          >
+            1
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 2
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/2"
+            onClick={[Function]}
+          >
+            2
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 1
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/3"
+            onClick={[Function]}
+          >
+            3
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 4
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/4"
+            onClick={[Function]}
+          >
+            4
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 5
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/5"
+            onClick={[Function]}
+          >
+            5
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 6
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/6"
+            onClick={[Function]}
+          >
+            6
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 7
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/7"
+            onClick={[Function]}
+          >
+            7
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 8
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/8"
+            onClick={[Function]}
+          >
+            8
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 9
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/9"
+            onClick={[Function]}
+          >
+            9
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 10
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/10"
+            onClick={[Function]}
+          >
+            10
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select
+            onChange={[Function]}
+            value={2}
+          >
+            <option
+              value={1}
+            >
+              1
+            </option>
+            <option
+              value={2}
+            >
+              2
+            </option>
+            <option
+              value={5}
+            >
+              5
+            </option>
+            <option
+              value={10}
+            >
+              10
+            </option>
+            <option
+              value={25}
+            >
+              25
+            </option>
+            <option
+              value={50}
+            >
+              50
+            </option>
+          </select>
+          
+          
+          <button
+            className="btn btn-primary"
+            disabled={true}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            1
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            2
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={[Function]}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            &gt;
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Rendering Next Page in FAQAnswers 1`] = `
+<div>
+  <h3>
+     FAQ Answers 
+  </h3>
+  <h3>
+     User 
+  </h3>
+  <select
+    className="form-control"
+    onChange={[Function]}
+    value={1}
+  >
+    <option
+      value={1}
+    >
+      luci
+    </option>
+    <option
+      value={2}
+    >
+      jack
+    </option>
+  </select>
+  <h3>
+     FAQ 
+  </h3>
+  <select
+    className="form-control"
+    onChange={[Function]}
+    value={1}
+  >
+    <option
+      value={1}
+    >
+      Start
+    </option>
+    <option
+      value={2}
+    >
+      Media
+    </option>
+  </select>
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <td>
+          <input
+            className="answer-fld"
+            onChange={[Function]}
+            value="1"
+          />
+          <a
+            className="btn btn-primary btn-lg active"
+            role="button"
+          >
+            +
+          </a>
+          <a
+            className="btn btn-primary btn-lg active"
+            role="button"
+          >
+            Update
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 1
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/1"
+            onClick={[Function]}
+          >
+            1
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 2
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/2"
+            onClick={[Function]}
+          >
+            2
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 1
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/3"
+            onClick={[Function]}
+          >
+            3
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 4
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/4"
+            onClick={[Function]}
+          >
+            4
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 5
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/5"
+            onClick={[Function]}
+          >
+            5
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 6
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/6"
+            onClick={[Function]}
+          >
+            6
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 7
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/7"
+            onClick={[Function]}
+          >
+            7
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 8
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/8"
+            onClick={[Function]}
+          >
+            8
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 9
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/9"
+            onClick={[Function]}
+          >
+            9
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           
+          Christina H
+        </td>
+        <td>
+          Test FAQ 10
+        </td>
+        <td>
+          <a
+            href="/admin/faq-answers/10"
+            onClick={[Function]}
+          >
+            10
+          </a>
+        </td>
+        <td>
+          <a
+            aria-pressed="true"
+            class="btn btn-danger btn-lg active"
+            onClick={[Function]}
+            role="button"
+          >
+            X
+          </a>
+          <button
+            className="select-faq-answer-btn"
+            onClick={[Function]}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select
+            onChange={[Function]}
+            value={10}
+          >
+            <option
+              value={1}
+            >
+              1
+            </option>
+            <option
+              value={2}
+            >
+              2
+            </option>
+            <option
+              value={5}
+            >
+              5
+            </option>
+            <option
+              value={10}
+            >
+              10
+            </option>
+            <option
+              value={25}
+            >
+              25
+            </option>
+            <option
+              value={50}
+            >
+              50
+            </option>
+          </select>
+          
+          
+          <button
+            className="btn btn-primary"
+            disabled={true}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            1
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            2
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={[Function]}
+            style={
+              Object {
+                "margin": "2px",
+              }
+            }
+            type="button"
+          >
+            &gt;
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
