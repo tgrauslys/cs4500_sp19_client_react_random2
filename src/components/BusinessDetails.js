@@ -20,54 +20,54 @@ const BusinessDetails = ({
     <div>
         <h2>Business</h2>
         Business Name
-        <input onChange={e => handleChange(e)}
+        <input id='name' onChange={e => handleChange(e)}
                value={business.name}></input>
         <br/>
         Year Founded
-        <input onChange={e => handleChange(e)}
+        <input id='yearFounded' onChange={e => handleChange(e)}
                value={business.yearFounded}></input>
         <br/>
         Number of Employees
-        <input onChange={e => handleChange(e)}
-               value={business.numEmployees}></input>
+        <input id='employees' onChange={e => handleChange(e)}
+               value={business.employees}></input>
         <br/>
         Email
-        <input onChange={e => handleChange(e)}
+        <input id='email' onChange={e => handleChange(e)}
                value={business.email}></input>
         <br/>
         <h3>Business Address (optional)</h3>
         <br/>
         Street
-        <input onChange={e => handleChange(e)}
+        <input id='street' onChange={e => handleChange(e)}
                value={business.street}></input>
         <br/>
         City
-        <input onChange={e => handleChange(e)}
+        <input id='city' onChange={e => handleChange(e)}
                value={business.city}></input>
         <br/>
         State
-        <input onChange={e => handleChange(e)}
+        <input id='state' onChange={e => handleChange(e)}
                value={business.state}></input>
         <br/>
         Zip
-        <input onChange={e => handleChange(e)}
+        <input id='zip' onChange={e => handleChange(e)}
                value={business.zip}></input>
         <br/>
         <h2>Payment Methods</h2>
-        <input onChange={e => handleChange(e)}
+        <input id='paymentMethods' onChange={e => handleChange(e)}
                value={business.paymentMethods}></input>
         <br/>
         <h2>Social Media</h2>
         Facebook
-        <input onChange={e => handleChange(e)}
+        <input id='facebook' onChange={e => handleChange(e)}
                value={business.facebook}></input>
         <br/>
         Instagram
-        <input onChange={e => handleChange(e)}
-               value={business.instragram}></input>
+        <input id='instagram' onChange={e => handleChange(e)}
+               value={business.instagram}></input>
         <br/>
         Twitter
-        <input onChange={e => handleChange(e)}
+        <input id='twitter' onChange={e => handleChange(e)}
                value={business.twitter}></input>
         <br/>
         <button>SAVE</button>
