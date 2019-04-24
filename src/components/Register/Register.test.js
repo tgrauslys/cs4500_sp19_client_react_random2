@@ -3,24 +3,18 @@ import React from 'react'
 import Register from './Register'
 import TestRenderer from 'react-test-renderer'
 import UserService from '../../services/UserService'
-import Profile from '../Profile/Profile'
 
 const userService = UserService.getInstance()
 var testUserId
 
 describe('Register Page Test', () => {
-    beforeAll(() => {
+    test('Register page renders correctly', () => {
         let updateFirstName = () => {}
         let updateLastName = () => {}
         let updateEmail = () => {}
         let updateUsername = () => {}
         let updatePassword = () => {}
-        let submit = () => {
-            testUserId = userService.register(registry.validInput).then(user => user.id)
-            let tree = testRenderer.toJSON()
-            expect(tree).toMatchSnapshot()
-            done()
-        }
+        let submit = () => {}
     
         const testRenderer = TestRenderer.create(
             <Register 
@@ -44,36 +38,16 @@ describe('Register Page Test', () => {
         const usernameField = testInstance.findByProps({id: "username"})
         const passwordField = testInstance.findByProps({id: "password"})
         const registerButton = testInstance.findAllByProps({className: "btn btn-primary btn-block"})
-    
-        expect(firstNameField.onChange).toBeDefined()
-        expect(lastNameField.onChange).toBeDefined()
-        expect(emailField.onChange).toBeDefined()
-        expect(usernameField.onChange).toBeDefined()
-        expect(passwordField.onChange).toBeDefined()
-        expect(registerButton[0].onClick).toBeDefined()
+        const fields = testInstance.findAllByProps({className: "form-control"})
+
+        expect(firstNameField).toBeDefined()
+        expect(lastNameField).toBeDefined()
+        expect(emailField).toBeDefined()
+        expect(usernameField).toBeDefined()
+        expect(passwordField).toBeDefined()
+        expect(registerButton[0]).toBeDefined()
+        expect(registerButton[0].type).toBe("button")
         expect(registerButton.length).toBe(1)
-    
-        registerButton.props.onClick()
-    })
-
-    test('user is registered', () => {
-        expect(userService.findUserById(testUserId)).toBe(registry.validInput)
-    })
-    
-    test('profile screen is displayed once registered', (done) => {
-        let updateUserProfile = () => {}
-        let deleteUserProfile = () => {}
-
-        const testRenderer = TestRenderer.create(<Profile 
-            user={registry.validInput}
-            updateUserProfile={updateUserProfile}
-            deleteUserProfile={deleteUserProfile}/>)
-    })
-    
-    afterEach(() => {
-        if (testUserId) {
-            userService.deleteUserById(testUserId)
-        }
-        testUserId = undefined
+        expect(fields.length).toBe(5)
     })
 })
