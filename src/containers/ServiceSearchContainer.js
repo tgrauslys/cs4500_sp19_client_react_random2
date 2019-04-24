@@ -12,7 +12,6 @@ class ServiceSearchContainer extends React.Component {
         if (this.props.match !== undefined) {
             this.serviceId = this.props.match.params.id
         }
-        console.log(this.props.match)
         this.state = {
             serviceCategory: "",
             serviceQuestions: [],
@@ -76,15 +75,27 @@ class ServiceSearchContainer extends React.Component {
             }
             searchPredicates.push(searchPredicate)
         })
-        this.userService
-            .filterUsers(this.serviceId, this.state.username, this.state.zipcode, searchPredicates)
-            .then(searchResults => {
-                if (searchResults !== undefined) {
-                    this.setState({
-                        searchResults: searchResults
-                    })
-                }
-            })
+        if (this.state.serviceId !== undefined) {
+            this.userService
+                .filterUsersByService(this.state.serviceId, this.state.username, this.state.zipcode, searchPredicates)
+                .then(searchResults => {
+                    if (searchResults !== undefined) {
+                        this.setState({
+                            searchResults: searchResults
+                        })
+                    }
+                })
+        } else {
+            this.userService
+                .filterUsers(this.state.username, this.state.zipcode)
+                .then(searchResults => {
+                    if (searchResults !== undefined) {
+                        this.setState({
+                            searchResults: searchResults
+                        })
+                    }
+                })
+        }
     }
     updateUserName = e => {
         this.setState({
