@@ -110,7 +110,7 @@ exports[`Render home screen correctly 1`] = `
             />
             <input
               className="input"
-              name="username"
+              name="zipcode"
               onChange={[Function]}
               placeholder="Zipcode"
               type="text"

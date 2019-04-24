@@ -3,7 +3,6 @@ import mockUser from '../data/user.mock'
 import FAQAnswers from "../data/faqanswers.mock";
 import reviews from "../data/reviews.mock";
 import ratingScores from "../data/ratingScores.mock";
-import jest;
 
 global.fetch = jest.fn()
     .mockImplementation(url => {
